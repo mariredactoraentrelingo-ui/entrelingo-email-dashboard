@@ -5,346 +5,117 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dashboard Email · Entrelingo</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=DM+Sans:wght@400;500&display=swap');
-
-:root {
-  --verde: #34c493;
-  --verde-dark: #12304a;
-  --verde-light: #f0faf7;
-  --violet-light: #f4f4ff;
-  --navy: #12304a;
-  --gray-bg: #f5f5f5;
-  --gray-text: #555555;
-  --white: #ffffff;
-  --border: #e8e8f0;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: #f0f2f5;
-  color: #1a1a2e;
-  font-size: 14px;
-  min-height: 100vh;
-}
-
-.header {
-  background: var(--navy);
-  padding: 18px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.header-left h1 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--verde);
-  letter-spacing: -0.3px;
-}
-
-.header-left p {
-  font-size: 12px;
-  color: rgba(255,255,255,0.55);
-  margin-top: 2px;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.badge-cache {
-  background: #fff3cd;
-  color: #856404;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 20px;
-}
-
-.badge-live {
-  background: #d1f5e4;
-  color: #0a5c36;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 20px;
-}
-
-.btn-update {
-  background: var(--verde);
-  color: var(--navy);
-  border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: opacity .2s;
-}
-
-.btn-update:hover { opacity: .85; }
-
-.month-bar {
-  background: #1e3d5c;
-  padding: 10px 28px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.month-bar label {
-  font-size: 11px;
-  color: rgba(255,255,255,0.5);
-  font-weight: 700;
-  letter-spacing: .5px;
-  text-transform: uppercase;
-  margin-right: 4px;
-}
-
-.chip {
-  padding: 5px 14px;
-  border-radius: 20px;
-  border: 1.5px solid rgba(255,255,255,0.25);
-  background: transparent;
-  color: rgba(255,255,255,0.65);
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
-  transition: all .15s;
-}
-
-.chip:hover { background: rgba(255,255,255,0.1); }
-.chip.active { background: var(--verde); color: var(--navy); border-color: var(--verde); }
-
-.content {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 20px 24px 40px;
-}
-
-.section-label {
-  font-size: 11px;
-  font-weight: 700;
-  color: #8a8aaa;
-  letter-spacing: .8px;
-  text-transform: uppercase;
-  margin: 24px 0 12px;
-}
-
-.kpi-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-}
-
-@media (max-width: 800px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
-
-.kcard {
-  background: var(--white);
-  border-radius: 10px;
-  padding: 16px;
-  border: 1px solid var(--border);
-  border-top: 3px solid var(--verde);
-  position: relative;
-}
-
-.kcard.accent-blue { border-top-color: #3a7bd5; }
-.kcard.accent-orange { border-top-color: #f97316; }
-.kcard.accent-pink { border-top-color: #ec4899; }
-.kcard.accent-violet { border-top-color: #7c3aed; }
-
-.klabel {
-  font-size: 10px;
-  font-weight: 700;
-  color: #9090aa;
-  text-transform: uppercase;
-  letter-spacing: .4px;
-  margin-bottom: 6px;
-}
-
-.kval {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--navy);
-  line-height: 1;
-}
-
-.kdelta {
-  margin-top: 5px;
-  font-size: 11px;
-  color: #9090aa;
-}
-
-.kdelta .up { color: #16a34a; font-weight: 700; }
-.kdelta .dn { color: #dc2626; font-weight: 700; }
-
-.charts-row {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 14px;
-}
-
-@media (max-width: 800px) { .charts-row { grid-template-columns: 1fr; } }
-
-.ccard {
-  background: var(--white);
-  border-radius: 10px;
-  padding: 18px;
-  border: 1px solid var(--border);
-}
-
-.ctitle {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 14px;
-}
-
-.cwrap { position: relative; }
-
-.table-card {
-  background: var(--white);
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  overflow: hidden;
-  margin-top: 4px;
-}
-
-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-
-thead th {
-  background: var(--navy);
-  color: var(--white);
-  padding: 10px 12px;
-  text-align: right;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  font-size: 11px;
-  white-space: nowrap;
-}
-
-thead th:first-child { text-align: left; }
-
-tbody tr:nth-child(even) { background: #fafafa; }
-tbody tr:hover { background: var(--verde-light); }
-
-tbody td {
-  padding: 9px 12px;
-  text-align: right;
-  color: var(--gray-text);
-  border-bottom: 1px solid #f0f0f8;
-  white-space: nowrap;
-}
-
-tbody td:first-child {
-  text-align: left;
-  font-weight: 600;
-  color: var(--navy);
-  max-width: 220px;
-  white-space: normal;
-  line-height: 1.4;
-}
-
-.revenue-cell { color: #0a6b3e; font-weight: 700; }
-.open-good { color: #16a34a; font-weight: 700; }
-.open-mid { color: #ca8a04; font-weight: 700; }
-.open-low { color: #dc2626; font-weight: 700; }
-
-.badge-status {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 2px 7px;
-  border-radius: 8px;
-  margin-left: 4px;
-  vertical-align: middle;
-}
-
-.badge-complete { background: #d1fae5; color: #065f46; }
-.badge-live { background: #fef3c7; color: #92400e; }
-
-.info-banner {
-  background: #fffbeb;
-  border-left: 3px solid #f59e0b;
-  border-radius: 6px;
-  padding: 10px 14px;
-  font-size: 12px;
-  color: #78350f;
-  margin-bottom: 16px;
-}
-
-.comparison-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-@media (max-width: 700px) { .comparison-grid { grid-template-columns: 1fr; } }
-
-.comp-card {
-  background: var(--white);
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  padding: 18px;
-}
-
-.comp-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 14px;
-}
-
-.bar-item {
-  margin-bottom: 12px;
-}
-
-.bar-label {
-  display: flex;
-  justify-content: space-between;
-  font-size: 11px;
-  color: var(--gray-text);
-  margin-bottom: 4px;
-}
-
-.bar-label span:last-child { font-weight: 700; color: var(--navy); }
-
-.bar-track {
-  height: 7px;
-  background: #f0f0f8;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.bar-fill {
-  height: 100%;
-  border-radius: 4px;
-  background: var(--verde);
-  transition: width .6s ease;
-}
-
-.best-row { background: #f0faf7 !important; }
-
-.footer-note {
-  font-size: 11px;
-  color: #aaa;
-  text-align: center;
-  margin-top: 28px;
-}
+:root{--verde:#34c493;--verde-dark:#12304a;--verde-light:#f0faf7;--navy:#12304a;--gray-text:#555555;--white:#ffffff;--border:#e8e8f0;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f0f2f5;color:#1a1a2e;font-size:14px;min-height:100vh;}
+.header{background:var(--navy);padding:18px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.header-left h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:var(--verde);letter-spacing:-0.3px;}
+.header-left p{font-size:12px;color:rgba(255,255,255,0.55);margin-top:2px;}
+.header-right{display:flex;align-items:center;gap:10px;}
+.badge-cache{background:#fff3cd;color:#856404;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;}
+.btn-update{background:var(--verde);color:var(--navy);border:none;padding:8px 16px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:opacity .2s;}
+.btn-update:hover{opacity:.85;}
+.tab-bar{background:#1e3d5c;padding:10px 28px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.tab-bar label{font-size:11px;color:rgba(255,255,255,0.5);font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-right:4px;}
+.chip{padding:5px 14px;border-radius:20px;border:1.5px solid rgba(255,255,255,0.25);background:transparent;color:rgba(255,255,255,0.65);font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.chip:hover{background:rgba(255,255,255,0.1);}
+.chip.active{background:var(--verde);color:var(--navy);border-color:var(--verde);}
+.page{display:none;max-width:1140px;margin:0 auto;padding:20px 24px 40px;}
+.page.active{display:block;}
+.section-label{font-size:11px;font-weight:700;color:#8a8aaa;letter-spacing:.8px;text-transform:uppercase;margin:24px 0 12px;}
+.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+@media(max-width:800px){.kpi-grid{grid-template-columns:repeat(2,1fr);}}
+.kcard{background:var(--white);border-radius:10px;padding:16px;border:1px solid var(--border);border-top:3px solid var(--verde);}
+.kcard.accent-blue{border-top-color:#3a7bd5;}
+.kcard.accent-orange{border-top-color:#f97316;}
+.kcard.accent-pink{border-top-color:#ec4899;}
+.kcard.accent-violet{border-top-color:#7c3aed;}
+.klabel{font-size:10px;font-weight:700;color:#9090aa;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px;}
+.kval{font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;font-weight:800;color:var(--navy);line-height:1;}
+.ksub{font-size:11px;color:#9090aa;margin-top:4px;}
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:800px){.charts-row{grid-template-columns:1fr;}}
+.ccard{background:var(--white);border-radius:10px;padding:18px;border:1px solid var(--border);}
+.ctitle{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:14px;}
+.cwrap{position:relative;}
+.table-card{background:var(--white);border-radius:10px;border:1px solid var(--border);overflow:hidden;margin-top:4px;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{background:var(--navy);color:var(--white);padding:10px 12px;text-align:right;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:11px;white-space:nowrap;}
+thead th:first-child{text-align:left;}
+tbody tr:nth-child(even){background:#fafafa;}
+tbody tr:hover{background:var(--verde-light);}
+tbody td{padding:9px 12px;text-align:right;color:var(--gray-text);border-bottom:1px solid #f0f0f8;white-space:nowrap;}
+tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width:220px;white-space:normal;line-height:1.4;}
+.revenue-cell{color:#0a6b3e;font-weight:700;}
+.open-good{color:#16a34a;font-weight:700;}
+.open-mid{color:#ca8a04;font-weight:700;}
+.open-low{color:#dc2626;font-weight:700;}
+.badge-status{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;margin-left:4px;vertical-align:middle;}
+.badge-complete{background:#d1fae5;color:#065f46;}
+.badge-live{background:#fef3c7;color:#92400e;}
+.info-banner{background:#fffbeb;border-left:3px solid #f59e0b;border-radius:6px;padding:10px 14px;font-size:12px;color:#78350f;margin-bottom:16px;}
+.comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.comp-card{background:var(--white);border-radius:10px;border:1px solid var(--border);padding:18px;}
+.comp-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:14px;}
+.bar-item{margin-bottom:12px;}
+.bar-label{display:flex;justify-content:space-between;font-size:11px;color:var(--gray-text);margin-bottom:4px;}
+.bar-label span:last-child{font-weight:700;color:var(--navy);}
+.bar-track{height:7px;background:#f0f0f8;border-radius:4px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:4px;background:var(--verde);transition:width .6s ease;}
+.best-row{background:#f0faf7 !important;}
+.footer-note{font-size:11px;color:#aaa;text-align:center;margin-top:28px;}
+.insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+.insight-card{background:var(--white);border-radius:10px;border:1px solid var(--border);padding:20px;}
+.insight-card.positivo{border-left:4px solid #34c493;}
+.insight-card.sugerencia{border-left:4px solid #3a7bd5;}
+.insight-card.alerta{border-left:4px solid #f97316;}
+.insight-card.contexto{border-left:4px solid #7c3aed;}
+.insight-tag{display:inline-block;font-size:10px;font-weight:700;padding:3px 8px;border-radius:8px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.4px;}
+.tag-positivo{background:#d1fae5;color:#065f46;}
+.tag-sugerencia{background:#dbeafe;color:#1e40af;}
+.tag-alerta{background:#ffedd5;color:#9a3412;}
+.tag-contexto{background:#ede9fe;color:#5b21b6;}
+.insight-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.insight-body{font-size:13px;color:#4a5568;line-height:1.7;}
+.insight-body strong{color:var(--navy);}
+.insight-body ul{padding-left:16px;margin-top:6px;}
+.insight-body li{margin-bottom:4px;}
+.highlight-box{background:var(--verde-light);border-radius:8px;padding:14px 18px;margin-bottom:20px;}
+.highlight-number{font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:800;color:var(--verde-dark);line-height:1;}
+.highlight-label{font-size:13px;color:#4a5568;line-height:1.6;margin-top:2px;}
+.highlight-label strong{color:var(--navy);}
+/* CUPONES */
+.mes-separador{display:flex;align-items:center;gap:12px;margin:20px 0 14px;}
+.mes-separador-line{flex:1;height:2px;background:var(--border);}
+.mes-separador-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:800;color:var(--navy);background:var(--verde-light);padding:5px 16px;border-radius:20px;white-space:nowrap;}
+.cupon-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:6px;}
+@media(max-width:700px){.cupon-grid{grid-template-columns:1fr;}}
+.cupon-card{background:var(--white);border-radius:10px;border:1px solid var(--border);padding:20px;}
+.cupon-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;color:var(--navy);letter-spacing:1.5px;background:#f0faf7;padding:5px 14px;border-radius:8px;display:inline-block;margin-bottom:14px;}
+.cupon-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;}
+.cupon-stat{text-align:center;background:#f8f8fc;border-radius:8px;padding:10px;}
+.cupon-stat-val{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:var(--navy);}
+.cupon-stat-lbl{font-size:10px;color:#9090aa;font-weight:700;text-transform:uppercase;margin-top:2px;}
+.cupon-orders td{padding:5px 8px;border-bottom:1px solid #f0f0f8;font-size:12px;}
+.cupon-orders td:first-child{font-weight:600;color:var(--navy);text-align:left;}
+.cupon-orders td:last-child{text-align:right;color:var(--gray-text);}
+.cupon-orders tr:last-child td{border-bottom:none;}
+/* TABLA RESUMEN TOTAL */
+.resumen-total-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:4px;}
+.rtcard{background:var(--white);border-radius:10px;border:1px solid var(--border);overflow:hidden;}
+.rtcard-header{padding:14px 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;color:var(--white);}
+.rtcard-header.mayo{background:linear-gradient(135deg,#12304a,#1e4d6b);}
+.rtcard-header.junio{background:linear-gradient(135deg,#0a5c36,#16a34a);}
+.rtcard-row{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid #f0f0f8;font-size:13px;}
+.rtcard-row:last-child{border-bottom:none;}
+.rtcard-row .label{color:var(--gray-text);}
+.rtcard-row .value{font-weight:700;color:var(--navy);}
+.rtcard-row .value.green{color:#0a6b3e;font-size:16px;}
+.rtcard-row.total-row{background:#f0faf7;}
+.rtcard-row.total-row .label{font-weight:700;color:var(--navy);}
 </style>
 </head>
 <body>
@@ -355,43 +126,48 @@ tbody td:first-child {
     <p>Seguimiento de broadcasts · FunnelKit Automations</p>
   </div>
   <div class="header-right">
-    <span id="updatedBadge" class="badge-cache">Cache</span>
+    <span class="badge-cache">Cache</span>
     <span id="updatedTs" style="font-size:11px;color:rgba(255,255,255,.5)"></span>
     <button class="btn-update" onclick="location.reload(true)">Actualizar</button>
   </div>
 </div>
 
-<div class="month-bar">
-  <label>Mes:</label>
+<div class="tab-bar">
+  <label>Vista:</label>
+  <button class="chip active" onclick="switchTab('datos')" id="tab-datos">Datos</button>
+  <button class="chip" onclick="switchTab('cupones')" id="tab-cupones">Cupones</button>
+  <button class="chip" onclick="switchTab('analisis')" id="tab-analisis">Análisis e insights</button>
+  <span style="margin-left:12px;border-left:1px solid rgba(255,255,255,.2);padding-left:12px;"><label>Mes:</label></span>
   <button class="chip active" onclick="switchMonth('mayo')" id="chip-mayo">Mayo 2026</button>
-  <button class="chip" onclick="switchMonth('junio')" id="chip-junio">Junio 2026 (en curso)</button>
+  <button class="chip" onclick="switchMonth('junio')" id="chip-junio">Junio 2026</button>
   <button class="chip" onclick="switchMonth('todo')" id="chip-todo">Todo el período</button>
 </div>
 
-<div class="content">
-  <div id="infoBanner" class="info-banner" style="display:none"></div>
-
+<!-- PÁGINA DATOS -->
+<div class="page active" id="page-datos">
+  <div class="info-banner" id="infoBanner" style="display:none"></div>
   <div class="section-label">Resumen del período</div>
   <div class="kpi-grid" id="kpiGrid"></div>
 
-  <div class="section-label">Rendimiento por campaña</div>
+  <div class="section-label">Revenue total real — correos + cupones</div>
+  <div class="resumen-total-grid" id="resumenTotal"></div>
+
+  <div class="section-label">Revenue y órdenes por campaña</div>
+  <div class="ccard">
+    <div class="ctitle">Revenue generado por campaña — monto y órdenes sobre cada barra</div>
+    <div class="cwrap" style="height:280px"><canvas id="cRevenue"></canvas></div>
+  </div>
+  <div class="section-label">Open rate por campaña</div>
   <div class="charts-row">
     <div class="ccard">
       <div class="ctitle">Open rate por campaña</div>
-      <div class="cwrap" style="height:240px"><canvas id="cOpenRate" role="img" aria-label="Open rate por campaña"></canvas></div>
+      <div class="cwrap" style="height:240px"><canvas id="cOpenRate"></canvas></div>
     </div>
     <div class="ccard">
-      <div class="ctitle">Revenue por campaña</div>
-      <div class="cwrap" style="height:240px"><canvas id="cRevenue" role="img" aria-label="Revenue por campaña"></canvas></div>
+      <div class="ctitle">Evolución open rate y click rate</div>
+      <div class="cwrap" style="height:240px"><canvas id="cTrend"></canvas></div>
     </div>
   </div>
-
-  <div class="section-label">Tendencia de envíos — evolución temporal</div>
-  <div class="ccard" style="margin-bottom:4px">
-    <div class="ctitle">Enviados · Open Rate · Click Rate por campaña</div>
-    <div class="cwrap" style="height:220px"><canvas id="cTrend" role="img" aria-label="Tendencia de métricas por campaña"></canvas></div>
-  </div>
-
   <div class="section-label">Comparativa de campañas</div>
   <div class="comparison-grid">
     <div class="comp-card">
@@ -399,464 +175,480 @@ tbody td:first-child {
       <div id="barOpenRate"></div>
     </div>
     <div class="comp-card">
-      <div class="comp-title">CTOR (click ÷ open) — efectividad del contenido</div>
+      <div class="comp-title">CTOR — efectividad del contenido</div>
       <div id="barCTOR"></div>
     </div>
   </div>
-
   <div class="section-label">Detalle por campaña</div>
   <div class="table-card">
     <table>
       <thead>
         <tr>
-          <th>Campaña</th>
-          <th>Asunto</th>
-          <th>Enviados</th>
-          <th>Open Rate</th>
-          <th>Click Rate</th>
-          <th>CTOR</th>
-          <th>Órdenes</th>
-          <th>Revenue</th>
-          <th>Rev/envío</th>
+          <th>Campaña</th><th>Asunto</th><th>Enviados</th><th>Open Rate</th>
+          <th>Click Rate</th><th>CTOR</th><th>Órdenes</th><th>Revenue</th><th>Rev/1K enviados</th>
         </tr>
       </thead>
       <tbody id="campaignBody"></tbody>
     </table>
   </div>
+  <p class="footer-note">Dashboard generado con datos de FunnelKit · Entrelingo Group · Actualización manual mensual</p>
+</div>
 
-  <p class="footer-note">Dashboard generado con datos de FunnelKit · Entrelingo Group · Actualizado manualmente · Para conectar API automática, consultar con desarrollador WordPress</p>
+<!-- PÁGINA CUPONES -->
+<div class="page" id="page-cupones">
+
+  <!-- MAYO -->
+  <div class="mes-separador">
+    <div class="mes-separador-line"></div>
+    <div class="mes-separador-label">Mayo 2026</div>
+    <div class="mes-separador-line"></div>
+  </div>
+
+  <div class="cupon-grid">
+    <div class="cupon-card" style="border-top:3px solid #ec4899">
+      <div class="cupon-name">MAMA26</div>
+      <div class="cupon-stats">
+        <div class="cupon-stat">
+          <div class="cupon-stat-val" style="color:#ec4899">11</div>
+          <div class="cupon-stat-lbl">Usos</div>
+        </div>
+        <div class="cupon-stat">
+          <div class="cupon-stat-val">11</div>
+          <div class="cupon-stat-lbl">Órdenes</div>
+        </div>
+        <div class="cupon-stat">
+          <div class="cupon-stat-val" style="color:#0a6b3e">$2.573</div>
+          <div class="cupon-stat-lbl">AUD netos</div>
+        </div>
+      </div>
+      <div style="background:#fdf2f8;border-radius:6px;padding:10px;font-size:12px;color:#555;line-height:1.6">
+        El cupón de mayor conversión del período. Promedio de <strong>$233.90 AUD por orden</strong>. Ver análisis del impacto emocional en la pestaña Análisis e insights.
+      </div>
+    </div>
+
+    <div class="cupon-card" style="border-top:3px solid #f97316">
+      <div class="cupon-name">FLASHSALE</div>
+      <div class="cupon-stats">
+        <div class="cupon-stat">
+          <div class="cupon-stat-val" style="color:#f97316">1</div>
+          <div class="cupon-stat-lbl">Usos</div>
+        </div>
+        <div class="cupon-stat">
+          <div class="cupon-stat-val">1</div>
+          <div class="cupon-stat-lbl">Órdenes</div>
+        </div>
+        <div class="cupon-stat">
+          <div class="cupon-stat-val" style="color:#0a6b3e">$139.56</div>
+          <div class="cupon-stat-lbl">AUD netos</div>
+        </div>
+      </div>
+      <div style="background:#fff8f3;border-radius:6px;padding:10px;font-size:12px;color:#555;line-height:1.6">
+        Asociado a la campaña Flash Sale de mayo. Las ventas no siempre se vinculan al correo que las originó — ver análisis en la pestaña Análisis e insights.
+      </div>
+    </div>
+  </div>
+
+  <!-- JUNIO -->
+  <div class="mes-separador" style="margin-top:28px">
+    <div class="mes-separador-line"></div>
+    <div class="mes-separador-label">Junio 2026</div>
+    <div class="mes-separador-line"></div>
+  </div>
+
+  <div class="cupon-grid">
+    <div class="cupon-card" style="border-top:3px solid #3a7bd5">
+      <div class="cupon-name">WORK26</div>
+      <div class="cupon-stats">
+        <div class="cupon-stat">
+          <div class="cupon-stat-val" style="color:#3a7bd5">2</div>
+          <div class="cupon-stat-lbl">Usos</div>
+        </div>
+        <div class="cupon-stat">
+          <div class="cupon-stat-val">2</div>
+          <div class="cupon-stat-lbl">Órdenes</div>
+        </div>
+        <div class="cupon-stat">
+          <div class="cupon-stat-val" style="color:#0a6b3e">$56.68</div>
+          <div class="cupon-stat-lbl">AUD netos</div>
+        </div>
+      </div>
+      <table class="cupon-orders" style="width:100%;margin-top:10px">
+        <tr style="background:#f8f8fc"><td colspan="2" style="font-weight:700;color:#12304a;padding:7px 8px">Pedido 1 — 15 jun</td></tr>
+        <tr><td>Producto</td><td>Traducciones - NAATI LICENCIA DE CONDUCIR - REGULAR</td></tr>
+        <tr><td>Cliente</td><td>Camila Romero (nuevo)</td></tr>
+        <tr><td>Venta neta</td><td>$35.99 AUD</td></tr>
+        <tr style="background:#f8f8fc"><td colspan="2" style="font-weight:700;color:#12304a;padding:7px 8px">Pedido 2 — 16 jun</td></tr>
+        <tr><td>Producto</td><td>Traducciones - CERTIFICADA - REGULAR</td></tr>
+        <tr><td>Cliente</td><td>Laura Acevedo Vargas (returning)</td></tr>
+        <tr><td>Venta neta</td><td>$20.69 AUD</td></tr>
+      </table>
+    </div>
+
+    <div class="cupon-card" style="border-top:3px solid #f97316">
+      <div class="cupon-name">FLASHSALE</div>
+      <div class="cupon-stats">
+        <div class="cupon-stat">
+          <div class="cupon-stat-val" style="color:#f97316">1</div>
+          <div class="cupon-stat-lbl">Usos</div>
+        </div>
+        <div class="cupon-stat">
+          <div class="cupon-stat-val">1</div>
+          <div class="cupon-stat-lbl">Órdenes</div>
+        </div>
+        <div class="cupon-stat">
+          <div class="cupon-stat-val" style="color:#0a6b3e">$26.99</div>
+          <div class="cupon-stat-lbl">AUD netos</div>
+        </div>
+      </div>
+      <table class="cupon-orders" style="width:100%;margin-top:10px">
+        <tr><td>Producto</td><td>Traducciones - CERTIFICADA - EXPRESS</td></tr>
+        <tr><td>Cliente</td><td>Julio Emmanuel Mercedes (nuevo)</td></tr>
+        <tr><td>Fecha</td><td>6 junio 2026</td></tr>
+        <tr><td>Atribución</td><td>Directa</td></tr>
+        <tr><td>Moneda</td><td>AUD</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ANÁLISIS CUPONES -->
+  <div class="section-label" style="margin-top:28px">Análisis de cupones</div>
+  <div class="insight-grid">
+    <div class="insight-card contexto">
+      <span class="insight-tag tag-contexto">Contexto</span>
+      <div class="insight-title">Por qué las ventas con FLASHSALE no siempre aparecen en el reporte del correo</div>
+      <div class="insight-body">En junio, las campañas de Flash Sale registraron ventas dentro de FunnelKit, pero el único uso rastreable del cupón FLASHSALE proviene de una compra que <strong>no está atribuida a ninguno de esos correos directamente</strong>. Esto ocurre porque FunnelKit atribuye las ventas al correo que el sistema reconoce como último punto de contacto antes de la compra. Si la persona hizo clic desde otro correo, volvió al sitio por búsqueda directa, o compró desde un dispositivo diferente, la venta aparece como "Directa" y no queda vinculada a la campaña. El cupón igual funcionó — la venta ocurrió — pero el sistema no puede trazarla al correo específico.</div>
+    </div>
+    <div class="insight-card positivo">
+      <span class="insight-tag tag-positivo">Positivo</span>
+      <div class="insight-title">MAMA26 superó a todos los demás cupones — el factor emocional importa</div>
+      <div class="insight-body">El cupón MAMA26 generó <strong>$2.573 AUD en 11 usos</strong>, muy por encima de FLASHSALE ($139.56) y WORK26 ($56.68). El motivo emocional detrás del cupón — extrañar a mamá, querer traerla a Australia, reunir a la familia — genera una urgencia de compra diferente a la de un descuento genérico. WORK26, orientado a Work & Holiday, es más específico en su audiencia y apela más a lo racional que a lo emocional, lo que puede explicar su menor conversión. <strong>Aprendizaje:</strong> los cupones con carga emocional o de contexto personal tienen mayor potencial de conversión que los orientados a procesos.</div>
+    </div>
+  </div>
+
+  <div class="section-label">Resumen comparativo de cupones</div>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Cupón</th><th>Mes</th><th>Usos</th><th>Ventas netas (AUD)</th><th>Promedio por uso</th><th>Tipo de campaña</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="best-row">
+          <td>MAMA26</td><td style="text-align:right">Mayo</td><td style="text-align:right">11</td>
+          <td class="revenue-cell">$2.573.00</td><td class="revenue-cell">$233.90</td>
+          <td style="text-align:right">Día de la Madre — emocional</td>
+        </tr>
+        <tr>
+          <td>FLASHSALE</td><td style="text-align:right">Mayo</td><td style="text-align:right">1</td>
+          <td class="revenue-cell">$139.56</td><td class="revenue-cell">$139.56</td>
+          <td style="text-align:right">Flash Sale — descuento directo</td>
+        </tr>
+        <tr>
+          <td>WORK26</td><td style="text-align:right">Junio</td><td style="text-align:right">2</td>
+          <td class="revenue-cell">$56.68</td><td class="revenue-cell">$28.34</td>
+          <td style="text-align:right">Work & Holiday — orientado a proceso</td>
+        </tr>
+        <tr>
+          <td>FLASHSALE</td><td style="text-align:right">Junio</td><td style="text-align:right">1</td>
+          <td class="revenue-cell">$26.99</td><td class="revenue-cell">$26.99</td>
+          <td style="text-align:right">Flash Sale — descuento directo</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="footer-note">Datos de cupones extraídos manualmente de FunnelKit · Entrelingo Group</p>
+</div>
+
+<!-- PÁGINA ANÁLISIS -->
+<div class="page" id="page-analisis">
+  <div class="section-label">Panorama general — mayo y junio 2026</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;">
+    <div class="highlight-box">
+      <div class="highlight-number">34.2%</div>
+      <div class="highlight-label"><strong>Open rate promedio del período completo</strong> — mayo (38.5%) y junio (30.2%) combinados, casi el doble del promedio de la industria (21–25%)</div>
+    </div>
+    <div class="highlight-box">
+      <div class="highlight-number">$3.629</div>
+      <div class="highlight-label"><strong>Revenue total acumulado en correos</strong> mayo + junio — generado únicamente con email marketing en menos de 2 meses</div>
+    </div>
+    <div class="highlight-box">
+      <div class="highlight-number">14</div>
+      <div class="highlight-label"><strong>Campañas completadas</strong> en menos de 2 meses, con base de contactos que se mantiene estable y activa</div>
+    </div>
+  </div>
+
+  <div class="section-label">Lo que está funcionando bien</div>
+  <div class="insight-grid">
+    <div class="insight-card positivo">
+      <span class="insight-tag tag-positivo">Positivo</span>
+      <div class="insight-title">Open rates muy por encima del promedio del sector en ambos meses</div>
+      <div class="insight-body">El promedio de la industria para email marketing en servicios de migración y traducción ronda el <strong>21–25%</strong>. Entrelingo promedió <strong>38.5% en mayo</strong> y <strong>30.2% en junio</strong> — ambos meses por encima del benchmark. Incluso la campaña con menor apertura del período (Día del Padre, 23.95%, recién enviada) está dentro del rango saludable de la industria. Esto indica que la base de contactos es de calidad y que los asuntos están captando la atención de forma consistente.</div>
+    </div>
+    <div class="insight-card positivo">
+      <span class="insight-tag tag-positivo">Positivo</span>
+      <div class="insight-title">La tasa de desuscripción es saludable para el volumen enviado</div>
+      <div class="insight-body">La base de contactos se ha mantenido activa y funcional a lo largo del período. La diferencia entre los primeros envíos y los actuales es esperable para un canal que arrancó con alta frecuencia. La tasa estimada por campaña está <strong>ligeramente por encima</strong> del ideal de la industria (menos del 0.5%), pero no representa una alerta crítica. Para confirmarlo con precisión, se recomienda registrar el número exacto de desuscripciones por campaña desde FunnelKit mes a mes.</div>
+    </div>
+    <div class="insight-card positivo">
+      <span class="insight-tag tag-positivo">Positivo</span>
+      <div class="insight-title">Temporada Invierno y Cosas buenas en Australia: las campañas más rentables</div>
+      <div class="insight-body">Temporada Invierno generó <strong>$803.55 con solo 1.246 envíos</strong> — un Rev/1K de $644, el más alto del período. Si se hubiera enviado a los 7.400 contactos completos, el estimado sería ~$4.770. En junio, "Cosas buenas en Australia" lideró con <strong>9 órdenes y $801.42</strong>. Ambas campañas combinan contenido de valor con una oferta de servicio clara. Son el modelo a replicar en estructura y timing.</div>
+    </div>
+    <div class="insight-card positivo">
+      <span class="insight-tag tag-positivo">Positivo</span>
+      <div class="insight-title">Las conversiones suelen llegar en los primeros 3 días — junio aún tiene margen</div>
+      <div class="insight-body">Según estudios de email marketing, el <strong>50% de las conversiones ocurren en las primeras 24 horas</strong> y el <strong>80% dentro de los primeros 3 días</strong>. La campaña Día del Padre fue enviada el viernes 21 de junio — el miércoles 25 es el momento clave para revisar si generó ventas. Además, junio todavía tiene <strong>aproximadamente 1 semana y 2 días</strong> por delante, lo que representa una oportunidad real para enviar uno o dos correos más y aumentar el revenue del mes antes de cerrarlo.</div>
+    </div>
+  </div>
+
+  <div class="section-label">Por qué bajaron los porcentajes de apertura entre sesiones</div>
+  <div class="insight-card contexto" style="margin-bottom:20px">
+    <span class="insight-tag tag-contexto">Contexto técnico</span>
+    <div class="insight-title">El open rate se ajusta con el tiempo — es parte del funcionamiento de FunnelKit</div>
+    <div class="insight-body">FunnelKit recalcula las métricas de forma acumulativa. Cuando una campaña lleva más días activa, pueden pasar dos cosas:
+      <ul>
+        <li><strong>Más personas abren el email tarde</strong> (días o semanas después del envío), lo que puede subir el open rate levemente.</li>
+        <li><strong>El sistema ajusta su conteo</strong> con mayor precisión a medida que procesa todos los eventos de apertura, generando variaciones pequeñas de 0.1% a 0.5% hacia arriba o hacia abajo.</li>
+      </ul>
+      Las diferencias observadas entre la primera captura y la actualización son parte de ese proceso de consolidación. No indican un problema — son el sistema afinando sus propios números. Lo que importa es la tendencia general, no el decimal exacto.
+    </div>
+  </div>
+
+  <div class="section-label">Comparativa mayo vs junio</div>
+  <div class="table-card" style="margin-bottom:20px">
+    <table>
+      <thead><tr><th style="text-align:left">Métrica</th><th>Mayo 2026</th><th>Junio 2026</th><th>Variación</th></tr></thead>
+      <tbody>
+        <tr><td>Campañas enviadas</td><td>7</td><td>7</td><td style="color:#555">—</td></tr>
+        <tr style="background:#fafafa"><td>Open rate promedio</td><td class="open-good">38.5%</td><td class="open-mid">30.2%</td><td class="open-low">-8.3pp</td></tr>
+        <tr><td>Click rate promedio</td><td>0.14%</td><td>0.10%</td><td class="open-low">-0.04pp</td></tr>
+        <tr style="background:#fafafa"><td>Total enviados</td><td>47.577</td><td>51.827</td><td class="open-good">+4.250</td></tr>
+        <tr><td>Órdenes totales</td><td>27</td><td>21</td><td class="open-low">-6</td></tr>
+        <tr style="background:#fafafa"><td>Revenue correos</td><td class="revenue-cell">$2.422</td><td class="revenue-cell">$1.686</td><td class="open-low">-$736</td></tr>
+        <tr><td>Rev/1K enviados promedio</td><td class="revenue-cell">$50.9</td><td class="revenue-cell">$32.5</td><td class="open-low">-$18.4</td></tr>
+      </tbody>
+    </table>
+    <div style="padding:12px 16px;font-size:11px;color:#78350f;background:#fffbeb;border-top:1px solid #f0f0f8">
+      Nota: los números de junio incluyen la campaña Día del Padre que aún está en proceso de conversión, y quedan días del mes con oportunidad de envíos adicionales. El revenue final de junio mejorará.
+    </div>
+  </div>
+
+  <div class="section-label">Oportunidades de mejora</div>
+  <div class="insight-grid">
+    <div class="insight-card sugerencia">
+      <span class="insight-tag tag-sugerencia">Sugerencia</span>
+      <div class="insight-title">El click rate es el punto más débil — hay espacio concreto para crecer</div>
+      <div class="insight-body">El promedio de click rate del período es <strong>0.11%</strong>, por debajo del promedio de la industria (0.5–1.5%). Esto significa que muchas personas abren el email pero no hacen clic. Las causas más comunes son: CTA poco visible, demasiados links que dispersan la atención, o una propuesta de valor que no queda clara en el cuerpo del email. <strong>Recomendación:</strong> probar con un solo CTA por email, en botón grande y con texto de acción específico: <em>"Cotiza tu traducción NAATI"</em>, <em>"Solicita tu traducción certificada"</em>, <em>"Empieza tu trámite de traducción"</em>.</div>
+    </div>
+    <div class="insight-card sugerencia">
+      <span class="insight-tag tag-sugerencia">Sugerencia</span>
+      <div class="insight-title">Replicar la estructura de las campañas con mayor Rev/1K</div>
+      <div class="insight-body">Las campañas con mejor retorno por envío son Temporada Invierno ($644/1K), Cosas buenas en Australia ($106/1K) y Tus documentos hablan ($71/1K). Analizar qué tienen en común — tipo de oferta, urgencia, servicio mencionado, estructura del email — y usar esa fórmula como base para las próximas campañas de conversión.</div>
+    </div>
+    <div class="insight-card alerta">
+      <span class="insight-tag tag-alerta">A monitorear</span>
+      <div class="insight-title">Tendencia descendente en open rate durante junio</div>
+      <div class="insight-body">En junio el open rate bajó progresivamente campaña a campaña: de 38% a 23.95%. Parte de esto es esperable cuando se envía con mayor frecuencia. Si la tendencia continúa en julio, vale la pena revisar la frecuencia de envío y la variedad de asuntos. Enviar más seguido solo a quienes abren habitualmente y con menos frecuencia a quienes no han abierto en las últimas 4 campañas puede ayudar a mantener las tasas saludables.</div>
+    </div>
+    <div class="insight-card alerta">
+      <span class="insight-tag tag-alerta">A monitorear</span>
+      <div class="insight-title">Agregar bounce rate y unsubscribe rate al seguimiento mensual</div>
+      <div class="insight-body">Actualmente el dashboard no registra desuscripciones ni rebotes por campaña porque FunnelKit no los exporta fácilmente. Incorporarlos manualmente mes a mes permitiría detectar si alguna campaña específica generó rechazo. El estándar saludable es: bounce rate menor al 2% y unsubscribe rate menor al 0.5% por campaña.</div>
+    </div>
+  </div>
+
+  <div class="section-label">Benchmark de referencia</div>
+  <div class="ccard">
+    <div class="ctitle">Entrelingo vs promedio de la industria</div>
+    <table style="margin-top:8px">
+      <thead><tr><th>Métrica</th><th>Promedio industria migración/servicios</th><th>Entrelingo mayo</th><th>Entrelingo junio</th><th>Evaluación</th></tr></thead>
+      <tbody>
+        <tr><td>Open Rate</td><td>21–25%</td><td class="open-good">38.5%</td><td class="open-good">30.2%</td><td>Excelente en ambos meses</td></tr>
+        <tr><td>Click Rate</td><td>0.5–1.5%</td><td class="open-low">0.14%</td><td class="open-low">0.10%</td><td>Por debajo — oportunidad de mejora en CTAs</td></tr>
+        <tr><td>CTOR</td><td>8–12%</td><td class="open-low">0.37%</td><td class="open-low">0.34%</td><td>Bajo — revisar contenido y llamadas a la acción</td></tr>
+        <tr><td>Unsubscribe Rate</td><td>&lt;0.5%</td><td class="open-mid">Ligeramente elevada</td><td>Sin dato exacto</td><td>Monitorear en julio con dato preciso</td></tr>
+        <tr><td>Bounce Rate</td><td>&lt;2%</td><td>Sin dato</td><td>Sin dato</td><td>Pendiente — agregar al seguimiento</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="footer-note">Análisis generado con datos de FunnelKit · Entrelingo Group · Benchmarks: Mailchimp Email Marketing Benchmarks 2024, Campaign Monitor Industry Report 2024</p>
 </div>
 
 <script>
+const CUPONES = {
+  mayo: { flashsale: 139.56, mama26: 2573.00, total: 2712.56 },
+  junio: { flashsale: 26.99, work26: 56.68, total: 83.67 }
+};
+
 const DATA = {
-  mayo: [
-    {
-      id: 'temporada_invierno_mayo',
-      nombre: 'Temporada Invierno',
-      asunto: 'La temporada que pocos aprovechan, y que puede cambiar tu historia en Australia',
-      fecha: '2026-05-01',
-      enviados: 1246,
-      open_rate: 37.40,
-      click_rate: 0.32,
-      ordenes: 7,
-      revenue: 803.55,
-      estado: 'complete',
-      nota: 'Primera prueba — envío parcial por límite de contactos'
-    },
-    {
-      id: 'flashsale_mayo',
-      nombre: 'Flash Sale Mayo',
-      asunto: 'Te están robando y ni te has dado cuenta',
-      fecha: '2026-05-08',
-      enviados: 6939,
-      open_rate: 47.24,
-      click_rate: 0.17,
-      ordenes: 5,
-      revenue: 388.21,
-      estado: 'complete',
-      nota: 'Enviada en 5 tandas (1.2 a 1.7)'
-    },
-    {
-      id: '6_cosas_australia',
-      nombre: '6 Cosas que Australia',
-      asunto: '6 Cosas que Australia te arruinará para siempre',
-      fecha: '2026-05-13',
-      enviados: 7888,
-      open_rate: 38.68,
-      click_rate: 0.14,
-      ordenes: 2,
-      revenue: 153.96,
-      estado: 'complete',
-      nota: 'Enviada en 7 tandas'
-    },
-    {
-      id: 'tus_documentos',
-      nombre: 'Tus documentos hablan',
-      asunto: '5 situaciones en Australia donde tus documentos hablan por ti',
-      fecha: '2026-05-17',
-      enviados: 7924,
-      open_rate: 43.86,
-      click_rate: 0.10,
-      ordenes: 7,
-      revenue: 564.93,
-      estado: 'complete',
-      nota: 'Enviada en 4 tandas'
-    },
-    {
-      id: 'work_holiday',
-      nombre: 'Work & Holiday',
-      asunto: 'El primer paso para un Work & Holiday exitoso es este',
-      fecha: '2026-05-21',
-      enviados: 7892,
-      open_rate: 35.10,
-      click_rate: 0.10,
-      ordenes: 2,
-      revenue: 173.77,
-      estado: 'complete',
-      nota: 'Enviada en 3 tandas'
-    },
-    {
-      id: 'vivir_familia',
-      nombre: 'Top ciudades para familia',
-      asunto: '4 Ciudades de Australia en el top 10 para tener familia',
-      fecha: '2026-05-25',
-      enviados: 7855,
-      open_rate: 36.73,
-      click_rate: 0.12,
-      ordenes: 2,
-      revenue: 197.71,
-      estado: 'complete',
-      nota: 'Enviada en 4 tandas'
-    },
-    {
-      id: 'frases_migrante',
-      nombre: 'Frases que no quieres escuchar',
-      asunto: '5 frases que ningún migrante en Australia quiere escuchar',
-      fecha: '2026-05-28',
-      enviados: 7833,
-      open_rate: 33.72,
-      click_rate: 0.12,
-      ordenes: 2,
-      revenue: 139.67,
-      estado: 'complete',
-      nota: 'Enviada en 4 tandas'
-    }
+  mayo:[
+    {id:'temporada_invierno',nombre:'Temporada Invierno',asunto:'La temporada que pocos aprovechan, y que puede cambiar tu historia en Australia',fecha:'2026-05-01',enviados:1246,open_rate:37.40,click_rate:0.32,ordenes:7,revenue:803.55,estado:'complete',nota:'Primera prueba — envío parcial por límite de contactos'},
+    {id:'flashsale_mayo',nombre:'Flash Sale Mayo',asunto:'Te están robando y ni te has dado cuenta',fecha:'2026-05-08',enviados:6939,open_rate:47.24,click_rate:0.17,ordenes:5,revenue:388.21,estado:'complete',nota:'Enviada en 5 tandas'},
+    {id:'6_cosas',nombre:'6 Cosas que Australia',asunto:'6 Cosas que Australia te arruinará para siempre',fecha:'2026-05-13',enviados:7888,open_rate:38.68,click_rate:0.14,ordenes:2,revenue:153.96,estado:'complete',nota:'Enviada en 7 tandas'},
+    {id:'tus_documentos',nombre:'Tus documentos hablan',asunto:'5 situaciones en Australia donde tus documentos hablan por ti',fecha:'2026-05-17',enviados:7924,open_rate:43.86,click_rate:0.10,ordenes:7,revenue:564.93,estado:'complete',nota:'Enviada en 4 tandas'},
+    {id:'work_holiday',nombre:'Work & Holiday',asunto:'El primer paso para un Work & Holiday exitoso es este',fecha:'2026-05-21',enviados:7892,open_rate:35.10,click_rate:0.10,ordenes:2,revenue:173.77,estado:'complete',nota:'Enviada en 3 tandas'},
+    {id:'vivir_familia',nombre:'Top ciudades familia',asunto:'4 Ciudades de Australia en el top 10 para tener familia',fecha:'2026-05-25',enviados:7855,open_rate:36.73,click_rate:0.12,ordenes:2,revenue:197.71,estado:'complete',nota:'Enviada en 4 tandas'},
+    {id:'frases_migrante',nombre:'Frases que no quieres escuchar',asunto:'5 frases que ningún migrante en Australia quiere escuchar',fecha:'2026-05-28',enviados:7833,open_rate:33.72,click_rate:0.12,ordenes:2,revenue:139.67,estado:'complete',nota:'Enviada en 4 tandas'}
   ],
-  junio: [
-    {
-      id: 'cosas_buenas_australia',
-      nombre: 'Cosas buenas en Australia',
-      asunto: 'Cosas buenas que están pasando en Australia y no te enteraste',
-      fecha: '2026-06-02',
-      enviados: 7539,
-      open_rate: 38.90,
-      click_rate: 0.16,
-      ordenes: 9,
-      revenue: 801.42,
-      estado: 'complete',
-      nota: ''
-    },
-    {
-      id: 'flash_sale_mundial',
-      nombre: 'Flash Sale Mundial',
-      asunto: '¿Ya tienes todo listo para ver el mundial desde Australia?',
-      fecha: '2026-06-05',
-      enviados: 7506,
-      open_rate: 35.24,
-      click_rate: 0.13,
-      ordenes: 3,
-      revenue: 262.92,
-      estado: 'complete',
-      nota: ''
-    },
-    {
-      id: 'mundial_visa',
-      nombre: 'El Mundial y tu visa',
-      asunto: 'El Mundial empieza. Tu aventura también. Usa WORK26 y ahorra 10%',
-      fecha: '2026-06-09',
-      enviados: 7468,
-      open_rate: 32.62,
-      click_rate: 0.09,
-      ordenes: 1,
-      revenue: 20.69,
-      estado: 'complete',
-      nota: ''
-    },
-    {
-      id: 'quedarse_legal_1',
-      nombre: 'Quedarse legal v1',
-      asunto: 'Así puedes quedarte legal en Australia',
-      fecha: '2026-06-12',
-      enviados: 7439,
-      open_rate: 32.06,
-      click_rate: 0.17,
-      ordenes: 4,
-      revenue: 227.65,
-      estado: 'complete',
-      nota: ''
-    },
-    {
-      id: 'pride_junio',
-      nombre: 'Eventos PRIDE junio',
-      asunto: '¡Eventos PRIDE de junio en Australia que NO te puedes perder!',
-      fecha: '2026-06-15',
-      enviados: 7401,
-      open_rate: 29.74,
-      click_rate: 0.07,
-      ordenes: 1,
-      revenue: 32.99,
-      estado: 'complete',
-      nota: ''
-    },
-    {
-      id: 'quedarse_legal_2',
-      nombre: 'Quedarse en Australia no es solo un sueño',
-      asunto: 'Así puedes quedarte legal en Australia',
-      fecha: '2026-06-18',
-      enviados: 7368,
-      open_rate: 16.87,
-      click_rate: 0.05,
-      ordenes: 0,
-      revenue: 0,
-      estado: 'live',
-      nota: 'Recién enviada — resultados en proceso (2-3 días)'
-    }
+  junio:[
+    {id:'cosas_buenas',nombre:'Cosas buenas en Australia',asunto:'Cosas buenas que están pasando en Australia y no te enteraste',fecha:'2026-06-02',enviados:7539,open_rate:38.01,click_rate:0.15,ordenes:9,revenue:801.42,estado:'complete',nota:''},
+    {id:'flash_mundial',nombre:'Flash Sale Mundial',asunto:'¿Ya tienes todo listo para ver el mundial desde Australia?',fecha:'2026-06-05',enviados:7506,open_rate:34.08,click_rate:0.13,ordenes:3,revenue:262.92,estado:'complete',nota:''},
+    {id:'mundial_visa',nombre:'El Mundial y tu visa',asunto:'El Mundial empieza. Tu aventura también. Usa WORK26 y ahorra 10%',fecha:'2026-06-09',enviados:7468,open_rate:32.09,click_rate:0.09,ordenes:1,revenue:20.69,estado:'complete',nota:''},
+    {id:'quedarse_legal_1',nombre:'Quedarse legal v1',asunto:'Así puedes quedarte legal en Australia',fecha:'2026-06-12',enviados:7439,open_rate:31.36,click_rate:0.18,ordenes:4,revenue:227.65,estado:'complete',nota:''},
+    {id:'pride_junio',nombre:'Eventos PRIDE junio',asunto:'¡Eventos PRIDE de junio en Australia que NO te puedes perder!',fecha:'2026-06-16',enviados:7401,open_rate:30.56,click_rate:0.07,ordenes:2,revenue:151.77,estado:'complete',nota:''},
+    {id:'quedarse_legal_2',nombre:'Quedarse en Australia no es solo un sueño',asunto:'Quedarse en Australia no es solo un sueño. Es una decisión que se construye con cada paso que das.',fecha:'2026-06-19',enviados:7368,open_rate:25.28,click_rate:0.07,ordenes:2,revenue:220.82,estado:'complete',nota:''},
+    {id:'dia_padre',nombre:'Día del Padre',asunto:'¿Y tú? ¿Ya celebras el Día del Padre 2 veces?',fecha:'2026-06-21',enviados:6707,open_rate:23.95,click_rate:0.06,ordenes:0,revenue:0,estado:'live',nota:'Recién enviada — revisar miércoles 25 jun'}
   ]
 };
 
-let currentMonth = 'mayo';
-let charts = {};
+let currentMonth='mayo';
+let currentTab='datos';
+let charts={};
 
-function getDataForMonth(month) {
-  if (month === 'todo') return [...DATA.mayo, ...DATA.junio];
-  return DATA[month] || [];
+function getDataForMonth(m){
+  if(m==='todo') return [...DATA.mayo,...DATA.junio];
+  return DATA[m]||[];
+}
+function fmt(v){if(v>=1000000)return(v/1000000).toFixed(1)+'M';if(v>=1000)return(v/1000).toFixed(1)+'K';return String(Math.round(v));}
+function fmtC(v){return '$'+v.toLocaleString('es',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function colorClass(r){if(r>=35)return'open-good';if(r>=25)return'open-mid';return'open-low';}
+
+function renderResumenTotal(month){
+  const el=document.getElementById('resumenTotal');
+  if(!el)return;
+
+  function buildCard(mes, data, cupones, cssClass){
+    const revCorreos=data.reduce((a,d)=>a+(d.revenue||0),0);
+    const revCupones=cupones.total;
+    const total=revCorreos+revCupones;
+    const cuponesDetalle=Object.entries(cupones)
+      .filter(([k])=>k!=='total')
+      .map(([k,v])=>`<div class="rtcard-row"><span class="label">Cupón ${k.toUpperCase()}</span><span class="value">+${fmtC(v)} AUD</span></div>`)
+      .join('');
+    return`<div class="rtcard">
+      <div class="rtcard-header ${cssClass}">${mes}</div>
+      <div class="rtcard-row"><span class="label">Revenue por correos</span><span class="value">${fmtC(revCorreos)}</span></div>
+      ${cuponesDetalle}
+      <div class="rtcard-row total-row"><span class="label">Total real del mes</span><span class="value green">${fmtC(total)} AUD</span></div>
+    </div>`;
+  }
+
+  if(month==='mayo'){
+    el.innerHTML=buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo');
+    el.style.gridTemplateColumns='1fr';
+  } else if(month==='junio'){
+    el.innerHTML=buildCard('Junio 2026',DATA.junio,CUPONES.junio,'junio');
+    el.style.gridTemplateColumns='1fr';
+  } else {
+    el.innerHTML=
+      buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo')+
+      buildCard('Junio 2026',DATA.junio,CUPONES.junio,'junio');
+    el.style.gridTemplateColumns='1fr 1fr';
+  }
 }
 
-function fmt(v) {
-  if (v >= 1000000) return (v/1000000).toFixed(1) + 'M';
-  if (v >= 1000) return (v/1000).toFixed(1) + 'K';
-  return String(Math.round(v));
-}
-
-function fmtCurrency(v) {
-  return '$' + v.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-}
-
-function colorForOpenRate(r) {
-  if (r >= 40) return 'open-good';
-  if (r >= 30) return 'open-mid';
-  return 'open-low';
-}
-
-function calcKPIs(data) {
-  const totalEnviados = data.reduce((a, d) => a + d.enviados, 0);
-  const completadas = data.filter(d => d.estado === 'complete');
-  const avgOpen = completadas.length
-    ? completadas.reduce((a, d) => a + d.open_rate, 0) / completadas.length
-    : 0;
-  const avgClick = completadas.length
-    ? completadas.reduce((a, d) => a + d.click_rate, 0) / completadas.length
-    : 0;
-  const totalOrdenes = data.reduce((a, d) => a + (d.ordenes || 0), 0);
-  const totalRevenue = data.reduce((a, d) => a + (d.revenue || 0), 0);
-  return { totalEnviados, avgOpen, avgClick, totalOrdenes, totalRevenue };
-}
-
-function renderKPIs(data) {
-  const kpi = calcKPIs(data);
-  const cards = [
-    { label: 'Total enviados', value: fmt(kpi.totalEnviados), cls: '', icon: '📨' },
-    { label: 'Open rate promedio', value: kpi.avgOpen.toFixed(1) + '%', cls: 'accent-blue', icon: '📬' },
-    { label: 'Click rate promedio', value: kpi.avgClick.toFixed(2) + '%', cls: 'accent-orange', icon: '🖱️' },
-    { label: 'Órdenes totales', value: String(kpi.totalOrdenes), cls: 'accent-violet', icon: '🛒' },
-    { label: 'Revenue total', value: fmtCurrency(kpi.totalRevenue), cls: 'accent-pink', icon: '💰' }
+function renderKPIs(data){
+  const total=data.reduce((a,d)=>a+d.enviados,0);
+  const comp=data.filter(d=>d.estado==='complete');
+  const avgOpen=comp.length?comp.reduce((a,d)=>a+d.open_rate,0)/comp.length:0;
+  const avgClick=comp.length?comp.reduce((a,d)=>a+d.click_rate,0)/comp.length:0;
+  const ordenes=data.reduce((a,d)=>a+(d.ordenes||0),0);
+  const revenue=data.reduce((a,d)=>a+(d.revenue||0),0);
+  const cards=[
+    {label:'Total enviados',value:fmt(total),cls:''},
+    {label:'Open rate promedio',value:avgOpen.toFixed(1)+'%',cls:'accent-blue'},
+    {label:'Click rate promedio',value:avgClick.toFixed(2)+'%',cls:'accent-orange'},
+    {label:'Órdenes totales',value:String(ordenes),cls:'accent-violet'},
+    {label:'Revenue correos',value:fmtC(revenue),cls:'accent-pink'}
   ];
-
-  document.getElementById('kpiGrid').innerHTML = cards.map(c => `
-    <div class="kcard ${c.cls}">
-      <div class="klabel">${c.icon} ${c.label}</div>
-      <div class="kval">${c.value}</div>
-    </div>
-  `).join('');
+  document.getElementById('kpiGrid').innerHTML=cards.map(c=>`<div class="kcard ${c.cls}"><div class="klabel">${c.label}</div><div class="kval">${c.value}</div></div>`).join('');
 }
 
-function destroyChart(id) {
-  if (charts[id]) { charts[id].destroy(); delete charts[id]; }
-}
+function destroyChart(id){if(charts[id]){charts[id].destroy();delete charts[id];}}
 
-function renderCharts(data) {
-  const labels = data.map(d => d.nombre);
-  const NAVY = '#12304a';
-  const GREEN = '#34c493';
-  const ORANGE = '#f97316';
-  const BLUE = '#3a7bd5';
-  const VIOLET = '#7c3aed';
+function renderCharts(data){
+  const labels=data.map(d=>d.nombre);
+  const GREEN='#34c493',BLUE='#3a7bd5',ORANGE='#f97316';
+  destroyChart('cRevenue');destroyChart('cOpenRate');destroyChart('cTrend');
+  Chart.register(ChartDataLabels);
 
-  destroyChart('cOpenRate');
-  destroyChart('cRevenue');
-  destroyChart('cTrend');
-
-  const ctx1 = document.getElementById('cOpenRate');
-  charts['cOpenRate'] = new Chart(ctx1, {
-    type: 'bar',
-    data: {
-      labels,
-      datasets: [{
-        label: 'Open Rate %',
-        data: data.map(d => d.open_rate),
-        backgroundColor: data.map(d => d.open_rate >= 40 ? GREEN : d.open_rate >= 30 ? BLUE : ORANGE),
-        borderRadius: 5
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { ticks: { font: { size: 10 }, maxRotation: 35 }, grid: { display: false } },
-        y: { ticks: { font: { size: 10 }, callback: v => v + '%' }, grid: { color: '#f0f0f8' } }
-      }
-    }
+  charts['cRevenue']=new Chart(document.getElementById('cRevenue'),{
+    type:'bar',
+    data:{labels,datasets:[{label:'Revenue',data:data.map(d=>d.revenue),backgroundColor:data.map(d=>d.revenue>500?GREEN:d.revenue>100?BLUE:'#94a3b8'),borderRadius:5}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#12304a',font:{size:10,weight:'bold'},formatter:(value,ctx)=>{const d=data[ctx.dataIndex];if(value===0)return'En proceso';return'$'+value.toFixed(0)+'\n'+d.ordenes+' ord.';}}},scales:{x:{ticks:{font:{size:10},maxRotation:35},grid:{display:false}},y:{ticks:{font:{size:10},callback:v=>'$'+v},grid:{color:'#f0f0f8'},afterDataLimits(s){s.max=s.max*1.25;}}}}
   });
 
-  const ctx2 = document.getElementById('cRevenue');
-  charts['cRevenue'] = new Chart(ctx2, {
-    type: 'bar',
-    data: {
-      labels,
-      datasets: [{
-        label: 'Revenue USD',
-        data: data.map(d => d.revenue),
-        backgroundColor: GREEN,
-        borderRadius: 5
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { ticks: { font: { size: 10 }, maxRotation: 35 }, grid: { display: false } },
-        y: { ticks: { font: { size: 10 }, callback: v => '$' + v }, grid: { color: '#f0f0f8' } }
-      }
-    }
+  charts['cOpenRate']=new Chart(document.getElementById('cOpenRate'),{
+    type:'bar',
+    data:{labels,datasets:[{label:'Open Rate %',data:data.map(d=>d.open_rate),backgroundColor:data.map(d=>d.open_rate>=35?GREEN:d.open_rate>=25?BLUE:ORANGE),borderRadius:5}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#12304a',font:{size:10,weight:'bold'},formatter:v=>v.toFixed(1)+'%'}},scales:{x:{ticks:{font:{size:10},maxRotation:35},grid:{display:false}},y:{ticks:{font:{size:10},callback:v=>v+'%'},grid:{color:'#f0f0f8'},afterDataLimits(s){s.max=s.max*1.2;}}}}
   });
 
-  const ctx3 = document.getElementById('cTrend');
-  charts['cTrend'] = new Chart(ctx3, {
-    type: 'line',
-    data: {
-      labels,
-      datasets: [
-        {
-          label: 'Open Rate %',
-          data: data.map(d => d.open_rate),
-          borderColor: BLUE,
-          backgroundColor: 'rgba(58,123,213,0.08)',
-          fill: true,
-          tension: 0.3,
-          pointRadius: 4,
-          yAxisID: 'yPct'
-        },
-        {
-          label: 'Click Rate %',
-          data: data.map(d => d.click_rate),
-          borderColor: ORANGE,
-          backgroundColor: 'transparent',
-          fill: false,
-          tension: 0.3,
-          pointRadius: 4,
-          borderDash: [4, 3],
-          yAxisID: 'yPct'
-        }
-      ]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: {
-          display: true,
-          labels: { font: { size: 11 }, boxWidth: 12, padding: 12 }
-        }
-      },
-      scales: {
-        x: { ticks: { font: { size: 10 }, maxRotation: 30 }, grid: { display: false } },
-        yPct: { ticks: { font: { size: 10 }, callback: v => v + '%' }, grid: { color: '#f0f0f8' } }
-      }
-    }
+  charts['cTrend']=new Chart(document.getElementById('cTrend'),{
+    type:'line',
+    data:{labels,datasets:[
+      {label:'Open Rate %',data:data.map(d=>d.open_rate),borderColor:BLUE,backgroundColor:'rgba(58,123,213,0.08)',fill:true,tension:0.3,pointRadius:4,yAxisID:'yPct'},
+      {label:'Click Rate %',data:data.map(d=>d.click_rate),borderColor:ORANGE,backgroundColor:'transparent',fill:false,tension:0.3,pointRadius:4,borderDash:[4,3],yAxisID:'yPct'}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:true,labels:{font:{size:11},boxWidth:12,padding:12}},datalabels:{display:false}},scales:{x:{ticks:{font:{size:10},maxRotation:30},grid:{display:false}},yPct:{ticks:{font:{size:10},callback:v=>v+'%'},grid:{color:'#f0f0f8'}}}}
   });
 }
 
-function renderBars(data) {
-  const maxOpen = Math.max(...data.map(d => d.open_rate));
-  const sorted = [...data].sort((a, b) => b.open_rate - a.open_rate);
-  document.getElementById('barOpenRate').innerHTML = sorted.map(d => `
-    <div class="bar-item">
-      <div class="bar-label">
-        <span>${d.nombre}</span>
-        <span>${d.open_rate.toFixed(1)}%</span>
-      </div>
-      <div class="bar-track">
-        <div class="bar-fill" style="width:${(d.open_rate / maxOpen * 100).toFixed(1)}%;background:${d.open_rate >= 40 ? '#34c493' : d.open_rate >= 30 ? '#3a7bd5' : '#f97316'}"></div>
-      </div>
-    </div>
-  `).join('');
-
-  const withCTOR = data.map(d => ({
-    ...d,
-    ctor: d.open_rate > 0 ? (d.click_rate / d.open_rate * 100) : 0
-  }));
-  const maxCTOR = Math.max(...withCTOR.map(d => d.ctor));
-  const sortedCTOR = [...withCTOR].sort((a, b) => b.ctor - a.ctor);
-  document.getElementById('barCTOR').innerHTML = sortedCTOR.map(d => `
-    <div class="bar-item">
-      <div class="bar-label">
-        <span>${d.nombre}</span>
-        <span>${d.ctor.toFixed(2)}%</span>
-      </div>
-      <div class="bar-track">
-        <div class="bar-fill" style="width:${maxCTOR > 0 ? (d.ctor / maxCTOR * 100).toFixed(1) : 0}%;background:#7c3aed"></div>
-      </div>
-    </div>
-  `).join('');
+function renderBars(data){
+  const maxOpen=Math.max(...data.map(d=>d.open_rate));
+  document.getElementById('barOpenRate').innerHTML=[...data].sort((a,b)=>b.open_rate-a.open_rate).map(d=>`<div class="bar-item"><div class="bar-label"><span>${d.nombre}</span><span>${d.open_rate.toFixed(1)}%</span></div><div class="bar-track"><div class="bar-fill" style="width:${(d.open_rate/maxOpen*100).toFixed(1)}%;background:${d.open_rate>=35?'#34c493':d.open_rate>=25?'#3a7bd5':'#f97316'}"></div></div></div>`).join('');
+  const withCTOR=data.map(d=>({...d,ctor:d.open_rate>0?(d.click_rate/d.open_rate*100):0}));
+  const maxCTOR=Math.max(...withCTOR.map(d=>d.ctor));
+  document.getElementById('barCTOR').innerHTML=[...withCTOR].sort((a,b)=>b.ctor-a.ctor).map(d=>`<div class="bar-item"><div class="bar-label"><span>${d.nombre}</span><span>${d.ctor.toFixed(2)}%</span></div><div class="bar-track"><div class="bar-fill" style="width:${maxCTOR>0?(d.ctor/maxCTOR*100).toFixed(1):0}%;background:#7c3aed"></div></div></div>`).join('');
 }
 
-function renderTable(data) {
-  const maxRevenue = Math.max(...data.map(d => d.revenue));
-  document.getElementById('campaignBody').innerHTML = data.map(d => {
-    const ctor = d.open_rate > 0 ? (d.click_rate / d.open_rate * 100).toFixed(2) + '%' : '—';
-    const revPerSent = d.enviados > 0 && d.revenue > 0
-      ? '$' + (d.revenue / d.enviados * 1000).toFixed(2) + '/K'
-      : '—';
-    const isBest = d.revenue === maxRevenue && d.revenue > 0;
-    return `<tr class="${isBest ? 'best-row' : ''}">
-      <td>
-        ${d.nombre}
-        <span class="badge-status ${d.estado === 'live' ? 'badge-live' : 'badge-complete'}">${d.estado === 'live' ? 'En curso' : 'Completada'}</span>
-        ${d.nota ? '<br><span style="font-size:10px;color:#9090aa;font-weight:400">' + d.nota + '</span>' : ''}
-      </td>
+function renderTable(data){
+  const maxRev=Math.max(...data.map(d=>d.revenue));
+  document.getElementById('campaignBody').innerHTML=data.map(d=>{
+    const ctor=d.open_rate>0?(d.click_rate/d.open_rate*100).toFixed(2)+'%':'—';
+    const revK=d.enviados>0&&d.revenue>0?'$'+(d.revenue/d.enviados*1000).toFixed(2)+'/1K':'—';
+    return`<tr class="${d.revenue===maxRev&&d.revenue>0?'best-row':''}">
+      <td>${d.nombre}<span class="badge-status ${d.estado==='live'?'badge-live':'badge-complete'}">${d.estado==='live'?'En curso':'Completada'}</span>${d.nota?'<br><span style="font-size:10px;color:#9090aa;font-weight:400">'+d.nota+'</span>':''}</td>
       <td style="text-align:left;color:#555;font-size:11px;max-width:200px;white-space:normal;line-height:1.3">${d.asunto}</td>
-      <td>${(d.enviados).toLocaleString('es')}</td>
-      <td class="${colorForOpenRate(d.open_rate)}">${d.open_rate.toFixed(2)}%</td>
+      <td>${d.enviados.toLocaleString('es')}</td>
+      <td class="${colorClass(d.open_rate)}">${d.open_rate.toFixed(2)}%</td>
       <td>${d.click_rate.toFixed(2)}%</td>
       <td>${ctor}</td>
-      <td>${d.ordenes || '—'}</td>
-      <td class="${d.revenue > 0 ? 'revenue-cell' : ''}">${d.revenue > 0 ? fmtCurrency(d.revenue) : '—'}</td>
-      <td style="color:#666">${revPerSent}</td>
+      <td>${d.ordenes||'—'}</td>
+      <td class="${d.revenue>0?'revenue-cell':''}">${d.revenue>0?fmtC(d.revenue):'—'}</td>
+      <td style="color:#666">${revK}</td>
     </tr>`;
   }).join('');
 }
 
-function switchMonth(month) {
-  currentMonth = month;
-  ['mayo', 'junio', 'todo'].forEach(m => {
-    document.getElementById('chip-' + m).classList.toggle('active', m === month);
-  });
-
-  const data = getDataForMonth(month);
-
-  const banner = document.getElementById('infoBanner');
-  if (month === 'mayo') {
-    banner.textContent = 'Mayo 2026 — Primer mes de envíos. Las campañas se enviaron segmentadas en varias tandas para evitar bloqueos por volumen. Los enviados reales representan el total acumulado de todas las tandas.';
-    banner.style.display = 'block';
-  } else if (month === 'junio') {
-    banner.textContent = 'Junio 2026 (en curso) — A partir de junio los envíos se realizan a la base completa de contactos en un solo envío. La campaña "Quedarse en Australia no es solo un sueño" fue enviada el 18 jun y sus métricas están en proceso.';
-    banner.style.display = 'block';
-  } else {
-    banner.style.display = 'none';
-  }
-
+function switchMonth(m){
+  currentMonth=m;
+  ['mayo','junio','todo'].forEach(x=>document.getElementById('chip-'+x).classList.toggle('active',x===m));
+  const data=getDataForMonth(m);
+  const banner=document.getElementById('infoBanner');
+  if(m==='mayo'){banner.textContent='Mayo 2026 — Primer mes de envíos. Las campañas se enviaron segmentadas en varias tandas para evitar bloqueos por volumen. Cada contacto recibió la campaña una sola vez.';banner.style.display='block';}
+  else{banner.style.display='none';}
   renderKPIs(data);
+  renderResumenTotal(m);
   renderCharts(data);
   renderBars(data);
   renderTable(data);
 }
 
-function init() {
-  const now = new Date();
-  const months = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
-  document.getElementById('updatedTs').textContent =
-    `${now.getDate()} ${months[now.getMonth()]} ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
+function switchTab(tab){
+  currentTab=tab;
+  ['datos','cupones','analisis'].forEach(t=>{
+    document.getElementById('tab-'+t).classList.toggle('active',t===tab);
+    document.getElementById('page-'+t).classList.toggle('active',t===tab);
+  });
+  document.querySelectorAll('#chip-mayo,#chip-junio,#chip-todo').forEach(c=>c.style.display=tab==='datos'?'':'none');
+}
 
+function init(){
+  const now=new Date();
+  const months=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  document.getElementById('updatedTs').textContent=`${now.getDate()} ${months[now.getMonth()]} ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
   switchMonth('mayo');
 }
 
