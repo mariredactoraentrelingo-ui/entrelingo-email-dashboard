@@ -245,9 +245,22 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
         <tr><td>Moneda</td><td>AUD</td></tr>
       </table>
     </div>
+    <div class="cupon-card" style="border-top:3px solid #16a34a">
+      <div class="cupon-name">50NEWS</div>
+      <div class="cupon-stats">
+        <div class="cupon-stat"><div class="cupon-stat-val" style="color:#16a34a">1</div><div class="cupon-stat-lbl">Usos</div></div>
+        <div class="cupon-stat"><div class="cupon-stat-val">1</div><div class="cupon-stat-lbl">Órdenes</div></div>
+        <div class="cupon-stat"><div class="cupon-stat-val" style="color:#0a6b3e">$20.00</div><div class="cupon-stat-lbl">AUD netos</div></div>
+      </div>
+      <table class="cupon-orders" style="width:100%;margin-top:10px">
+        <tr><td>Producto</td><td>Traducciones - NAATI LICENCIA DE CONDUCIR - REGULAR</td></tr>
+        <tr><td>Cliente</td><td>Jessica Alvarez (nuevo)</td></tr>
+        <tr><td>Fecha</td><td>28 junio 2026</td></tr>
+        <tr><td>Atribución</td><td>Directa</td></tr>
+        <tr><td>Moneda</td><td>AUD</td></tr>
+      </table>
+    </div>
   </div>
-
-  <div class="section-label" style="margin-top:28px">Análisis de cupones</div>
   <div class="insight-grid">
     <div class="insight-card contexto">
       <span class="insight-tag tag-contexto">Contexto</span>
@@ -270,6 +283,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
         <tr><td>FLASHSALE</td><td style="text-align:right">Mayo</td><td style="text-align:right">1</td><td class="revenue-cell">$139.56</td><td class="revenue-cell">$139.56</td><td style="text-align:right">Flash Sale — descuento directo</td></tr>
         <tr><td>WORK26</td><td style="text-align:right">Junio</td><td style="text-align:right">2</td><td class="revenue-cell">$56.68</td><td class="revenue-cell">$28.34</td><td style="text-align:right">Work & Holiday — orientado a proceso</td></tr>
         <tr><td>FLASHSALE</td><td style="text-align:right">Junio</td><td style="text-align:right">1</td><td class="revenue-cell">$26.99</td><td class="revenue-cell">$26.99</td><td style="text-align:right">Flash Sale — descuento directo</td></tr>
+        <tr><td>50NEWS</td><td style="text-align:right">Junio</td><td style="text-align:right">1</td><td class="revenue-cell">$20.00</td><td class="revenue-cell">$20.00</td><td style="text-align:right">2x1 Licencias — descuento directo</td></tr>
       </tbody>
     </table>
   </div>
@@ -281,8 +295,8 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
   <div class="section-label">Panorama general — mayo y junio 2026</div>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;">
     <div class="highlight-box"><div class="highlight-number">33.8%</div><div class="highlight-label"><strong>Open rate promedio del período completo</strong> — mayo (38.5%) y junio (29.5%) combinados, muy por encima del promedio de la industria (21–25%)</div></div>
-    <div class="highlight-box"><div class="highlight-number">$4.000</div><div class="highlight-label"><strong>Revenue total acumulado en correos</strong> mayo + junio — generado únicamente con email marketing en menos de 2 meses</div></div>
-    <div class="highlight-box"><div class="highlight-number">15</div><div class="highlight-label"><strong>Campañas completadas</strong> en menos de 2 meses, con base de contactos que se mantiene estable y activa</div></div>
+    <div class="highlight-box"><div class="highlight-number">$4.684</div><div class="highlight-label"><strong>Revenue total acumulado en correos</strong> mayo + junio — generado únicamente con email marketing en menos de 2 meses</div></div>
+    <div class="highlight-box"><div class="highlight-number">18</div><div class="highlight-label"><strong>Campañas completadas</strong> en menos de 2 meses, con base de contactos que se mantiene estable y activa</div></div>
   </div>
 
   <div class="section-label">Lo que está funcionando bien</div>
@@ -383,7 +397,8 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
 </div>
 
 <script>
-const CUPONES={mayo:{flashsale:139.56,mama26:2573.00,total:2712.56},junio:{flashsale:26.99,work26:56.68,total:83.67}};
+const CUPON_NOMBRES={flashsale:'FLASHSALE',mama26:'MAMA26',work26:'WORK26',cincuentanews:'50NEWS'};
+const CUPONES={mayo:{flashsale:139.56,mama26:2573.00,total:2712.56},junio:{flashsale:26.99,work26:56.68,cincuentanews:20.00,total:103.67}};
 
 const DATA={
   mayo:[
@@ -396,14 +411,17 @@ const DATA={
     {id:'frases_migrante',nombre:'Frases que no quieres escuchar',asunto:'5 frases que ningún migrante en Australia quiere escuchar',fecha:'2026-05-28',enviados:7833,open_rate:33.72,click_rate:0.12,ordenes:2,revenue:139.67,estado:'complete',nota:'Enviada en 4 tandas'}
   ],
   junio:[
-    {id:'cosas_buenas',nombre:'Cosas buenas en Australia',asunto:'Cosas buenas que están pasando en Australia y no te enteraste',fecha:'2026-06-02',enviados:7539,open_rate:38.03,click_rate:0.15,ordenes:9,revenue:801.42,estado:'complete',nota:''},
-    {id:'flash_mundial',nombre:'Flash Sale Mundial',asunto:'¿Ya tienes todo listo para ver el mundial desde Australia?',fecha:'2026-06-05',enviados:7506,open_rate:34.15,click_rate:0.13,ordenes:3,revenue:262.92,estado:'complete',nota:''},
-    {id:'mundial_visa',nombre:'El Mundial y tu visa',asunto:'El Mundial empieza. Tu aventura también. Usa WORK26 y ahorra 10%',fecha:'2026-06-09',enviados:7468,open_rate:32.23,click_rate:0.09,ordenes:2,revenue:41.38,estado:'complete',nota:'Segunda venta registrada el 23 jun — 14 días después del envío'},
-    {id:'quedarse_legal_1',nombre:'Quedarse legal v1',asunto:'Así puedes quedarte legal en Australia',fecha:'2026-06-12',enviados:7439,open_rate:31.58,click_rate:0.18,ordenes:4,revenue:227.65,estado:'complete',nota:''},
-    {id:'pride_junio',nombre:'Eventos PRIDE junio',asunto:'¡Eventos PRIDE de junio en Australia que NO te puedes perder!',fecha:'2026-06-16',enviados:7401,open_rate:31.09,click_rate:0.07,ordenes:2,revenue:151.77,estado:'complete',nota:''},
-    {id:'quedarse_legal_2',nombre:'Quedarse en Australia no es solo un sueño',asunto:'Quedarse en Australia no es solo un sueño. Es una decisión que se construye con cada paso que das.',fecha:'2026-06-19',enviados:7368,open_rate:26.29,click_rate:0.09,ordenes:2,revenue:220.82,estado:'complete',nota:''},
-    {id:'dia_padre',nombre:'Día del Padre',asunto:'¿Y tú? ¿Ya celebras el Día del Padre 2 veces?',fecha:'2026-06-21',enviados:6707,open_rate:26.18,click_rate:0.06,ordenes:1,revenue:89.97,estado:'complete',nota:''},
-    {id:'incremento_precios',nombre:'Incremento de precios',asunto:'¿Estás solo(a) en Australia? Esto te puede salvar',fecha:'2026-06-23',enviados:6374,open_rate:23.22,click_rate:0.05,ordenes:2,revenue:235.34,estado:'complete',nota:''}
+    {id:'cosas_buenas',nombre:'Cosas buenas en Australia',asunto:'Cosas buenas que están pasando en Australia y no te enteraste',fecha:'2026-06-02',enviados:7538,open_rate:38.17,click_rate:0.15,ordenes:9,revenue:801.42,estado:'complete',nota:''},
+    {id:'flash_mundial',nombre:'Flash Sale Mundial',asunto:'¿Ya tienes todo listo para ver el mundial desde Australia?',fecha:'2026-06-05',enviados:7505,open_rate:34.41,click_rate:0.13,ordenes:3,revenue:262.92,estado:'complete',nota:''},
+    {id:'mundial_visa',nombre:'El Mundial y tu visa',asunto:'El Mundial empieza. Tu aventura también. Usa WORK26 y ahorra 10%',fecha:'2026-06-09',enviados:7467,open_rate:32.59,click_rate:0.10,ordenes:2,revenue:41.38,estado:'complete',nota:'Segunda venta registrada el 23 jun — 14 días después del envío'},
+    {id:'quedarse_legal_1',nombre:'Quedarse legal v1',asunto:'Así puedes quedarte legal en Australia',fecha:'2026-06-12',enviados:7438,open_rate:32.04,click_rate:0.18,ordenes:4,revenue:227.65,estado:'complete',nota:''},
+    {id:'pride_junio',nombre:'Eventos PRIDE junio',asunto:'¡Eventos PRIDE de junio en Australia que NO te puedes perder!',fecha:'2026-06-16',enviados:7400,open_rate:31.76,click_rate:0.07,ordenes:2,revenue:151.77,estado:'complete',nota:''},
+    {id:'quedarse_legal_2',nombre:'Quedarse en Australia no es solo un sueño',asunto:'Quedarse en Australia no es solo un sueño. Es una decisión que se construye con cada paso que das.',fecha:'2026-06-19',enviados:7367,open_rate:27.52,click_rate:0.10,ordenes:2,revenue:220.82,estado:'complete',nota:''},
+    {id:'dia_padre',nombre:'Día del Padre',asunto:'¿Y tú? ¿Ya celebras el Día del Padre 2 veces?',fecha:'2026-06-21',enviados:6706,open_rate:28.20,click_rate:0.06,ordenes:1,revenue:89.97,estado:'complete',nota:''},
+    {id:'incremento_precios',nombre:'Incremento de precios v1',asunto:'¿Estás solo(a) en Australia? Esto te puede salvar',fecha:'2026-06-23',enviados:6373,open_rate:27.72,click_rate:0.05,ordenes:3,revenue:301.32,estado:'complete',nota:''},
+    {id:'incremento_precios_2',nombre:'Incremento de precios v2',asunto:'5 Razones por las que venir a Australia fue la MEJOR opción!',fecha:'2026-06-25',enviados:6161,open_rate:28.31,click_rate:0.10,ordenes:5,revenue:461.19,estado:'complete',nota:''},
+    {id:'2x1_licencias',nombre:'2x1 Licencias de Conducir',asunto:'¡Hoy es 2x1 en licencias de conducir!',fecha:'2026-06-26',enviados:4223,open_rate:39.93,click_rate:0.12,ordenes:4,revenue:346.44,estado:'complete',nota:''},
+    {id:'incremento_precios_3',nombre:'Incremento de precios v3',asunto:'10 reglas de Australia que no debes romper',fecha:'2026-06-23',enviados:6147,open_rate:27.51,click_rate:0.05,ordenes:0,revenue:0,estado:'live',nota:'Aún sin ventas — ventana de conversión abierta'}
   ]
 };
 
@@ -422,7 +440,7 @@ function renderResumenTotal(month){
   function buildCard(mes,data,cupones,cssClass){
     const revCorreos=data.reduce((a,d)=>a+(d.revenue||0),0);
     const total=revCorreos+cupones.total;
-    const cuponesDetalle=Object.entries(cupones).filter(([k])=>k!=='total').map(([k,v])=>`<div class="rtcard-row"><span class="label">Cupón ${k.toUpperCase()}</span><span class="value">+${fmtC(v)} AUD</span></div>`).join('');
+    const cuponesDetalle=Object.entries(cupones).filter(([k])=>k!=='total').map(([k,v])=>`<div class="rtcard-row"><span class="label">Cupón ${CUPON_NOMBRES[k]||k.toUpperCase()}</span><span class="value">+${fmtC(v)} AUD</span></div>`).join('');
     return`<div class="rtcard"><div class="rtcard-header ${cssClass}">${mes}</div><div class="rtcard-row"><span class="label">Revenue por correos</span><span class="value">${fmtC(revCorreos)}</span></div>${cuponesDetalle}<div class="rtcard-row total-row"><span class="label">Total real del mes</span><span class="value green">${fmtC(total)} AUD</span></div></div>`;
   }
   if(month==='mayo'){el.innerHTML=buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo');el.style.gridTemplateColumns='1fr';}
