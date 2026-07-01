@@ -133,6 +133,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
   <label>Vista:</label>
   <button class="chip active" onclick="switchTab('datos')" id="tab-datos">Datos</button>
   <button class="chip" onclick="switchTab('cupones')" id="tab-cupones">Cupones</button>
+  <button class="chip" onclick="switchTab('carritos')" id="tab-carritos">Recuperación de carrito</button>
   <button class="chip" onclick="switchTab('analisis')" id="tab-analisis">Análisis e insights</button>
   <span style="margin-left:12px;border-left:1px solid rgba(255,255,255,.2);padding-left:12px;"><label>Mes:</label></span>
   <button class="chip active" onclick="switchMonth('mayo')" id="chip-mayo">Mayo 2026</button>
@@ -290,6 +291,87 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
   <p class="footer-note">Datos de cupones extraídos manualmente de FunnelKit · Entrelingo Group</p>
 </div>
 
+<!-- CARRITOS -->
+<div class="page" id="page-carritos">
+  <div class="section-label">Resumen de recuperación de carrito — mayo y junio 2026</div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px">
+    <div class="kcard" style="border-top-color:#12304a">
+      <div class="klabel">Revenue mayo</div>
+      <div class="kval" style="color:#12304a">$1.274</div>
+      <div style="font-size:11px;color:#9090aa;margin-top:4px">9 pedidos recuperados</div>
+    </div>
+    <div class="kcard" style="border-top-color:#16a34a">
+      <div class="klabel">Revenue junio</div>
+      <div class="kval" style="color:#16a34a">$4.930</div>
+      <div style="font-size:11px;color:#9090aa;margin-top:4px">31 pedidos recuperados</div>
+    </div>
+    <div class="kcard" style="border-top-color:#7c3aed">
+      <div class="klabel">Total revenue recuperado</div>
+      <div class="kval" style="color:#7c3aed">$6.204</div>
+      <div style="font-size:11px;color:#9090aa;margin-top:4px">Mayo + junio combinados</div>
+    </div>
+    <div class="kcard" style="border-top-color:#34c493">
+      <div class="klabel">Pedidos recuperados</div>
+      <div class="kval">40</div>
+      <div style="font-size:11px;color:#9090aa;margin-top:4px">9 en mayo · 31 en junio</div>
+    </div>
+    <div class="kcard" style="border-top-color:#3a7bd5">
+      <div class="klabel">Ticket promedio</div>
+      <div class="kval">$150.22</div>
+      <div style="font-size:11px;color:#9090aa;margin-top:4px">Promedio de ambos meses</div>
+    </div>
+  </div>
+
+  <div class="section-label">Comparativa mayo vs junio</div>
+  <div class="table-card" style="margin-bottom:20px">
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align:left">Métrica</th>
+          <th>Mayo 2026</th>
+          <th>Junio 2026</th>
+          <th>Variación</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Correos de recuperación enviados</td><td>257</td><td>138</td><td class="open-low">-119</td></tr>
+        <tr style="background:#fafafa"><td>Pedidos recuperados</td><td>9</td><td class="open-good">31</td><td class="open-good">+22</td></tr>
+        <tr><td>Revenue recuperado</td><td class="revenue-cell">$1.274</td><td class="revenue-cell">$4.930</td><td class="open-good">+$3.656</td></tr>
+        <tr style="background:#fafafa"><td>Tasa de recuperación</td><td class="open-mid">3.5%</td><td class="open-good">22.46%</td><td class="open-good">+18.96pp</td></tr>
+        <tr><td>Ticket promedio</td><td class="revenue-cell">$141.55</td><td class="revenue-cell">$158.88</td><td class="open-good">+$17.33</td></tr>
+        <tr style="background:#fafafa"><td>vs mes anterior ($ diferencia)</td><td class="open-low">-$546 AUD</td><td class="open-good">+$3.656 AUD</td><td>—</td></tr>
+        <tr><td>vs mes anterior (% cambio)</td><td class="open-low">-30%</td><td class="open-good">+386.99%</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-label">Análisis e insights</div>
+  <div class="insight-grid">
+    <div class="insight-card positivo">
+      <span class="insight-tag tag-positivo">Positivo</span>
+      <div class="insight-title">Junio fue un mes excepcional en recuperación de carrito</div>
+      <div class="insight-body">Con <strong>138 correos enviados</strong> — menos que mayo (257) — se lograron <strong>31 pedidos recuperados y $4.930 AUD</strong>. Eso representa una tasa de recuperación del 22.46%, casi 6 veces la de mayo (3.5%). Enviar menos correos y recuperar más pedidos es exactamente lo que se busca: indica que el timing, el asunto o la segmentación de los correos de recuperación en junio fue mucho más efectivo que en mayo.</div>
+    </div>
+    <div class="insight-card positivo">
+      <span class="insight-tag tag-positivo">Positivo</span>
+      <div class="insight-title">El ticket promedio de recuperación es sólido en ambos meses</div>
+      <div class="insight-body">El ticket promedio de los pedidos recuperados fue de <strong>$141.55 en mayo y $158.88 en junio</strong>. Esto confirma que las personas que abandonan el carrito y luego convierten tienen una intención de compra real — no son clientes de bajo valor. Cada correo de recuperación que convierte tiene un impacto directo y medible en el revenue del mes.</div>
+    </div>
+    <div class="insight-card sugerencia">
+      <span class="insight-tag tag-sugerencia">Sugerencia</span>
+      <div class="insight-title">Identificar qué cambió en junio para replicarlo en julio</div>
+      <div class="insight-body">La tasa de recuperación saltó de 3.5% a 22.46% entre mayo y junio. Vale la pena analizar qué fue diferente: ¿cambió el asunto del correo de recuperación? ¿el timing de envío? ¿la segmentación de los carritos? Identificar ese factor y replicarlo en julio es probablemente la acción de mayor impacto disponible ahora mismo. Una tasa del 22% con el volumen correcto puede generar un revenue muy significativo mes a mes.</div>
+    </div>
+    <div class="insight-card sugerencia">
+      <span class="insight-tag tag-sugerencia">Sugerencia</span>
+      <div class="insight-title">Aumentar el volumen de correos de recuperación en julio manteniendo la tasa</div>
+      <div class="insight-body">En junio se enviaron solo 138 correos de recuperación. Si en julio se mantiene una tasa similar del 22% pero con más correos enviados — por ejemplo 250 — el estimado de pedidos recuperados subiría a ~55, con un revenue potencial cercano a <strong>$8.700 AUD</strong> solo de recuperación de carrito. El foco debe estar en mantener la calidad del correo de recuperación, no en enviarlo a cualquier contacto que abandonó.</div>
+    </div>
+  </div>
+  <p class="footer-note">Datos de recuperación de carrito extraídos manualmente · Entrelingo Group · Actualización manual mensual</p>
+</div>
+
+
 <!-- ANÁLISIS -->
 <div class="page" id="page-analisis">
   <div class="section-label">Panorama general — cierre de mayo y junio 2026</div>
@@ -359,6 +441,11 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
 
   <div class="section-label">Recomendaciones para julio 2026 — desde lo aprendido</div>
   <div class="insight-grid">
+    <div class="insight-card contexto">
+      <span class="insight-tag tag-contexto">Aprendizaje clave</span>
+      <div class="insight-title">Más correos no garantizan más ventas — la fórmula importa más que la frecuencia</div>
+      <div class="insight-body">Junio tuvo <strong>11 campañas</strong> frente a las 7 de mayo, pero el revenue de correos solo subió un 23%. La recuperación de carrito, en cambio, generó <strong>$4.930 con 138 correos</strong> — mucho más por correo que la mayoría de las campañas masivas. Lo que esto confirma es que el volumen de envíos no es el motor del revenue: lo son las <strong>fórmulas que ya probaron funcionar</strong> (Temporada Invierno, Cosas buenas en Australia, 2x1 Licencias), los <strong>cupones con carga emocional</strong> (MAMA26 generó 18 veces más que FLASHSALE del mismo mes) y las <strong>temáticas que conectan emocionalmente</strong> con la audiencia — el migrante que extraña a su familia, que busca quedarse legal, que quiere traer a sus seres queridos. Para julio, la pregunta no es cuántos correos enviar, sino cuáles merecen ser enviados.</div>
+    </div>
     <div class="insight-card positivo">
       <span class="insight-tag tag-positivo">Oportunidad</span>
       <div class="insight-title">Abrir julio con una promoción de descuento directo</div>
@@ -412,6 +499,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
 
 <script>
 const CUPON_NOMBRES={flashsale:'FLASHSALE',mama26:'MAMA26',work26:'WORK26',cincuentanews:'50NEWS'};
+const CARRITOS={mayo:{revenue:1274,ordenes:9,enviados:257,tasa:3.5,ticket:141.55},junio:{revenue:4930,ordenes:31,enviados:138,tasa:22.46,ticket:158.88}};
 const CUPONES={mayo:{flashsale:139.56,mama26:2573.00,total:2712.56},junio:{flashsale:26.99,work26:56.68,cincuentanews:20.00,total:103.67}};
 
 const DATA={
@@ -451,15 +539,16 @@ function colorClass(r){if(r>=35)return'open-good';if(r>=25)return'open-mid';retu
 function renderResumenTotal(month){
   const el=document.getElementById('resumenTotal');
   if(!el)return;
-  function buildCard(mes,data,cupones,cssClass){
+  function buildCard(mes,data,cupones,cssClass,carrito){
     const revCorreos=data.reduce((a,d)=>a+(d.revenue||0),0);
-    const total=revCorreos+cupones.total;
+    const total=revCorreos+cupones.total+(carrito?carrito.revenue:0);
     const cuponesDetalle=Object.entries(cupones).filter(([k])=>k!=='total').map(([k,v])=>`<div class="rtcard-row"><span class="label">Cupón ${CUPON_NOMBRES[k]||k.toUpperCase()}</span><span class="value">+${fmtC(v)} AUD</span></div>`).join('');
-    return`<div class="rtcard"><div class="rtcard-header ${cssClass}">${mes}</div><div class="rtcard-row"><span class="label">Revenue por correos</span><span class="value">${fmtC(revCorreos)}</span></div>${cuponesDetalle}<div class="rtcard-row total-row"><span class="label">Total real del mes</span><span class="value green">${fmtC(total)} AUD</span></div></div>`;
+    const carritoRow=carrito?`<div class="rtcard-row"><span class="label">Carritos recuperados</span><span class="value">+${fmtC(carrito.revenue)} AUD</span></div>`:'';
+    return`<div class="rtcard"><div class="rtcard-header ${cssClass}">${mes}</div><div class="rtcard-row"><span class="label">Revenue por correos</span><span class="value">${fmtC(revCorreos)}</span></div>${cuponesDetalle}${carritoRow}<div class="rtcard-row total-row"><span class="label">Total real del mes</span><span class="value green">${fmtC(total)} AUD</span></div></div>`;
   }
-  if(month==='mayo'){el.innerHTML=buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo');el.style.gridTemplateColumns='1fr';}
-  else if(month==='junio'){el.innerHTML=buildCard('Junio 2026',DATA.junio,CUPONES.junio,'junio');el.style.gridTemplateColumns='1fr';}
-  else{el.innerHTML=buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo')+buildCard('Junio 2026',DATA.junio,CUPONES.junio,'junio');el.style.gridTemplateColumns='1fr 1fr';}
+  if(month==='mayo'){el.innerHTML=buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo',CARRITOS.mayo);el.style.gridTemplateColumns='1fr';}
+  else if(month==='junio'){el.innerHTML=buildCard('Junio 2026',DATA.junio,CUPONES.junio,'junio',CARRITOS.junio);el.style.gridTemplateColumns='1fr';}
+  else{el.innerHTML=buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo',CARRITOS.mayo)+buildCard('Junio 2026',DATA.junio,CUPONES.junio,'junio',CARRITOS.junio);el.style.gridTemplateColumns='1fr 1fr';}
 }
 
 function renderKPIs(data){
@@ -522,7 +611,7 @@ function switchMonth(m){
 
 function switchTab(tab){
   currentTab=tab;
-  ['datos','cupones','analisis'].forEach(t=>{
+  ['datos','cupones','carritos','analisis'].forEach(t=>{
     document.getElementById('tab-'+t).classList.toggle('active',t===tab);
     document.getElementById('page-'+t).classList.toggle('active',t===tab);
   });
