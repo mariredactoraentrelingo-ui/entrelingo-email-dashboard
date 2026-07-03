@@ -55,6 +55,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
 .badge-status{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;margin-left:4px;vertical-align:middle;}
 .badge-complete{background:#d1fae5;color:#065f46;}
 .badge-live{background:#fef3c7;color:#92400e;}
+.badge-parcial{background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;display:inline-block;margin-left:6px;vertical-align:middle;}
 .info-banner{background:#fffbeb;border-left:3px solid #f59e0b;border-radius:6px;padding:10px 14px;font-size:12px;color:#78350f;margin-bottom:16px;}
 .comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .comp-card{background:var(--white);border-radius:10px;border:1px solid var(--border);padding:18px;}
@@ -102,10 +103,12 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
 .cupon-orders td:last-child{text-align:right;color:var(--gray-text);}
 .cupon-orders tr:last-child td{border-bottom:none;}
 .resumen-total-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:4px;}
+@media(max-width:800px){.resumen-total-grid{grid-template-columns:1fr !important;}}
 .rtcard{background:var(--white);border-radius:10px;border:1px solid var(--border);overflow:hidden;}
 .rtcard-header{padding:14px 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;color:var(--white);}
 .rtcard-header.mayo{background:linear-gradient(135deg,#12304a,#1e4d6b);}
 .rtcard-header.junio{background:linear-gradient(135deg,#0a5c36,#16a34a);}
+.rtcard-header.julio{background:linear-gradient(135deg,#b45309,#f59e0b);}
 .rtcard-row{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid #f0f0f8;font-size:13px;}
 .rtcard-row:last-child{border-bottom:none;}
 .rtcard-row .label{color:var(--gray-text);}
@@ -138,6 +141,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
   <span style="margin-left:12px;border-left:1px solid rgba(255,255,255,.2);padding-left:12px;"><label>Mes:</label></span>
   <button class="chip active" onclick="switchMonth('mayo')" id="chip-mayo">Mayo 2026</button>
   <button class="chip" onclick="switchMonth('junio')" id="chip-junio">Junio 2026</button>
+  <button class="chip" onclick="switchMonth('julio')" id="chip-julio">Julio 2026</button>
   <button class="chip" onclick="switchMonth('todo')" id="chip-todo">Todo el período</button>
 </div>
 
@@ -262,11 +266,36 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
       </table>
     </div>
   </div>
+
+  <div class="mes-separador" style="margin-top:28px">
+    <div class="mes-separador-line"></div>
+    <div class="mes-separador-label">Julio 2026 <span class="badge-parcial">En curso</span></div>
+    <div class="mes-separador-line"></div>
+  </div>
+  <div class="cupon-grid">
+    <div class="cupon-card" style="border-top:3px solid #f97316">
+      <div class="cupon-name">FLASHSALE</div>
+      <div class="cupon-stats">
+        <div class="cupon-stat"><div class="cupon-stat-val" style="color:#f97316">1</div><div class="cupon-stat-lbl">Usos</div></div>
+        <div class="cupon-stat"><div class="cupon-stat-val">1</div><div class="cupon-stat-lbl">Órdenes</div></div>
+        <div class="cupon-stat"><div class="cupon-stat-val" style="color:#0a6b3e">$20.69</div><div class="cupon-stat-lbl">AUD netos</div></div>
+      </div>
+      <table class="cupon-orders" style="width:100%;margin-top:10px">
+        <tr><td>Producto</td><td>Traducciones - CERTIFICADA - REGULAR</td></tr>
+        <tr><td>Cliente</td><td>Jennifer Otero (returning)</td></tr>
+        <tr><td>Fecha</td><td>2 julio 2026</td></tr>
+        <tr><td>Atribución</td><td>Referido: Entrelingo.com</td></tr>
+        <tr><td>Moneda</td><td>AUD</td></tr>
+      </table>
+      <div style="background:#fff8f3;border-radius:6px;padding:10px;font-size:12px;color:#555;line-height:1.6;margin-top:12px">Único cupón habilitado en julio hasta ahora. Este uso coincide en fecha con la campaña News Flash Sale Julio 1, aunque el sistema lo registra con atribución de referido y no vinculado directamente al correo.</div>
+    </div>
+  </div>
+
   <div class="insight-grid">
     <div class="insight-card contexto">
       <span class="insight-tag tag-contexto">Contexto</span>
       <div class="insight-title">Por qué las ventas con FLASHSALE no siempre aparecen en el reporte del correo</div>
-      <div class="insight-body">En junio, las campañas de Flash Sale registraron ventas dentro de FunnelKit, pero el único uso rastreable del cupón FLASHSALE proviene de una compra que <strong>no está atribuida a ninguno de esos correos directamente</strong>. Esto ocurre porque FunnelKit atribuye las ventas al correo que reconoce como último punto de contacto antes de la compra. Si la persona hizo clic desde otro correo, volvió al sitio por búsqueda directa, o compró desde un dispositivo diferente, la venta aparece como "Directa" y no queda vinculada a la campaña. El cupón igual funcionó — la venta ocurrió — pero el sistema no puede trazarla al correo específico.</div>
+      <div class="insight-body">En junio, las campañas de Flash Sale registraron ventas dentro de FunnelKit, pero el único uso rastreable del cupón FLASHSALE proviene de una compra que <strong>no está atribuida a ninguno de esos correos directamente</strong>. Esto ocurre porque FunnelKit atribuye las ventas al correo que reconoce como último punto de contacto antes de la compra. Si la persona hizo clic desde otro correo, volvió al sitio por búsqueda directa, o compró desde un dispositivo diferente, la venta aparece como "Directa" y no queda vinculada a la campaña. El cupón igual funcionó — la venta ocurrió — pero el sistema no puede trazarla al correo específico. El mismo patrón se repite en julio: el uso de FLASHSALE del 2 de julio aparece como "Referido: Entrelingo.com".</div>
     </div>
     <div class="insight-card positivo">
       <span class="insight-tag tag-positivo">Positivo</span>
@@ -285,6 +314,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
         <tr><td>WORK26</td><td style="text-align:right">Junio</td><td style="text-align:right">2</td><td class="revenue-cell">$56.68</td><td class="revenue-cell">$28.34</td><td style="text-align:right">Work & Holiday — orientado a proceso</td></tr>
         <tr><td>FLASHSALE</td><td style="text-align:right">Junio</td><td style="text-align:right">1</td><td class="revenue-cell">$26.99</td><td class="revenue-cell">$26.99</td><td style="text-align:right">Flash Sale — descuento directo</td></tr>
         <tr><td>50NEWS</td><td style="text-align:right">Junio</td><td style="text-align:right">1</td><td class="revenue-cell">$20.00</td><td class="revenue-cell">$20.00</td><td style="text-align:right">2x1 Licencias — descuento directo</td></tr>
+        <tr><td>FLASHSALE <span class="badge-parcial">Jul en curso</span></td><td style="text-align:right">Julio</td><td style="text-align:right">1</td><td class="revenue-cell">$20.69</td><td class="revenue-cell">$20.69</td><td style="text-align:right">Flash Sale — descuento directo</td></tr>
       </tbody>
     </table>
   </div>
@@ -321,6 +351,8 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
       <div style="font-size:11px;color:#9090aa;margin-top:4px">Promedio de ambos meses</div>
     </div>
   </div>
+
+  <div class="info-banner">Julio 2026 aún no tiene datos de recuperación de carrito registrados. Se agregarán en la próxima actualización del dashboard.</div>
 
   <div class="section-label">Comparativa mayo vs junio</div>
   <div class="table-card" style="margin-bottom:20px">
@@ -374,11 +406,18 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
 
 <!-- ANÁLISIS -->
 <div class="page" id="page-analisis">
-  <div class="section-label">Panorama general — cierre de mayo y junio 2026</div>
+  <div class="section-label">Panorama general — mayo y junio cerrados, julio en curso</div>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;">
-    <div class="highlight-box"><div class="highlight-number">35.1%</div><div class="highlight-label"><strong>Open rate promedio del período completo</strong> — mayo (38.5%) y junio (32.4%) combinados, muy por encima del promedio de la industria (21–25%)</div></div>
-    <div class="highlight-box"><div class="highlight-number">$5.403</div><div class="highlight-label"><strong>Revenue total en correos</strong> — $8.219 sumando todos los cupones. Generado en 2 meses con 18 campañas de email marketing</div></div>
-    <div class="highlight-box"><div class="highlight-number">18</div><div class="highlight-label"><strong>Campañas completadas</strong> — 7 en mayo y 11 en junio. 63 órdenes totales en el período</div></div>
+    <div class="highlight-box"><div class="highlight-number">35.1%</div><div class="highlight-label"><strong>Open rate promedio del período cerrado</strong> — mayo (38.5%) y junio (32.4%) combinados, muy por encima del promedio de la industria (21–25%)</div></div>
+    <div class="highlight-box"><div class="highlight-number">$5.403</div><div class="highlight-label"><strong>Revenue total en correos (mayo + junio)</strong> — $8.219 sumando todos los cupones. Julio en curso suma $655.28 adicionales hasta ahora</div></div>
+    <div class="highlight-box"><div class="highlight-number">19</div><div class="highlight-label"><strong>Campañas enviadas</strong> — 7 en mayo, 11 en junio y 1 en julio (mes en curso). 66 órdenes totales en el período</div></div>
+  </div>
+
+  <div class="section-label">Julio 2026 — primer envío del mes</div>
+  <div class="insight-card positivo" style="margin-bottom:20px">
+    <span class="insight-tag tag-positivo">Mes en curso</span>
+    <div class="insight-title">News Flash Sale Julio 1 abrió el mes con $634.59 y 3 órdenes</div>
+    <div class="insight-body">La primera campaña de julio, con el asunto <strong>"5 Cosas que si o sí te van a pedir en Australia"</strong>, fue enviada a <strong>7.410 contactos</strong> y ya generó <strong>3 órdenes por $634.59 AUD</strong>, con un Rev/1K de $85.64 — el más alto registrado hasta ahora en cualquier campaña del período, por encima de Cosas buenas en Australia ($106.32 en junio fue por revenue absoluto; en eficiencia por mil enviados esta campaña arranca muy fuerte). El open rate de 27.04% está por debajo del promedio de meses anteriores, pero recordar el aprendizaje de junio: <strong>las métricas siguen consolidándose hasta 14 días después del envío</strong>, y las aperturas tardías suelen subir este número. Además, el cupón FLASHSALE registró un uso el 2 de julio por $20.69, coincidiendo con la ventana de esta campaña.</div>
   </div>
 
   <div class="section-label">Lo que está funcionando bien — cierre de junio</div>
@@ -418,24 +457,24 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
     </div>
   </div>
 
-  <div class="section-label">Comparativa mayo vs junio — mes cerrado</div>
+  <div class="section-label">Comparativa entre meses — mayo y junio cerrados, julio en curso</div>
   <div class="table-card" style="margin-bottom:20px">
     <table>
-      <thead><tr><th style="text-align:left">Métrica</th><th>Mayo 2026</th><th>Junio 2026</th><th>Variación</th></tr></thead>
+      <thead><tr><th style="text-align:left">Métrica</th><th>Mayo 2026</th><th>Junio 2026</th><th>Variación may→jun</th><th>Julio 2026 (en curso)</th></tr></thead>
       <tbody>
-        <tr><td>Campañas enviadas</td><td>7</td><td>11</td><td class="open-good">+4</td></tr>
-        <tr style="background:#fafafa"><td>Open rate promedio</td><td class="open-good">38.5%</td><td class="open-mid">32.4%</td><td class="open-low">-6.1pp</td></tr>
-        <tr><td>Click rate promedio</td><td>0.14%</td><td>0.10%</td><td class="open-low">-0.04pp</td></tr>
-        <tr style="background:#fafafa"><td>Total enviados</td><td>47.577</td><td>74.325</td><td class="open-good">+26.748</td></tr>
-        <tr><td>Órdenes totales</td><td>27</td><td>36</td><td class="open-good">+9</td></tr>
-        <tr style="background:#fafafa"><td>Revenue correos</td><td class="revenue-cell">$2.422</td><td class="revenue-cell">$2.981</td><td class="open-good">+$559</td></tr>
-        <tr><td>Revenue cupones</td><td class="revenue-cell">$2.713</td><td class="revenue-cell">$104</td><td class="open-low">-$2.609</td></tr>
-        <tr style="background:#fafafa"><td>Total real del mes</td><td class="revenue-cell" style="font-size:15px">$5.134</td><td class="revenue-cell" style="font-size:15px">$3.085</td><td class="open-low">-$2.050</td></tr>
-        <tr><td>Rev/1K enviados promedio</td><td class="revenue-cell">$50.9</td><td class="revenue-cell">$40.1</td><td class="open-low">-$10.8</td></tr>
+        <tr><td>Campañas enviadas</td><td>7</td><td>11</td><td class="open-good">+4</td><td>1</td></tr>
+        <tr style="background:#fafafa"><td>Open rate promedio</td><td class="open-good">38.5%</td><td class="open-mid">32.4%</td><td class="open-low">-6.1pp</td><td class="open-mid">27.04%</td></tr>
+        <tr><td>Click rate promedio</td><td>0.14%</td><td>0.10%</td><td class="open-low">-0.04pp</td><td>0.11%</td></tr>
+        <tr style="background:#fafafa"><td>Total enviados</td><td>47.577</td><td>74.325</td><td class="open-good">+26.748</td><td>7.410</td></tr>
+        <tr><td>Órdenes totales</td><td>27</td><td>36</td><td class="open-good">+9</td><td>3</td></tr>
+        <tr style="background:#fafafa"><td>Revenue correos</td><td class="revenue-cell">$2.422</td><td class="revenue-cell">$2.981</td><td class="open-good">+$559</td><td class="revenue-cell">$634.59</td></tr>
+        <tr><td>Revenue cupones</td><td class="revenue-cell">$2.713</td><td class="revenue-cell">$104</td><td class="open-low">-$2.609</td><td class="revenue-cell">$20.69</td></tr>
+        <tr style="background:#fafafa"><td>Total real del mes</td><td class="revenue-cell" style="font-size:15px">$5.134</td><td class="revenue-cell" style="font-size:15px">$3.085</td><td class="open-low">-$2.050</td><td class="revenue-cell" style="font-size:15px">$655.28</td></tr>
+        <tr><td>Rev/1K enviados promedio</td><td class="revenue-cell">$50.9</td><td class="revenue-cell">$40.1</td><td class="open-low">-$10.8</td><td class="revenue-cell">$85.6</td></tr>
       </tbody>
     </table>
     <div style="padding:12px 16px;font-size:11px;color:#78350f;background:#fffbeb;border-top:1px solid #f0f0f8">
-      Sin contar cupones, el revenue de correos en junio superó al de mayo ($2.981 vs $2.422). La diferencia en el total real se explica completamente por el cupón MAMA26 ($2.573), un resultado excepcional vinculado al Día de la Madre.
+      Sin contar cupones, el revenue de correos en junio superó al de mayo ($2.981 vs $2.422). La diferencia en el total real se explica completamente por el cupón MAMA26 ($2.573), un resultado excepcional vinculado al Día de la Madre. Los datos de julio son parciales: corresponden a la primera campaña del mes más el único uso del cupón FLASHSALE registrado hasta ahora, y no incluyen recuperación de carrito.
     </div>
   </div>
 
@@ -448,13 +487,13 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
     </div>
     <div class="insight-card positivo">
       <span class="insight-tag tag-positivo">Oportunidad</span>
-      <div class="insight-title">Abrir julio con una promoción de descuento directo</div>
-      <div class="insight-body">La campaña 2x1 Licencias de Conducir cerró junio con el <strong>mejor open rate del mes (40.78%)</strong> después de varias campañas con apertura en descenso. Abrir julio con una oferta clara y un asunto de descuento concreto puede "resetear" el engagement de la lista y arrancar el mes con energía. El 2x1 en otro servicio de alta demanda (como traducciones certificadas regulares o pasaportes) es una buena apuesta para la primera semana.</div>
+      <div class="insight-title">Julio ya abrió con promoción — el arranque va en línea con lo recomendado</div>
+      <div class="insight-body">La recomendación de cierre de junio era abrir julio con una oferta clara para resetear el engagement de la lista. La campaña <strong>News Flash Sale Julio 1</strong> ya lo hizo, con un asunto de valor práctico ("5 Cosas que si o sí te van a pedir en Australia") y <strong>$634.59 en sus primeros días</strong>. El siguiente paso es monitorear su evolución a los 7 y 14 días, y complementar el mes con contenido emocional que no dependa solo del descuento.</div>
     </div>
     <div class="insight-card positivo">
       <span class="insight-tag tag-positivo">Oportunidad</span>
       <div class="insight-title">Planificar un cupón con carga emocional para julio</div>
-      <div class="insight-body">MAMA26 demostró que los cupones con un motivo emocional convierten muy por encima de los descuentos genéricos ($2.573 vs $139 del FLASHSALE del mismo mes). Julio tiene fechas con potencial emocional para la audiencia migrante: el <strong>Día del Amigo</strong> (20 jul en Argentina y gran parte de Latinoamérica) es una oportunidad clara. Un cupón del tipo "AMIGO26" con narrativa de "celebrá lejos pero con tus documentos en orden" puede funcionar muy bien. Pensar el cupón antes de la campaña, no después.</div>
+      <div class="insight-body">MAMA26 demostró que los cupones con un motivo emocional convierten muy por encima de los descuentos genéricos ($2.573 vs $139 del FLASHSALE del mismo mes). Julio tiene fechas con potencial emocional para la audiencia migrante: el <strong>Día del Amigo</strong> (20 jul en Argentina y gran parte de Latinoamérica) es una oportunidad clara. Un cupón del tipo "AMIGO26" con narrativa de celebrar lejos pero con tus documentos en orden puede funcionar muy bien. Pensar el cupón antes de la campaña, no después. Por ahora, FLASHSALE es el único cupón habilitado del mes.</div>
     </div>
     <div class="insight-card sugerencia">
       <span class="insight-tag tag-sugerencia">Sugerencia</span>
@@ -469,7 +508,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
     <div class="insight-card sugerencia">
       <span class="insight-tag tag-sugerencia">Sugerencia</span>
       <div class="insight-title">Monitorear conversiones hasta 14 días después de cada envío</div>
-      <div class="insight-body">Los datos de junio confirmaron que las ventas pueden llegar hasta 2 semanas después del envío — la campaña El Mundial y tu visa convirtió 14 días más tarde. Para julio, revisar revenue y órdenes a los <strong>3, 7 y 14 días</strong> por campaña antes de evaluar si fue exitosa o no. Esto evita descartar campañas que todavía tienen conversiones en camino.</div>
+      <div class="insight-body">Los datos de junio confirmaron que las ventas pueden llegar hasta 2 semanas después del envío — la campaña El Mundial y tu visa convirtió 14 días más tarde. Para julio, revisar revenue y órdenes a los <strong>3, 7 y 14 días</strong> por campaña antes de evaluar si fue exitosa o no. Esto aplica ya a News Flash Sale Julio 1: sus $634.59 actuales pueden seguir creciendo.</div>
     </div>
     <div class="insight-card sugerencia">
       <span class="insight-tag tag-sugerencia">Sugerencia</span>
@@ -482,15 +521,15 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
   <div class="ccard">
     <div class="ctitle">Entrelingo vs promedio de la industria</div>
     <table style="margin-top:8px">
-      <thead><tr><th>Métrica</th><th>Promedio industria migración/servicios</th><th>Entrelingo mayo</th><th>Entrelingo junio</th><th>Evaluación</th></tr></thead>
+      <thead><tr><th>Métrica</th><th>Promedio industria migración/servicios</th><th>Entrelingo mayo</th><th>Entrelingo junio</th><th>Entrelingo julio (en curso)</th><th>Evaluación</th></tr></thead>
       <tbody>
-        <tr><td>Open Rate</td><td>21–25%</td><td class="open-good">38.5%</td><td class="open-good">32.4%</td><td>Excelente en ambos meses, con descenso a vigilar en julio</td></tr>
-        <tr><td>Click Rate</td><td>0.5–1.5%</td><td class="open-low">0.14%</td><td class="open-low">0.10%</td><td>Por debajo — trabajar CTAs en julio</td></tr>
-        <tr><td>CTOR</td><td>8–12%</td><td class="open-low">0.37%</td><td class="open-low">0.31%</td><td>Bajo — revisar contenido y llamadas a la acción</td></tr>
-        <tr><td>Órdenes</td><td>—</td><td>27</td><td class="open-good">36</td><td>Junio superó a mayo en órdenes</td></tr>
-        <tr><td>Revenue (correos)</td><td>—</td><td class="revenue-cell">$2.422</td><td class="revenue-cell">$2.981</td><td>Junio superó a mayo sin contar cupones</td></tr>
-        <tr><td>Campañas/mes</td><td>4–8 recomendado</td><td class="open-good">7</td><td class="open-mid">11</td><td>Junio por encima del rango — reducir en julio</td></tr>
-        <tr><td>Unsubscribe Rate</td><td>&lt;0.5%</td><td class="open-mid">Estimada ligeramente elevada</td><td>Sin dato exacto</td><td>Medir con precisión en julio</td></tr>
+        <tr><td>Open Rate</td><td>21–25%</td><td class="open-good">38.5%</td><td class="open-good">32.4%</td><td class="open-good">27.04%</td><td>Sobre el benchmark en los 3 meses, con descenso a vigilar</td></tr>
+        <tr><td>Click Rate</td><td>0.5–1.5%</td><td class="open-low">0.14%</td><td class="open-low">0.10%</td><td class="open-low">0.11%</td><td>Por debajo — trabajar CTAs en julio</td></tr>
+        <tr><td>CTOR</td><td>8–12%</td><td class="open-low">0.37%</td><td class="open-low">0.31%</td><td class="open-low">0.41%</td><td>Bajo — revisar contenido y llamadas a la acción</td></tr>
+        <tr><td>Órdenes</td><td>—</td><td>27</td><td class="open-good">36</td><td>3</td><td>Junio superó a mayo en órdenes; julio recién inicia</td></tr>
+        <tr><td>Revenue (correos)</td><td>—</td><td class="revenue-cell">$2.422</td><td class="revenue-cell">$2.981</td><td class="revenue-cell">$634.59</td><td>Julio arranca con Rev/1K de $85.6, el más alto del período</td></tr>
+        <tr><td>Campañas/mes</td><td>4–8 recomendado</td><td class="open-good">7</td><td class="open-mid">11</td><td>1</td><td>Mantener julio dentro del rango recomendado</td></tr>
+        <tr><td>Unsubscribe Rate</td><td>&lt;0.5%</td><td class="open-mid">Estimada ligeramente elevada</td><td>Sin dato exacto</td><td>Sin dato</td><td>Medir con precisión en julio</td></tr>
       </tbody>
     </table>
   </div>
@@ -500,7 +539,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
 <script>
 const CUPON_NOMBRES={flashsale:'FLASHSALE',mama26:'MAMA26',work26:'WORK26',cincuentanews:'50NEWS'};
 const CARRITOS={mayo:{revenue:1274,ordenes:9,enviados:257,tasa:3.5,ticket:141.55},junio:{revenue:4930,ordenes:31,enviados:138,tasa:22.46,ticket:158.88}};
-const CUPONES={mayo:{flashsale:139.56,mama26:2573.00,total:2712.56},junio:{flashsale:26.99,work26:56.68,cincuentanews:20.00,total:103.67}};
+const CUPONES={mayo:{flashsale:139.56,mama26:2573.00,total:2712.56},junio:{flashsale:26.99,work26:56.68,cincuentanews:20.00,total:103.67},julio:{flashsale:20.69,total:20.69}};
 
 const DATA={
   mayo:[
@@ -524,6 +563,9 @@ const DATA={
     {id:'incremento_precios_2',nombre:'Incremento de precios v2',asunto:'5 Razones por las que venir a Australia fue la MEJOR opción!',fecha:'2026-06-25',enviados:6161,open_rate:28.75,click_rate:0.11,ordenes:5,revenue:461.19,estado:'complete',nota:''},
     {id:'2x1_licencias',nombre:'2x1 Licencias de Conducir',asunto:'¡Hoy es 2x1 en licencias de conducir!',fecha:'2026-06-26',enviados:4223,open_rate:40.78,click_rate:0.12,ordenes:4,revenue:346.44,estado:'complete',nota:''},
     {id:'incremento_precios_3',nombre:'Incremento de precios v3',asunto:'10 reglas de Australia que no debes romper',fecha:'2026-06-23',enviados:6147,open_rate:33.64,click_rate:0.08,ordenes:1,revenue:75.87,estado:'complete',nota:''}
+  ],
+  julio:[
+    {id:'news_flash_julio_1',nombre:'News Flash Sale Julio 1',asunto:'5 Cosas que si o sí te van a pedir en Australia',fecha:'2026-07-02',enviados:7410,open_rate:27.04,click_rate:0.11,ordenes:3,revenue:634.59,estado:'complete',nota:'Mes en curso — métricas parciales, ventana de conversión abierta hasta 14 días'}
   ]
 };
 
@@ -531,7 +573,7 @@ let currentMonth='mayo';
 let currentTab='datos';
 let charts={};
 
-function getDataForMonth(m){if(m==='todo')return[...DATA.mayo,...DATA.junio];return DATA[m]||[];}
+function getDataForMonth(m){if(m==='todo')return[...DATA.mayo,...DATA.junio,...DATA.julio];return DATA[m]||[];}
 function fmt(v){if(v>=1000000)return(v/1000000).toFixed(1)+'M';if(v>=1000)return(v/1000).toFixed(1)+'K';return String(Math.round(v));}
 function fmtC(v){return'$'+v.toLocaleString('es',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function colorClass(r){if(r>=35)return'open-good';if(r>=25)return'open-mid';return'open-low';}
@@ -543,12 +585,13 @@ function renderResumenTotal(month){
     const revCorreos=data.reduce((a,d)=>a+(d.revenue||0),0);
     const total=revCorreos+cupones.total+(carrito?carrito.revenue:0);
     const cuponesDetalle=Object.entries(cupones).filter(([k])=>k!=='total').map(([k,v])=>`<div class="rtcard-row"><span class="label">Cupón ${CUPON_NOMBRES[k]||k.toUpperCase()}</span><span class="value">+${fmtC(v)} AUD</span></div>`).join('');
-    const carritoRow=carrito?`<div class="rtcard-row"><span class="label">Carritos recuperados</span><span class="value">+${fmtC(carrito.revenue)} AUD</span></div>`:'';
+    const carritoRow=carrito?`<div class="rtcard-row"><span class="label">Carritos recuperados</span><span class="value">+${fmtC(carrito.revenue)} AUD</span></div>`:'<div class="rtcard-row"><span class="label">Carritos recuperados</span><span class="value" style="color:#9090aa;font-weight:500">Sin datos aún</span></div>';
     return`<div class="rtcard"><div class="rtcard-header ${cssClass}">${mes}</div><div class="rtcard-row"><span class="label">Revenue por correos</span><span class="value">${fmtC(revCorreos)}</span></div>${cuponesDetalle}${carritoRow}<div class="rtcard-row total-row"><span class="label">Total real del mes</span><span class="value green">${fmtC(total)} AUD</span></div></div>`;
   }
   if(month==='mayo'){el.innerHTML=buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo',CARRITOS.mayo);el.style.gridTemplateColumns='1fr';}
   else if(month==='junio'){el.innerHTML=buildCard('Junio 2026',DATA.junio,CUPONES.junio,'junio',CARRITOS.junio);el.style.gridTemplateColumns='1fr';}
-  else{el.innerHTML=buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo',CARRITOS.mayo)+buildCard('Junio 2026',DATA.junio,CUPONES.junio,'junio',CARRITOS.junio);el.style.gridTemplateColumns='1fr 1fr';}
+  else if(month==='julio'){el.innerHTML=buildCard('Julio 2026 (en curso)',DATA.julio,CUPONES.julio,'julio',null);el.style.gridTemplateColumns='1fr';}
+  else{el.innerHTML=buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo',CARRITOS.mayo)+buildCard('Junio 2026',DATA.junio,CUPONES.junio,'junio',CARRITOS.junio)+buildCard('Julio 2026 (en curso)',DATA.julio,CUPONES.julio,'julio',null);el.style.gridTemplateColumns='1fr 1fr 1fr';}
 }
 
 function renderKPIs(data){
@@ -601,10 +644,11 @@ function renderTable(data){
 
 function switchMonth(m){
   currentMonth=m;
-  ['mayo','junio','todo'].forEach(x=>document.getElementById('chip-'+x).classList.toggle('active',x===m));
+  ['mayo','junio','julio','todo'].forEach(x=>document.getElementById('chip-'+x).classList.toggle('active',x===m));
   const data=getDataForMonth(m);
   const banner=document.getElementById('infoBanner');
   if(m==='mayo'){banner.textContent='Mayo 2026 — Primer mes de envíos. Las campañas se enviaron segmentadas en varias tandas para evitar bloqueos por volumen. Cada contacto recibió la campaña una sola vez.';banner.style.display='block';}
+  else if(m==='julio'){banner.textContent='Julio 2026 — Mes en curso. Los datos son parciales: 1 campaña enviada y 1 uso del cupón FLASHSALE hasta ahora. Sin datos de recuperación de carrito todavía.';banner.style.display='block';}
   else{banner.style.display='none';}
   renderKPIs(data);renderResumenTotal(m);renderCharts(data);renderBars(data);renderTable(data);
 }
@@ -615,7 +659,7 @@ function switchTab(tab){
     document.getElementById('tab-'+t).classList.toggle('active',t===tab);
     document.getElementById('page-'+t).classList.toggle('active',t===tab);
   });
-  document.querySelectorAll('#chip-mayo,#chip-junio,#chip-todo').forEach(c=>c.style.display=tab==='datos'?'':'none');
+  document.querySelectorAll('#chip-mayo,#chip-junio,#chip-julio,#chip-todo').forEach(c=>c.style.display=tab==='datos'?'':'none');
 }
 
 function init(){
