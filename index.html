@@ -323,7 +323,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
 
 <!-- CARRITOS -->
 <div class="page" id="page-carritos">
-  <div class="section-label">Resumen de recuperación de carrito — mayo y junio 2026</div>
+  <div class="section-label">Resumen de recuperación de carrito — mayo y junio 2026 (meses cerrados)</div>
   <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px">
     <div class="kcard" style="border-top-color:#12304a">
       <div class="klabel">Revenue mayo</div>
@@ -352,7 +352,63 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
     </div>
   </div>
 
-  <div class="info-banner">Julio 2026 aún no tiene datos de recuperación de carrito registrados. Se agregarán en la próxima actualización del dashboard.</div>
+  <div class="mes-separador">
+    <div class="mes-separador-line"></div>
+    <div class="mes-separador-label">Julio 2026 <span class="badge-parcial">En curso</span></div>
+    <div class="mes-separador-line"></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px">
+    <div class="kcard" style="border-top-color:#3a7bd5">
+      <div class="klabel">Recuperado en euros</div>
+      <div class="kval" style="color:#3a7bd5">€654.36</div>
+      <div style="font-size:11px;color:#9090aa;margin-top:4px">3 pedidos en EUR</div>
+    </div>
+    <div class="kcard" style="border-top-color:#16a34a">
+      <div class="klabel">Recuperado en dólares</div>
+      <div class="kval" style="color:#16a34a">$19.54</div>
+      <div style="font-size:11px;color:#9090aa;margin-top:4px">1 pedido en AUD</div>
+    </div>
+    <div class="kcard" style="border-top-color:#7c3aed">
+      <div class="klabel">Total estimado en AUD</div>
+      <div class="kval" style="color:#7c3aed">≈$1.097.73</div>
+      <div style="font-size:11px;color:#9090aa;margin-top:4px">Tasa ref. 1 EUR = 1.6477 AUD (9 jul)</div>
+    </div>
+    <div class="kcard" style="border-top-color:#34c493">
+      <div class="klabel">Pedidos recuperados</div>
+      <div class="kval">4</div>
+      <div style="font-size:11px;color:#9090aa;margin-top:4px">Primera semana de julio</div>
+    </div>
+  </div>
+
+  <div class="section-label">Clientes salvados por tus correos — julio 2026</div>
+  <div class="table-card" style="margin-bottom:16px">
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align:left">Cliente</th>
+          <th>Fecha</th>
+          <th style="text-align:left">Servicio</th>
+          <th>Monto EUR</th>
+          <th>Monto AUD</th>
+          <th>Equivalente AUD (est.)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Francisco Jose Alonso Gonzalez</td><td>1 jul</td><td style="text-align:left">Traducciones - CERTIFICADA - EXPRESS</td><td class="revenue-cell" style="color:#1e40af">€36.16</td><td>—</td><td class="revenue-cell">$59.58</td></tr>
+        <tr><td>Araceli Comas de Argemir Marti</td><td>7 jul</td><td style="text-align:left">Traducciones - MULTIPACK CERTIFICADA</td><td class="revenue-cell" style="color:#1e40af">€184.37</td><td>—</td><td class="revenue-cell">$303.79</td></tr>
+        <tr class="best-row"><td>Federico Javier Gutierrez</td><td>9 jul</td><td style="text-align:left">Traducciones - NAATI MULTIPACK</td><td class="revenue-cell" style="color:#1e40af">€433.83</td><td>—</td><td class="revenue-cell">$714.82</td></tr>
+        <tr><td>Leonardo Sandoval Guanespen</td><td>9 jul</td><td style="text-align:left">Traducciones - CERTIFICADA - REGULAR</td><td>—</td><td class="revenue-cell">$19.54</td><td class="revenue-cell">$19.54</td></tr>
+        <tr style="background:#f0faf7"><td style="font-weight:700;color:#12304a">Total julio (en curso)</td><td>—</td><td style="text-align:left">4 pedidos</td><td class="revenue-cell" style="color:#1e40af;font-size:13px">€654.36</td><td class="revenue-cell" style="font-size:13px">$19.54</td><td class="revenue-cell" style="font-size:13px">≈$1.097.73</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight-card contexto" style="margin-bottom:20px">
+    <span class="insight-tag tag-contexto">Metodología</span>
+    <div class="insight-title">Cómo se consolida el total cuando hay dos monedas</div>
+    <div class="insight-body">Los montos oficiales de julio son <strong>€654.36 en euros y $19.54 en dólares australianos</strong>, cada uno en la moneda en la que el cliente pagó. Para poder comparar julio con mayo y junio (que están completos en AUD), la columna "Equivalente AUD" convierte los pedidos en euros usando la <strong>tasa de referencia del 9 de julio de 2026: 1 EUR = 1.6477 AUD</strong>. Ese total consolidado de <strong>≈$1.097.73 AUD es un estimado</strong>: el monto real depende de la tasa que aplique la pasarela de pagos en cada transacción. Al cierre del mes conviene reemplazar el estimado por el monto en AUD que registre WooCommerce/FunnelKit en cada pedido, que es la cifra contable real.</div>
+  </div>
 
   <div class="section-label">Comparativa mayo vs junio</div>
   <div class="table-card" style="margin-bottom:20px">
@@ -408,9 +464,9 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
 <div class="page" id="page-analisis">
   <div class="section-label">Panorama general — mayo y junio cerrados, julio en curso</div>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;">
-    <div class="highlight-box"><div class="highlight-number">35.1%</div><div class="highlight-label"><strong>Open rate promedio del período cerrado</strong> — mayo (38.5%) y junio (32.4%) combinados, muy por encima del promedio de la industria (21–25%)</div></div>
-    <div class="highlight-box"><div class="highlight-number">$5.403</div><div class="highlight-label"><strong>Revenue total en correos (mayo + junio)</strong> — $8.219 sumando todos los cupones. Julio en curso ya suma $2.019.04 adicionales en su primera semana</div></div>
-    <div class="highlight-box"><div class="highlight-number">21</div><div class="highlight-label"><strong>Campañas enviadas</strong> — 7 en mayo, 11 en junio y 3 en julio (mes en curso). 77 órdenes totales en el período</div></div>
+    <div class="highlight-box"><div class="highlight-number">35.9%</div><div class="highlight-label"><strong>Open rate promedio del período cerrado</strong> — mayo (38.5%) y junio (33.3%) combinados, muy por encima del promedio de la industria (21–25%)</div></div>
+    <div class="highlight-box"><div class="highlight-number">$5.426</div><div class="highlight-label"><strong>Revenue total en correos (mayo + junio)</strong> — $8.242 sumando todos los cupones. Julio en curso ya suma $2.470.48 adicionales en su primera semana</div></div>
+    <div class="highlight-box"><div class="highlight-number">21</div><div class="highlight-label"><strong>Campañas enviadas</strong> — 7 en mayo, 11 en junio y 3 en julio (mes en curso). 82 órdenes totales en el período</div></div>
   </div>
 
   <div class="section-label">Julio 2026 — primera semana del mes</div>
@@ -418,17 +474,17 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
     <div class="insight-card positivo">
       <span class="insight-tag tag-positivo">Mes en curso</span>
       <div class="insight-title">News Flash Sale Julio 1 pasó de $634.59 a $1.78k en una semana</div>
-      <div class="insight-body">La primera campaña de julio, con el asunto <strong>"5 Cosas que si o sí te van a pedir en Australia"</strong>, es la confirmación más clara hasta ahora de las ventanas de conversión largas: en su primera medición llevaba <strong>3 órdenes y $634.59 con 27.04% de open rate</strong>; una semana después acumula <strong>9 órdenes, $1.78k y 37.96% de apertura</strong>, y sigue sumando ventas día a día. Su Rev/1K ronda los <strong>$240</strong>, por lejos el más alto de cualquier campaña del período. Ya es la campaña individual más rentable desde que arrancó el email marketing, superando a Cosas buenas en Australia ($801) y a Temporada Invierno ($803).</div>
+      <div class="insight-body">La primera campaña de julio, con el asunto <strong>"5 Cosas que si o sí te van a pedir en Australia"</strong>, es la confirmación más clara hasta ahora de las ventanas de conversión largas: en su primera medición llevaba <strong>3 órdenes y $634.59 con 27.04% de open rate</strong>; una semana después acumula <strong>9 órdenes, $1.78k y 38.36% de apertura</strong>, con las aperturas tardías todavía sumando. Su Rev/1K ronda los <strong>$240</strong>, por lejos el más alto de cualquier campaña del período. Ya es la campaña individual más rentable desde que arrancó el email marketing, superando a Cosas buenas en Australia ($801) y a Temporada Invierno ($803).</div>
     </div>
     <div class="insight-card positivo">
       <span class="insight-tag tag-positivo">Mes en curso</span>
       <div class="insight-title">La newsletter solidaria por Venezuela también sigue convirtiendo</div>
-      <div class="insight-body">La segunda campaña del mes, <strong>"Latinos en Australia ¡Venezuela nos necesita!"</strong>, subió a <strong>36.72% de open rate y 0.15% de click rate</strong> — el click más alto de julio — y ya lleva <strong>3 órdenes y $104.36</strong>, sumando una venta más desde su primera medición. Para una newsletter cuyo objetivo principal era solidario (canalizar apoyo a Venezuela) y no comercial, que además genere ventas confirma el valor de este tipo de contenido: <strong>conecta emocionalmente con la audiencia y refuerza la confianza en la marca</strong>, la misma palanca que hizo funcionar a MAMA26. Vale la pena mantener este formato de contenido con causa dentro del calendario mensual.</div>
+      <div class="insight-body">La segunda campaña del mes, <strong>"Latinos en Australia ¡Venezuela nos necesita!"</strong>, subió a <strong>37.47% de open rate y 0.15% de click rate</strong> — el click más alto de julio — con <strong>3 órdenes y $104.36</strong>. Para una newsletter cuyo objetivo principal era solidario (canalizar apoyo a Venezuela) y no comercial, que además genere ventas confirma el valor de este tipo de contenido: <strong>conecta emocionalmente con la audiencia y refuerza la confianza en la marca</strong>, la misma palanca que hizo funcionar a MAMA26. Vale la pena mantener este formato de contenido con causa dentro del calendario mensual.</div>
     </div>
-    <div class="insight-card contexto">
-      <span class="insight-tag tag-contexto">Mes en curso</span>
-      <div class="insight-title">Salario mínimo 2026: buen open, click bajo, ventana recién abierta</div>
-      <div class="insight-body">La tercera campaña, <strong>"Así queda el salario 2026 en Australia (+ Ciudades dónde aprovecharlo)"</strong>, enviada el 7 de julio, abrió con <strong>34.24% de open rate, 2 órdenes y $113.99</strong> en sus primeras horas — un arranque más rápido en ventas que el de Flash Sale Julio 1 en su momento. El click de 0.05% es el más bajo del mes, un patrón que ya se vio en junio con los correos informativos de datos y cifras: la gente los lee pero hace menos clic. Con la ventana de conversión recién abierta, evaluar de nuevo a los 7 y 14 días antes de sacar conclusiones.</div>
+    <div class="insight-card positivo">
+      <span class="insight-tag tag-positivo">Mes en curso</span>
+      <div class="insight-title">Salario mínimo 2026 se quintuplicó en 2 días y tiene el mejor open del período</div>
+      <div class="insight-body">La tercera campaña, <strong>"Así queda el salario 2026 en Australia (+ Ciudades dónde aprovecharlo)"</strong>, pasó de $113.99 y 2 órdenes en sus primeras horas a <strong>$565.43 y 6 órdenes dos días después</strong>, con un open rate de <strong>40.37%, el más alto no solo de julio sino de todo el mes en curso</strong>. El tema del salario mínimo vuelve a demostrar su potencia: toca directamente el bolsillo de la audiencia migrante y genera apertura y compra a la vez. El único punto débil sigue siendo el click de 0.05%, el patrón conocido de los correos informativos de cifras: la gente los lee pero hace menos clic. Con la ventana de conversión abierta hasta el 21 de julio, esta campaña todavía tiene espacio para crecer.</div>
     </div>
   </div>
 
@@ -437,22 +493,22 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
     <div class="insight-card positivo">
       <span class="insight-tag tag-positivo">Positivo</span>
       <div class="insight-title">Junio cerró con 11 campañas y open rates por encima del benchmark</div>
-      <div class="insight-body">Junio terminó con <strong>11 campañas enviadas</strong> (frente a las 7 de mayo) y un open rate promedio de <strong>31.6%</strong>, todavía muy por encima del promedio de la industria (21–25%). El aumento de frecuencia no comprometió la calidad de apertura de forma grave, aunque sí generó una tendencia descendente que se detalla más abajo.</div>
+      <div class="insight-body">Junio terminó con <strong>11 campañas enviadas</strong> (frente a las 7 de mayo) y un open rate promedio consolidado de <strong>33.3%</strong>, todavía muy por encima del promedio de la industria (21–25%). El aumento de frecuencia no comprometió la calidad de apertura de forma grave, aunque sí generó una tendencia descendente que se detalla más abajo. Las aperturas tardías registradas en julio siguieron subiendo los porcentajes de casi todas las campañas del mes.</div>
     </div>
     <div class="insight-card positivo">
       <span class="insight-tag tag-positivo">Positivo</span>
       <div class="insight-title">2x1 Licencias de Conducir fue el cierre perfecto del mes</div>
-      <div class="insight-body">La última campaña de promoción del mes alcanzó <strong>39.93% de open rate</strong> — el más alto de todo junio — con <strong>4 órdenes y $346.44</strong>, además de activar el cupón 50NEWS con una venta adicional de $20. Su Rev/1K de $82 la posiciona como la segunda campaña más eficiente de junio, después de Cosas buenas en Australia. Confirma que las promociones de descuento directo y oferta clara siguen funcionando muy bien cuando se combinan con un asunto llamativo.</div>
+      <div class="insight-body">La última campaña de promoción del mes alcanzó <strong>42.71% de open rate consolidado</strong> — el más alto de todo junio — con <strong>4 órdenes y $346.44</strong>, además de activar el cupón 50NEWS con una venta adicional de $20. Su Rev/1K de $82 la posiciona como la segunda campaña más eficiente de junio, después de Cosas buenas en Australia. Confirma que las promociones de descuento directo y oferta clara siguen funcionando muy bien cuando se combinan con un asunto llamativo.</div>
     </div>
     <div class="insight-card positivo">
       <span class="insight-tag tag-positivo">Positivo</span>
       <div class="insight-title">La serie de Incremento de precios generó más de $1.063 en 3 envíos</div>
-      <div class="insight-body">Las tres campañas de la serie "Incremento de precios" generaron en conjunto <strong>$1.063.81 y 8 órdenes</strong>, a pesar de tener entre las tasas de apertura más bajas del mes (24–28%). Esto demuestra que un mensaje de urgencia bien planteado puede compensar una apertura más baja: la v2 ("5 Razones por las que venir a Australia fue la MEJOR opción") fue la segunda campaña más rentable de junio con $461.19 y un Rev/1K de $74.86.</div>
+      <div class="insight-body">Las tres campañas de la serie "Incremento de precios" generaron en conjunto <strong>$1.063.81 y 8 órdenes</strong>, a pesar de que la v1 y la v2 tuvieron aperturas entre las más bajas del mes (28–30% consolidado). Esto demuestra que un mensaje de urgencia bien planteado puede compensar una apertura más baja: la v2 ("5 Razones por las que venir a Australia fue la MEJOR opción") fue la segunda campaña más rentable de junio con $461.19 y un Rev/1K de $74.86.</div>
     </div>
     <div class="insight-card positivo">
       <span class="insight-tag tag-positivo">Positivo</span>
-      <div class="insight-title">Las ventanas de conversión largas siguen confirmándose</div>
-      <div class="insight-body">La campaña <strong>El Mundial y tu visa</strong> (enviada el 9 de junio) sumó su segunda venta el 23 de junio, 14 días después. Esto refuerza el aprendizaje del mes: una campaña con pocas ventas en los primeros días no debe descartarse como fallida hasta pasadas al menos 2 semanas de seguimiento.</div>
+      <div class="insight-title">Las ventanas de conversión largas siguen confirmándose — y ahora cruzan de mes</div>
+      <div class="insight-body">La campaña <strong>El Mundial y tu visa</strong> (enviada el 9 de junio) sumó su segunda venta el 23 de junio, 14 días después. Y el hallazgo más importante de la revisión de julio: <strong>Quedarse en Australia no es solo un sueño</strong> (enviada el 19 de junio) registró su tercera venta ya entrado julio, unas <strong>3 semanas después del envío</strong>, pasando de $220.82 a $243.58. Esto confirma que los correos siguen trayendo ventas incluso más allá de la ventana de 14 días: una campaña de junio generó revenue en julio sin ningún esfuerzo adicional. La conclusión operativa es doble: no descartar campañas como fallidas antes de las 2 semanas, y hacer una revisión final de mes cerrado antes de dar los números de junio (o de cualquier mes) por definitivos.</div>
     </div>
   </div>
 
@@ -475,18 +531,18 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
       <thead><tr><th style="text-align:left">Métrica</th><th>Mayo 2026</th><th>Junio 2026</th><th>Variación may→jun</th><th>Julio 2026 (en curso)</th></tr></thead>
       <tbody>
         <tr><td>Campañas enviadas</td><td>7</td><td>11</td><td class="open-good">+4</td><td>3</td></tr>
-        <tr style="background:#fafafa"><td>Open rate promedio</td><td class="open-good">38.5%</td><td class="open-mid">32.4%</td><td class="open-low">-6.1pp</td><td class="open-good">36.3%</td></tr>
-        <tr><td>Click rate promedio</td><td>0.14%</td><td>0.10%</td><td class="open-low">-0.04pp</td><td>0.11%</td></tr>
+        <tr style="background:#fafafa"><td>Open rate promedio</td><td class="open-good">38.5%</td><td class="open-mid">33.3%</td><td class="open-low">-5.2pp</td><td class="open-good">38.7%</td></tr>
+        <tr><td>Click rate promedio</td><td>0.14%</td><td>0.11%</td><td class="open-low">-0.03pp</td><td>0.11%</td></tr>
         <tr style="background:#fafafa"><td>Total enviados</td><td>47.577</td><td>74.325</td><td class="open-good">+26.748</td><td>21.911</td></tr>
-        <tr><td>Órdenes totales</td><td>27</td><td>36</td><td class="open-good">+9</td><td>14</td></tr>
-        <tr style="background:#fafafa"><td>Revenue correos</td><td class="revenue-cell">$2.422</td><td class="revenue-cell">$2.981</td><td class="open-good">+$559</td><td class="revenue-cell">$1.998</td></tr>
+        <tr><td>Órdenes totales</td><td>27</td><td>37</td><td class="open-good">+10</td><td>18</td></tr>
+        <tr style="background:#fafafa"><td>Revenue correos</td><td class="revenue-cell">$2.422</td><td class="revenue-cell">$3.004</td><td class="open-good">+$582</td><td class="revenue-cell">$2.450</td></tr>
         <tr><td>Revenue cupones</td><td class="revenue-cell">$2.713</td><td class="revenue-cell">$104</td><td class="open-low">-$2.609</td><td class="revenue-cell">$20.69</td></tr>
-        <tr style="background:#fafafa"><td>Total real del mes</td><td class="revenue-cell" style="font-size:15px">$5.134</td><td class="revenue-cell" style="font-size:15px">$3.085</td><td class="open-low">-$2.050</td><td class="revenue-cell" style="font-size:15px">$2.019.04</td></tr>
-        <tr><td>Rev/1K enviados promedio</td><td class="revenue-cell">$50.9</td><td class="revenue-cell">$40.1</td><td class="open-low">-$10.8</td><td class="revenue-cell">$91.2</td></tr>
+        <tr style="background:#fafafa"><td>Total real del mes</td><td class="revenue-cell" style="font-size:15px">$5.134</td><td class="revenue-cell" style="font-size:15px">$3.107</td><td class="open-low">-$2.027</td><td class="revenue-cell" style="font-size:15px">$2.470.48</td></tr>
+        <tr><td>Rev/1K enviados promedio</td><td class="revenue-cell">$50.9</td><td class="revenue-cell">$40.4</td><td class="open-low">-$10.5</td><td class="revenue-cell">$111.8</td></tr>
       </tbody>
     </table>
     <div style="padding:12px 16px;font-size:11px;color:#78350f;background:#fffbeb;border-top:1px solid #f0f0f8">
-      Sin contar cupones, el revenue de correos en junio superó al de mayo ($2.981 vs $2.422). La diferencia en el total real se explica completamente por el cupón MAMA26 ($2.573), un resultado excepcional vinculado al Día de la Madre. Los datos de julio son parciales, de la primera semana del mes: corresponden a las 3 primeras campañas más el único uso del cupón FLASHSALE registrado hasta ahora, y no incluyen recuperación de carrito. El revenue de la campaña Flash Sale Julio 1 está tomado del redondeo de FunnelKit ($1.78k).
+      Sin contar cupones, el revenue de correos en junio superó al de mayo ($3.004 vs $2.422), y junio sigue sumando: una campaña del 19 de junio registró una venta nueva en julio. La diferencia en el total real se explica completamente por el cupón MAMA26 ($2.573), un resultado excepcional vinculado al Día de la Madre. Los datos de julio son parciales, de la primera semana del mes: corresponden a las 3 primeras campañas más el único uso del cupón FLASHSALE registrado hasta ahora, y no incluyen recuperación de carrito. El revenue de la campaña Flash Sale Julio 1 está tomado del redondeo de FunnelKit ($1.78k).
     </div>
   </div>
 
@@ -495,12 +551,12 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
     <div class="insight-card contexto">
       <span class="insight-tag tag-contexto">Aprendizaje clave</span>
       <div class="insight-title">Más correos no garantizan más ventas — la fórmula importa más que la frecuencia</div>
-      <div class="insight-body">Junio tuvo <strong>11 campañas</strong> frente a las 7 de mayo, pero el revenue de correos solo subió un 23%. La recuperación de carrito, en cambio, generó <strong>$4.930 con 138 correos</strong> — mucho más por correo que la mayoría de las campañas masivas. Lo que esto confirma es que el volumen de envíos no es el motor del revenue: lo son las <strong>fórmulas que ya probaron funcionar</strong> (Temporada Invierno, Cosas buenas en Australia, 2x1 Licencias), los <strong>cupones con carga emocional</strong> (MAMA26 generó 18 veces más que FLASHSALE del mismo mes) y las <strong>temáticas que conectan emocionalmente</strong> con la audiencia — el migrante que extraña a su familia, que busca quedarse legal, que quiere traer a sus seres queridos. Para julio, la pregunta no es cuántos correos enviar, sino cuáles merecen ser enviados.</div>
+      <div class="insight-body">Junio tuvo <strong>11 campañas</strong> frente a las 7 de mayo, pero el revenue de correos solo subió un 24%. La recuperación de carrito, en cambio, generó <strong>$4.930 con 138 correos</strong> — mucho más por correo que la mayoría de las campañas masivas. Lo que esto confirma es que el volumen de envíos no es el motor del revenue: lo son las <strong>fórmulas que ya probaron funcionar</strong> (Temporada Invierno, Cosas buenas en Australia, 2x1 Licencias), los <strong>cupones con carga emocional</strong> (MAMA26 generó 18 veces más que FLASHSALE del mismo mes) y las <strong>temáticas que conectan emocionalmente</strong> con la audiencia — el migrante que extraña a su familia, que busca quedarse legal, que quiere traer a sus seres queridos. Para julio, la pregunta no es cuántos correos enviar, sino cuáles merecen ser enviados.</div>
     </div>
     <div class="insight-card positivo">
       <span class="insight-tag tag-positivo">Oportunidad</span>
       <div class="insight-title">Julio abrió con promoción y el resultado superó lo esperado</div>
-      <div class="insight-body">La recomendación de cierre de junio era abrir julio con una oferta clara para resetear el engagement de la lista. La campaña <strong>News Flash Sale Julio 1</strong> lo hizo, con un asunto de valor práctico ("5 Cosas que si o sí te van a pedir en Australia"), y en su primera semana acumula <strong>$1.78k y 9 órdenes</strong>, con el open rate subiendo de 27.04% a 37.96% a medida que consolidan las aperturas tardías. El siguiente paso es la medición de cierre a los 14 días, y complementar el mes con contenido emocional que no dependa solo del descuento — la newsletter de Venezuela ya va en esa línea.</div>
+      <div class="insight-body">La recomendación de cierre de junio era abrir julio con una oferta clara para resetear el engagement de la lista. La campaña <strong>News Flash Sale Julio 1</strong> lo hizo, con un asunto de valor práctico ("5 Cosas que si o sí te van a pedir en Australia"), y en su primera semana acumula <strong>$1.78k y 9 órdenes</strong>, con el open rate subiendo de 27.04% a 38.36% a medida que consolidan las aperturas tardías. El siguiente paso es la medición de cierre a los 14 días, y complementar el mes con contenido emocional que no dependa solo del descuento — la newsletter de Venezuela ya va en esa línea.</div>
     </div>
     <div class="insight-card positivo">
       <span class="insight-tag tag-positivo">Oportunidad</span>
@@ -535,11 +591,11 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
     <table style="margin-top:8px">
       <thead><tr><th>Métrica</th><th>Promedio industria migración/servicios</th><th>Entrelingo mayo</th><th>Entrelingo junio</th><th>Entrelingo julio (en curso)</th><th>Evaluación</th></tr></thead>
       <tbody>
-        <tr><td>Open Rate</td><td>21–25%</td><td class="open-good">38.5%</td><td class="open-good">32.4%</td><td class="open-good">36.3%</td><td>Sobre el benchmark en los 3 meses; julio recuperó nivel de mayo</td></tr>
-        <tr><td>Click Rate</td><td>0.5–1.5%</td><td class="open-low">0.14%</td><td class="open-low">0.10%</td><td class="open-low">0.11%</td><td>Por debajo — trabajar CTAs en julio</td></tr>
-        <tr><td>CTOR</td><td>8–12%</td><td class="open-low">0.37%</td><td class="open-low">0.31%</td><td class="open-low">0.29%</td><td>Bajo — revisar contenido y llamadas a la acción</td></tr>
-        <tr><td>Órdenes</td><td>—</td><td>27</td><td class="open-good">36</td><td>14</td><td>Julio lleva 14 órdenes en su primera semana</td></tr>
-        <tr><td>Revenue (correos)</td><td>—</td><td class="revenue-cell">$2.422</td><td class="revenue-cell">$2.981</td><td class="revenue-cell">$1.998</td><td>Julio ya roza los $2.000 en 1 semana, cerca del total de junio</td></tr>
+        <tr><td>Open Rate</td><td>21–25%</td><td class="open-good">38.5%</td><td class="open-good">33.3%</td><td class="open-good">38.7%</td><td>Julio ya supera a mayo — el mejor open rate del período</td></tr>
+        <tr><td>Click Rate</td><td>0.5–1.5%</td><td class="open-low">0.14%</td><td class="open-low">0.11%</td><td class="open-low">0.11%</td><td>Por debajo — trabajar CTAs en julio</td></tr>
+        <tr><td>CTOR</td><td>8–12%</td><td class="open-low">0.37%</td><td class="open-low">0.32%</td><td class="open-low">0.28%</td><td>Bajo — revisar contenido y llamadas a la acción</td></tr>
+        <tr><td>Órdenes</td><td>—</td><td>27</td><td class="open-good">37</td><td>18</td><td>Junio sumó una orden nueva en julio; julio lleva 18 en 1 semana</td></tr>
+        <tr><td>Revenue (correos)</td><td>—</td><td class="revenue-cell">$2.422</td><td class="revenue-cell">$3.004</td><td class="revenue-cell">$2.450</td><td>Julio ya superó el total de mayo en solo 1 semana</td></tr>
         <tr><td>Campañas/mes</td><td>4–8 recomendado</td><td class="open-good">7</td><td class="open-mid">11</td><td>3</td><td>Mantener julio dentro del rango recomendado</td></tr>
         <tr><td>Unsubscribe Rate</td><td>&lt;0.5%</td><td class="open-mid">Estimada ligeramente elevada</td><td>Sin dato exacto</td><td>Sin dato</td><td>Medir con precisión en julio</td></tr>
       </tbody>
@@ -550,7 +606,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
 
 <script>
 const CUPON_NOMBRES={flashsale:'FLASHSALE',mama26:'MAMA26',work26:'WORK26',cincuentanews:'50NEWS'};
-const CARRITOS={mayo:{revenue:1274,ordenes:9,enviados:257,tasa:3.5,ticket:141.55},junio:{revenue:4930,ordenes:31,enviados:138,tasa:22.46,ticket:158.88}};
+const CARRITOS={mayo:{revenue:1274,ordenes:9,enviados:257,tasa:3.5,ticket:141.55},junio:{revenue:4930,ordenes:31,enviados:138,tasa:22.46,ticket:158.88},julio:{revenue:1097.73,ordenes:4,estimado:true,eur:654.36,aud:19.54}};
 const CUPONES={mayo:{flashsale:139.56,mama26:2573.00,total:2712.56},junio:{flashsale:26.99,work26:56.68,cincuentanews:20.00,total:103.67},julio:{flashsale:20.69,total:20.69}};
 
 const DATA={
@@ -564,22 +620,22 @@ const DATA={
     {id:'frases_migrante',nombre:'Frases que no quieres escuchar',asunto:'5 frases que ningún migrante en Australia quiere escuchar',fecha:'2026-05-28',enviados:7833,open_rate:33.72,click_rate:0.12,ordenes:2,revenue:139.67,estado:'complete',nota:'Enviada en 4 tandas'}
   ],
   junio:[
-    {id:'cosas_buenas',nombre:'Cosas buenas en Australia',asunto:'Cosas buenas que están pasando en Australia y no te enteraste',fecha:'2026-06-02',enviados:7538,open_rate:38.19,click_rate:0.15,ordenes:9,revenue:801.42,estado:'complete',nota:''},
-    {id:'flash_mundial',nombre:'Flash Sale Mundial',asunto:'¿Ya tienes todo listo para ver el mundial desde Australia?',fecha:'2026-06-05',enviados:7505,open_rate:34.43,click_rate:0.13,ordenes:3,revenue:262.92,estado:'complete',nota:''},
-    {id:'mundial_visa',nombre:'El Mundial y tu visa',asunto:'El Mundial empieza. Tu aventura también. Usa WORK26 y ahorra 10%',fecha:'2026-06-09',enviados:7467,open_rate:32.61,click_rate:0.10,ordenes:2,revenue:41.38,estado:'complete',nota:'Segunda venta registrada el 23 jun — 14 días después del envío'},
-    {id:'quedarse_legal_1',nombre:'Quedarse legal v1',asunto:'Así puedes quedarte legal en Australia',fecha:'2026-06-12',enviados:7438,open_rate:32.06,click_rate:0.18,ordenes:4,revenue:227.65,estado:'complete',nota:''},
-    {id:'pride_junio',nombre:'Eventos PRIDE junio',asunto:'¡Eventos PRIDE de junio en Australia que NO te puedes perder!',fecha:'2026-06-16',enviados:7400,open_rate:31.77,click_rate:0.07,ordenes:2,revenue:151.77,estado:'complete',nota:''},
-    {id:'quedarse_legal_2',nombre:'Quedarse en Australia no es solo un sueño',asunto:'Quedarse en Australia no es solo un sueño. Es una decisión que se construye con cada paso que das.',fecha:'2026-06-19',enviados:7367,open_rate:27.61,click_rate:0.12,ordenes:2,revenue:220.82,estado:'complete',nota:''},
-    {id:'dia_padre',nombre:'Día del Padre',asunto:'¿Y tú? ¿Ya celebras el Día del Padre 2 veces?',fecha:'2026-06-21',enviados:6706,open_rate:28.30,click_rate:0.06,ordenes:1,revenue:89.97,estado:'complete',nota:''},
-    {id:'incremento_precios',nombre:'Incremento de precios v1',asunto:'¿Estás solo(a) en Australia? Esto te puede salvar',fecha:'2026-06-23',enviados:6373,open_rate:27.88,click_rate:0.05,ordenes:3,revenue:301.32,estado:'complete',nota:''},
-    {id:'incremento_precios_2',nombre:'Incremento de precios v2',asunto:'5 Razones por las que venir a Australia fue la MEJOR opción!',fecha:'2026-06-25',enviados:6161,open_rate:28.75,click_rate:0.11,ordenes:5,revenue:461.19,estado:'complete',nota:''},
-    {id:'2x1_licencias',nombre:'2x1 Licencias de Conducir',asunto:'¡Hoy es 2x1 en licencias de conducir!',fecha:'2026-06-26',enviados:4223,open_rate:40.78,click_rate:0.12,ordenes:4,revenue:346.44,estado:'complete',nota:''},
-    {id:'incremento_precios_3',nombre:'Incremento de precios v3',asunto:'10 reglas de Australia que no debes romper',fecha:'2026-06-23',enviados:6147,open_rate:33.64,click_rate:0.08,ordenes:1,revenue:75.87,estado:'complete',nota:''}
+    {id:'cosas_buenas',nombre:'Cosas buenas en Australia',asunto:'Cosas buenas que están pasando en Australia y no te enteraste',fecha:'2026-06-02',enviados:7538,open_rate:38.28,click_rate:0.15,ordenes:9,revenue:801.42,estado:'complete',nota:''},
+    {id:'flash_mundial',nombre:'Flash Sale Mundial',asunto:'¿Ya tienes todo listo para ver el mundial desde Australia?',fecha:'2026-06-05',enviados:7505,open_rate:34.68,click_rate:0.13,ordenes:3,revenue:262.92,estado:'complete',nota:''},
+    {id:'mundial_visa',nombre:'El Mundial y tu visa',asunto:'El Mundial empieza. Tu aventura también. Usa WORK26 y ahorra 10%',fecha:'2026-06-09',enviados:7467,open_rate:32.87,click_rate:0.10,ordenes:2,revenue:41.38,estado:'complete',nota:'Segunda venta registrada el 23 jun — 14 días después del envío'},
+    {id:'quedarse_legal_1',nombre:'Quedarse legal v1',asunto:'Así puedes quedarte legal en Australia',fecha:'2026-06-12',enviados:7438,open_rate:32.37,click_rate:0.18,ordenes:4,revenue:227.65,estado:'complete',nota:''},
+    {id:'pride_junio',nombre:'Eventos PRIDE junio',asunto:'¡Eventos PRIDE de junio en Australia que NO te puedes perder!',fecha:'2026-06-16',enviados:7400,open_rate:32.22,click_rate:0.07,ordenes:2,revenue:151.77,estado:'complete',nota:''},
+    {id:'quedarse_legal_2',nombre:'Quedarse en Australia no es solo un sueño',asunto:'Quedarse en Australia no es solo un sueño. Es una decisión que se construye con cada paso que das.',fecha:'2026-06-19',enviados:7367,open_rate:28.18,click_rate:0.12,ordenes:3,revenue:243.58,estado:'complete',nota:'Tercera venta registrada en julio — unas 3 semanas después del envío, más allá de la ventana de 14 días'},
+    {id:'dia_padre',nombre:'Día del Padre',asunto:'¿Y tú? ¿Ya celebras el Día del Padre 2 veces?',fecha:'2026-06-21',enviados:6706,open_rate:28.94,click_rate:0.06,ordenes:1,revenue:89.97,estado:'complete',nota:''},
+    {id:'incremento_precios',nombre:'Incremento de precios v1',asunto:'¿Estás solo(a) en Australia? Esto te puede salvar',fecha:'2026-06-23',enviados:6373,open_rate:28.73,click_rate:0.05,ordenes:3,revenue:301.32,estado:'complete',nota:''},
+    {id:'incremento_precios_2',nombre:'Incremento de precios v2',asunto:'5 Razones por las que venir a Australia fue la MEJOR opción!',fecha:'2026-06-25',enviados:6161,open_rate:29.91,click_rate:0.11,ordenes:5,revenue:461.19,estado:'complete',nota:''},
+    {id:'2x1_licencias',nombre:'2x1 Licencias de Conducir',asunto:'¡Hoy es 2x1 en licencias de conducir!',fecha:'2026-06-26',enviados:4223,open_rate:42.71,click_rate:0.12,ordenes:4,revenue:346.44,estado:'complete',nota:''},
+    {id:'incremento_precios_3',nombre:'Incremento de precios v3',asunto:'10 reglas de Australia que no debes romper',fecha:'2026-06-23',enviados:6147,open_rate:36.93,click_rate:0.10,ordenes:1,revenue:75.87,estado:'complete',nota:''}
   ],
   julio:[
-    {id:'news_flash_julio_1',nombre:'News Flash Sale Julio 1',asunto:'5 Cosas que si o sí te van a pedir en Australia',fecha:'2026-07-03',enviados:7410,open_rate:37.96,click_rate:0.12,ordenes:9,revenue:1780.00,estado:'complete',nota:'Creció de $634.59 a $1.78k en una semana — revenue tomado del redondeo de FunnelKit'},
-    {id:'news_venezuela_julio',nombre:'News Venezuela Julio',asunto:'Latinos en Australia ¡Venezuela nos necesita!',fecha:'2026-07-04',enviados:7283,open_rate:36.72,click_rate:0.15,ordenes:3,revenue:104.36,estado:'complete',nota:'Newsletter solidaria — apoyo a Venezuela con enlace de donación Caritas Australia'},
-    {id:'salario_minimo_2026',nombre:'Salario mínimo Australia 2026',asunto:'Así queda el salario 2026 en Australia (+ Ciudades dónde aprovecharlo)',fecha:'2026-07-07',enviados:7218,open_rate:34.24,click_rate:0.05,ordenes:2,revenue:113.99,estado:'complete',nota:'Enviada el 7 de julio — ventana de conversión recién abierta'}
+    {id:'news_flash_julio_1',nombre:'News Flash Sale Julio 1',asunto:'5 Cosas que si o sí te van a pedir en Australia',fecha:'2026-07-03',enviados:7410,open_rate:38.36,click_rate:0.12,ordenes:9,revenue:1780.00,estado:'complete',nota:'Creció de $634.59 a $1.78k en una semana — revenue tomado del redondeo de FunnelKit'},
+    {id:'news_venezuela_julio',nombre:'News Venezuela Julio',asunto:'Latinos en Australia ¡Venezuela nos necesita!',fecha:'2026-07-04',enviados:7283,open_rate:37.47,click_rate:0.15,ordenes:3,revenue:104.36,estado:'complete',nota:'Newsletter solidaria — apoyo a Venezuela con enlace de donación Caritas Australia'},
+    {id:'salario_minimo_2026',nombre:'Salario mínimo Australia 2026',asunto:'Así queda el salario 2026 en Australia (+ Ciudades dónde aprovecharlo)',fecha:'2026-07-07',enviados:7218,open_rate:40.37,click_rate:0.05,ordenes:6,revenue:565.43,estado:'complete',nota:'Creció de $113.99 a $565.43 en 2 días — el mejor open rate de julio (40.37%)'}
   ]
 };
 
@@ -599,13 +655,13 @@ function renderResumenTotal(month){
     const revCorreos=data.reduce((a,d)=>a+(d.revenue||0),0);
     const total=revCorreos+cupones.total+(carrito?carrito.revenue:0);
     const cuponesDetalle=Object.entries(cupones).filter(([k])=>k!=='total').map(([k,v])=>`<div class="rtcard-row"><span class="label">Cupón ${CUPON_NOMBRES[k]||k.toUpperCase()}</span><span class="value">+${fmtC(v)} AUD</span></div>`).join('');
-    const carritoRow=carrito?`<div class="rtcard-row"><span class="label">Carritos recuperados</span><span class="value">+${fmtC(carrito.revenue)} AUD</span></div>`:'<div class="rtcard-row"><span class="label">Carritos recuperados</span><span class="value" style="color:#9090aa;font-weight:500">Sin datos aún</span></div>';
+    const carritoRow=carrito?`<div class="rtcard-row"><span class="label">Carritos recuperados${carrito.estimado?' (€'+carrito.eur.toLocaleString('es',{minimumFractionDigits:2,maximumFractionDigits:2})+' EUR + $'+carrito.aud.toLocaleString('es',{minimumFractionDigits:2,maximumFractionDigits:2})+' AUD)':''}</span><span class="value">+${fmtC(carrito.revenue)} AUD${carrito.estimado?' aprox.':''}</span></div>`:'<div class="rtcard-row"><span class="label">Carritos recuperados</span><span class="value" style="color:#9090aa;font-weight:500">Sin datos aún</span></div>';
     return`<div class="rtcard"><div class="rtcard-header ${cssClass}">${mes}</div><div class="rtcard-row"><span class="label">Revenue por correos</span><span class="value">${fmtC(revCorreos)}</span></div>${cuponesDetalle}${carritoRow}<div class="rtcard-row total-row"><span class="label">Total real del mes</span><span class="value green">${fmtC(total)} AUD</span></div></div>`;
   }
   if(month==='mayo'){el.innerHTML=buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo',CARRITOS.mayo);el.style.gridTemplateColumns='1fr';}
   else if(month==='junio'){el.innerHTML=buildCard('Junio 2026',DATA.junio,CUPONES.junio,'junio',CARRITOS.junio);el.style.gridTemplateColumns='1fr';}
-  else if(month==='julio'){el.innerHTML=buildCard('Julio 2026 (en curso)',DATA.julio,CUPONES.julio,'julio',null);el.style.gridTemplateColumns='1fr';}
-  else{el.innerHTML=buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo',CARRITOS.mayo)+buildCard('Junio 2026',DATA.junio,CUPONES.junio,'junio',CARRITOS.junio)+buildCard('Julio 2026 (en curso)',DATA.julio,CUPONES.julio,'julio',null);el.style.gridTemplateColumns='1fr 1fr 1fr';}
+  else if(month==='julio'){el.innerHTML=buildCard('Julio 2026 (en curso)',DATA.julio,CUPONES.julio,'julio',CARRITOS.julio);el.style.gridTemplateColumns='1fr';}
+  else{el.innerHTML=buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo',CARRITOS.mayo)+buildCard('Junio 2026',DATA.junio,CUPONES.junio,'junio',CARRITOS.junio)+buildCard('Julio 2026 (en curso)',DATA.julio,CUPONES.julio,'julio',CARRITOS.julio);el.style.gridTemplateColumns='1fr 1fr 1fr';}
 }
 
 function renderKPIs(data){
@@ -662,7 +718,7 @@ function switchMonth(m){
   const data=getDataForMonth(m);
   const banner=document.getElementById('infoBanner');
   if(m==='mayo'){banner.textContent='Mayo 2026 — Primer mes de envíos. Las campañas se enviaron segmentadas en varias tandas para evitar bloqueos por volumen. Cada contacto recibió la campaña una sola vez.';banner.style.display='block';}
-  else if(m==='julio'){banner.textContent='Julio 2026 — Mes en curso, datos de la primera semana. 3 campañas enviadas y 1 uso del cupón FLASHSALE hasta ahora. Sin datos de recuperación de carrito todavía. El revenue de Flash Sale Julio 1 proviene del redondeo de FunnelKit ($1.78k).';banner.style.display='block';}
+  else if(m==='julio'){banner.textContent='Julio 2026 — Mes en curso, datos de la primera semana. 3 campañas enviadas, 1 uso del cupón FLASHSALE y 4 carritos recuperados (€654.36 + $19.54, ≈$1.097.73 AUD a tasa referencial). El revenue de Flash Sale Julio 1 proviene del redondeo de FunnelKit ($1.78k).';banner.style.display='block';}
   else{banner.style.display='none';}
   renderKPIs(data);renderResumenTotal(m);renderCharts(data);renderBars(data);renderTable(data);
 }
