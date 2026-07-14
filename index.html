@@ -26,7 +26,7 @@ body{font-family:'DM Sans',sans-serif;background:#f0f2f5;color:#1a1a2e;font-size
 .page{display:none;max-width:1140px;margin:0 auto;padding:20px 24px 40px;}
 .page.active{display:block;}
 .section-label{font-size:11px;font-weight:700;color:#8a8aaa;letter-spacing:.8px;text-transform:uppercase;margin:24px 0 12px;}
-.kpi-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
 @media(max-width:800px){.kpi-grid{grid-template-columns:repeat(2,1fr);}}
 .kcard{background:var(--white);border-radius:10px;padding:16px;border:1px solid var(--border);border-top:3px solid var(--verde);}
 .kcard.accent-blue{border-top-color:#3a7bd5;}
@@ -362,24 +362,29 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
     <div class="mes-separador-line"></div>
   </div>
 
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px">
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px">
     <div class="kcard" style="border-top-color:#3a7bd5">
-      <div class="klabel">Recuperado en euros</div>
+      <div class="klabel">Carritos WP — en euros</div>
       <div class="kval" style="color:#3a7bd5">€654.36</div>
       <div style="font-size:11px;color:#9090aa;margin-top:4px">3 pedidos en EUR</div>
     </div>
     <div class="kcard" style="border-top-color:#16a34a">
-      <div class="klabel">Recuperado en AUD</div>
+      <div class="klabel">Carritos WP — en AUD</div>
       <div class="kval" style="color:#16a34a">$346.24</div>
       <div style="font-size:11px;color:#9090aa;margin-top:4px">2 pedidos en AUD</div>
     </div>
+    <div class="kcard" style="border-top-color:#f97316">
+      <div class="klabel">Carritos WIX — AUD</div>
+      <div class="kval" style="color:#f97316">$755.55</div>
+      <div style="font-size:11px;color:#9090aa;margin-top:4px">Julio en curso</div>
+    </div>
     <div class="kcard" style="border-top-color:#7c3aed">
-      <div class="klabel">Total estimado en AUD</div>
-      <div class="kval" style="color:#7c3aed">≈$1.424.39</div>
-      <div style="font-size:11px;color:#9090aa;margin-top:4px">Tasa ref. 1 EUR = 1.6477 AUD</div>
+      <div class="klabel">Total WP + WIX (est. AUD)</div>
+      <div class="kval" style="color:#7c3aed">≈$2.179.94</div>
+      <div style="font-size:11px;color:#9090aa;margin-top:4px">WP aprox. + WIX confirmado</div>
     </div>
     <div class="kcard" style="border-top-color:#34c493">
-      <div class="klabel">Pedidos recuperados</div>
+      <div class="klabel">Pedidos recuperados WP</div>
       <div class="kval">5</div>
       <div style="font-size:11px;color:#9090aa;margin-top:4px">Julio en curso</div>
     </div>
@@ -405,6 +410,8 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
         <tr><td>Leonardo Sandoval Guanespen</td><td>9 jul</td><td style="text-align:left">Traducciones - CERTIFICADA - REGULAR</td><td>—</td><td class="revenue-cell">$19.54</td><td class="revenue-cell">$19.54</td></tr>
         <tr><td>María Ximena Soto</td><td>13 jul</td><td style="text-align:left">Traducciones - CERTIFICADA - EXPRESS</td><td>—</td><td class="revenue-cell">$326.70 <span style="font-size:10px;color:#9090aa">(pendiente confirmar)</span></td><td class="revenue-cell">$326.70</td></tr>
         <tr style="background:#f0faf7"><td style="font-weight:700;color:#12304a">Total julio (en curso)</td><td>—</td><td style="text-align:left">5 pedidos</td><td class="revenue-cell" style="color:#1e40af;font-size:13px">€654.36</td><td class="revenue-cell" style="font-size:13px">$346.24</td><td class="revenue-cell" style="font-size:13px">≈$1.424.39</td></tr>
+        <tr style="background:#f0faf7"><td style="font-weight:700;color:#12304a">+ Carritos WIX</td><td>—</td><td style="text-align:left">—</td><td>—</td><td class="revenue-cell" style="font-size:13px">$755.55</td><td class="revenue-cell" style="font-size:13px">$755.55</td></tr>
+        <tr style="background:#f0faf7;border-top:2px solid #34c493"><td style="font-weight:800;color:#0a6b3e">TOTAL WP + WIX</td><td>—</td><td style="text-align:left">5 WP + WIX</td><td class="revenue-cell" style="color:#1e40af;font-size:13px;font-weight:800">€654.36</td><td class="revenue-cell" style="font-size:13px;font-weight:800">$1.101.79</td><td class="revenue-cell" style="font-size:14px;font-weight:800;color:#0a6b3e">≈$2.179.94</td></tr>
       </tbody>
     </table>
   </div>
@@ -592,8 +599,8 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
 
 <script>
 const CUPON_NOMBRES={flashsale:'FLASHSALE',mama26:'MAMA26',work26:'WORK26',cincuentanews:'50NEWS',chilly2:'CHILLY2'};
-const CARRITOS={mayo:{revenue:1274,ordenes:9,enviados:257,tasa:3.5,ticket:141.55},junio:{revenue:4930,ordenes:31,enviados:138,tasa:22.46,ticket:158.88},julio:{revenue:1424.39,ordenes:5,estimado:true,eur:654.36,aud:346.24}};
-const CUPONES={mayo:{flashsale:139.56,mama26:2573.00,total:2712.56},junio:{flashsale:26.99,work26:56.68,cincuentanews:20.00,total:103.67},julio:{chilly2:20.69,total:20.69}};
+const CARRITOS={mayo:{revenue:1274,ordenes:9,enviados:257,tasa:3.5,ticket:141.55},junio:{revenue:4930,ordenes:31,enviados:138,tasa:22.46,ticket:158.88},julio:{revenue:1424.39,ordenes:5,estimado:true,eur:654.36,aud:346.24,wix:755.55,total_con_wix:2179.94}};
+const CUPONES={mayo:{flashsale:139.56,mama26:2573.00,total:2712.56},junio:{flashsale:26.99,work26:56.68,cincuentanews:20.00,total:103.67},julio:{flashsale:0,chilly2:20.69,total:20.69}};
 
 const DATA={
   mayo:[
@@ -641,13 +648,17 @@ function renderResumenTotal(month){
   if(!el)return;
   function buildCard(mes,data,cupones,cssClass,carrito){
     const revCorreos=data.reduce((a,d)=>a+(d.revenue||0),0);
-    const total=revCorreos+cupones.total+(carrito?carrito.revenue:0);
-    const cuponesDetalle=Object.entries(cupones).filter(([k])=>k!=='total').map(([k,v])=>`<div class="rtcard-row"><span class="label">Cupón ${CUPON_NOMBRES[k]||k.toUpperCase()}</span><span class="value">+${fmtC(v)} AUD</span></div>`).join('');
-    const carritoLabel=carrito&&carrito.estimado?`Carritos recuperados (€${carrito.eur.toLocaleString('es',{minimumFractionDigits:2})} EUR + $${carrito.aud.toLocaleString('es',{minimumFractionDigits:2})} AUD)`:'Carritos recuperados';
+    const wixRev=carrito&&carrito.wix?carrito.wix:0;
+    const total=revCorreos+cupones.total+(carrito?carrito.revenue:0)+wixRev;
+    // Cupones: mostrar todos incluyendo los de $0
+    const cuponesDetalle=Object.entries(cupones).filter(([k])=>k!=='total').map(([k,v])=>`<div class="rtcard-row"><span class="label">Cupón ${CUPON_NOMBRES[k]||k.toUpperCase()}</span><span class="value">${v>0?'+'+fmtC(v)+' AUD':'$0'}</span></div>`).join('');
+    // Si hay cupones con valor 0 que no están en el objeto, verificar si hay flashsale explícito en $0
+    const flashsaleZero=!Object.keys(cupones).includes('flashsale')&&mes.includes('julio')?`<div class="rtcard-row"><span class="label">Cupón FLASHSALE</span><span class="value" style="color:#9090aa">$0</span></div>`:'';
+    const carritoLabel=carrito&&carrito.estimado?`Carritos WP (€${carrito.eur.toLocaleString('es',{minimumFractionDigits:2})} EUR + $${carrito.aud.toLocaleString('es',{minimumFractionDigits:2})} AUD)`:'Carritos recuperados WP';
     const carritoVal=carrito?`+${fmtC(carrito.revenue)} AUD${carrito.estimado?' aprox.':''}`:'Sin datos aún';
-    const carritoStyle=carrito?'':'color:#9090aa;font-weight:500';
-    const carritoRow=carrito?`<div class="rtcard-row"><span class="label">${carritoLabel}</span><span class="value">${carritoVal}</span></div>`:'<div class="rtcard-row"><span class="label">Carritos recuperados</span><span class="value" style="color:#9090aa;font-weight:500">Sin datos aún</span></div>';
-    return`<div class="rtcard"><div class="rtcard-header ${cssClass}">${mes}</div><div class="rtcard-row"><span class="label">Revenue por correos</span><span class="value">${fmtC(revCorreos)}</span></div>${cuponesDetalle}${carritoRow}<div class="rtcard-row total-row"><span class="label">Total real del mes</span><span class="value green">${fmtC(total)} AUD</span></div></div>`;
+    const carritoWixRow=carrito&&carrito.wix?`<div class="rtcard-row"><span class="label">Carritos recuperados WIX</span><span class="value">+${fmtC(carrito.wix)} AUD</span></div>`:'';
+    const carritoRow=carrito?`<div class="rtcard-row"><span class="label">${carritoLabel}</span><span class="value">${carritoVal}</span></div>${carritoWixRow}`:'<div class="rtcard-row"><span class="label">Carritos recuperados</span><span class="value" style="color:#9090aa;font-weight:500">Sin datos aún</span></div>';
+    return`<div class="rtcard"><div class="rtcard-header ${cssClass}">${mes}</div><div class="rtcard-row"><span class="label">Revenue por correos</span><span class="value">${fmtC(revCorreos)}</span></div>${cuponesDetalle}${flashsaleZero}${carritoRow}<div class="rtcard-row total-row"><span class="label">Total real del mes</span><span class="value green">${fmtC(total)} AUD</span></div></div>`;
   }
   if(month==='mayo'){el.innerHTML=buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo',CARRITOS.mayo);el.style.gridTemplateColumns='1fr';}
   else if(month==='junio'){el.innerHTML=buildCard('Junio 2026',DATA.junio,CUPONES.junio,'junio',CARRITOS.junio);el.style.gridTemplateColumns='1fr';}
@@ -663,13 +674,17 @@ function renderKPIs(data){
   const ordenes=data.reduce((a,d)=>a+(d.ordenes||0),0);
   const revenue=data.reduce((a,d)=>a+(d.revenue||0),0);
   const cupTot=currentMonth==='todo'?(CUPONES.mayo.total+CUPONES.junio.total+(CUPONES.julio?CUPONES.julio.total:0)):(CUPONES[currentMonth]?CUPONES[currentMonth].total:0);
+  const carritosMes=currentMonth==='mayo'?CARRITOS.mayo:currentMonth==='junio'?CARRITOS.junio:currentMonth==='julio'?CARRITOS.julio:null;
+  const carritoTotalMes=currentMonth==='todo'?(CARRITOS.mayo.revenue+CARRITOS.junio.revenue+(CARRITOS.julio?(CARRITOS.julio.revenue+(CARRITOS.julio.wix||0)):0)):(carritosMes?(carritosMes.revenue+(carritosMes.wix||0)):null);
+  const carritoKPI=carritoTotalMes!=null?fmtC(carritoTotalMes)+'*':'Sin datos';
   document.getElementById('kpiGrid').innerHTML=[
     {label:'Total enviados',value:fmt(total),cls:''},
     {label:'Open rate promedio',value:avgOpen.toFixed(1)+'%',cls:'accent-blue'},
     {label:'Click rate promedio',value:avgClick.toFixed(2)+'%',cls:'accent-orange'},
     {label:'Órdenes totales',value:String(ordenes),cls:'accent-violet'},
     {label:'Revenue correos',value:fmtC(revenue),cls:'accent-pink'},
-    {label:'Revenue + cupones',value:fmtC(revenue+cupTot),cls:''}
+    {label:'Revenue + cupones',value:fmtC(revenue+cupTot),cls:''},
+    {label:'Carritos recuperados WP+WIX',value:carritoKPI,cls:'accent-violet'}
   ].map(c=>`<div class="kcard ${c.cls}"><div class="klabel">${c.label}</div><div class="kval">${c.value}</div></div>`).join('');
 }
 
