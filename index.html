@@ -253,9 +253,9 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
     <div class="cupon-card" style="border-top:3px solid #7c3aed">
       <div class="cupon-name">CHILLY2</div>
       <div class="cupon-stats">
-        <div class="cupon-stat"><div class="cupon-stat-val" style="color:#7c3aed">6</div><div class="cupon-stat-lbl">Usos</div></div>
-        <div class="cupon-stat"><div class="cupon-stat-val">6</div><div class="cupon-stat-lbl">Ordenes</div></div>
-        <div class="cupon-stat"><div class="cupon-stat-val" style="color:#0a6b3e">$842.88</div><div class="cupon-stat-lbl">AUD netos</div></div>
+        <div class="cupon-stat"><div class="cupon-stat-val" style="color:#7c3aed">7</div><div class="cupon-stat-lbl">Usos</div></div>
+        <div class="cupon-stat"><div class="cupon-stat-val">7</div><div class="cupon-stat-lbl">Ordenes</div></div>
+        <div class="cupon-stat"><div class="cupon-stat-val" style="color:#0a6b3e">$932.96</div><div class="cupon-stat-lbl">AUD netos</div></div>
       </div>
       <table class="cupon-orders" style="width:100%;margin-top:10px">
         <tr style="background:#f8f8fc"><td colspan="2" style="font-weight:700;color:#12304a;padding:7px 8px">Pedido 1 -- 13 jul</td></tr>
@@ -283,7 +283,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
         <tr><td>Cliente</td><td>Aldo Emmanuel Solano Olivares (returning)</td></tr>
         <tr><td>Venta neta</td><td>$33.99 AUD</td></tr>
       </table>
-      <div style="background:#f5f3ff;border-radius:6px;padding:10px;font-size:12px;color:#555;line-height:1.6;margin-top:12px">Cupon asociado a las campanas Promo CHILLY2 de julio. 6 usos: 4 el 20 jul, 1 el 13 jul y 1 el 23 jul. Promedio de <strong>$140.48 AUD por orden</strong>. 4 de los 6 clientes son returning.</div>
+      <div style="background:#f5f3ff;border-radius:6px;padding:10px;font-size:12px;color:#555;line-height:1.6;margin-top:12px">Cupon asociado a las campanas Promo CHILLY2 de julio. 7 usos. Promedio de <strong>$133.28 AUD por orden</strong>. La mayor&iacute;a son returning.</div>
     </div>
     <div class="cupon-card" style="border-top:3px solid #f97316">
       <div class="cupon-name">FLASHSALE</div>
@@ -312,7 +312,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
         <tr><td>WORK26</td><td style="text-align:right">Junio</td><td style="text-align:right">2</td><td class="revenue-cell">$56.68</td><td class="revenue-cell">$28.34</td><td style="text-align:right">Work &amp; Holiday -- orientado a proceso</td></tr>
         <tr><td>FLASHSALE</td><td style="text-align:right">Junio</td><td style="text-align:right">1</td><td class="revenue-cell">$26.99</td><td class="revenue-cell">$26.99</td><td style="text-align:right">Flash Sale -- descuento directo</td></tr>
         <tr><td>50NEWS</td><td style="text-align:right">Junio</td><td style="text-align:right">1</td><td class="revenue-cell">$20.00</td><td class="revenue-cell">$20.00</td><td style="text-align:right">2x1 Licencias -- descuento directo</td></tr>
-        <tr><td>CHILLY2 <span class="badge-parcial">Jul en curso</span></td><td style="text-align:right">Julio</td><td style="text-align:right">6</td><td class="revenue-cell">$842.88</td><td class="revenue-cell">$140.48</td><td style="text-align:right">Promo porcentaje -- julio</td></tr>
+        <tr><td>CHILLY2 <span class="badge-parcial">Jul en curso</span></td><td style="text-align:right">Julio</td><td style="text-align:right">7</td><td class="revenue-cell">$932.96</td><td class="revenue-cell">$133.28</td><td style="text-align:right">Promo porcentaje -- julio</td></tr>
         <tr><td>FLASHSALE <span class="badge-parcial">Jul en curso</span></td><td style="text-align:right">Julio</td><td style="text-align:right">1</td><td class="revenue-cell">$20.69</td><td class="revenue-cell">$20.69</td><td style="text-align:right">Flash Sale -- descuento directo</td></tr>
       </tbody>
     </table>
@@ -514,7 +514,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
 <script>
 const CUPON_NOMBRES={flashsale:'FLASHSALE',mama26:'MAMA26',work26:'WORK26',cincuentanews:'50NEWS',chilly2:'CHILLY2'};
 const CARRITOS={mayo:{revenue:1274,ordenes:9,enviados:257,tasa:3.5,ticket:141.55},junio:{revenue:4930,ordenes:31,enviados:138,tasa:22.46,ticket:158.88},julio:{revenue:1839.17,ordenes:10,estimado:true,eur:654.36,aud:575.04,usd:119.96,wix:1721.53,total_con_wix:3560.70}};
-const CUPONES={mayo:{flashsale:139.56,mama26:2573.00,total:2712.56},junio:{flashsale:26.99,work26:56.68,cincuentanews:20.00,total:103.67},julio:{flashsale:20.69,chilly2:842.88,total:863.57}};
+const CUPONES={mayo:{flashsale:139.56,mama26:2573.00,total:2712.56},junio:{flashsale:26.99,work26:56.68,cincuentanews:20.00,total:103.67},julio:{flashsale:20.69,chilly2:932.96,total:953.65}};
 
 const DATA={
   mayo:[
@@ -540,19 +540,19 @@ const DATA={
     {id:'incremento_precios_3',nombre:'Incremento de precios v3',asunto:'10 reglas de Australia que no debes romper',fecha:'2026-06-23',enviados:6147,open_rate:33.64,click_rate:0.08,ordenes:1,revenue:75.87,estado:'complete',nota:''}
   ],
   julio:[
-    {id:'news_flash_julio_1',nombre:'News Flash Sale Julio 1',asunto:'5 Cosas que si o si te van a pedir en Australia',fecha:'2026-07-03',enviados:7410,open_rate:40.29,click_rate:0.13,ordenes:9,revenue:1780.00,estado:'complete',nota:'Revenue tomado del redondeo de FunnelKit ($1.78k)'},
-    {id:'news_venezuela_julio',nombre:'News Venezuela Julio',asunto:'Latinos en Australia Venezuela nos necesita!',fecha:'2026-07-04',enviados:7283,open_rate:39.12,click_rate:0.15,ordenes:6,revenue:371.65,estado:'complete',nota:'Newsletter solidaria'},
-    {id:'salario_minimo_2026',nombre:'Salario minimo Australia 2026',asunto:'Asi queda el salario 2026 en Australia (+ Ciudades donde aprovecharlo)',fecha:'2026-07-07',enviados:7218,open_rate:43.40,click_rate:0.07,ordenes:13,revenue:875.35,estado:'complete',nota:'El mejor open rate del periodo (43.40%)'},
-    {id:'flash_sale_julio_2',nombre:'News Flash Sale Julio 2',asunto:'Australia secreta: 5 Zonas WOW que no conoces todavia',fecha:'2026-07-10',enviados:7124,open_rate:29.88,click_rate:0.04,ordenes:4,revenue:240.84,estado:'complete',nota:''},
-    {id:'promo_chilly2_1',nombre:'Promo CHILLY2 1',asunto:'Que hacer en invierno version low-cost!',fecha:'2026-07-13',enviados:7042,open_rate:30.74,click_rate:0.08,ordenes:2,revenue:154.27,estado:'complete',nota:''},
-    {id:'comprar_carro_base',nombre:'Comprar carro en Australia (base grande)',asunto:'3 Pasos para comprar carro en Australia!',fecha:'2026-07-15',enviados:6960,open_rate:41.64,click_rate:0.53,ordenes:5,revenue:447.66,estado:'complete',nota:'El click rate mas alto de todo el periodo (0.53%)'},
+    {id:'news_flash_julio_1',nombre:'News Flash Sale Julio 1',asunto:'5 Cosas que si o si te van a pedir en Australia',fecha:'2026-07-03',enviados:7410,open_rate:40.32,click_rate:0.13,ordenes:9,revenue:1780.00,estado:'complete',nota:'Revenue tomado del redondeo de FunnelKit ($1.78k)'},
+    {id:'news_venezuela_julio',nombre:'News Venezuela Julio',asunto:'Latinos en Australia Venezuela nos necesita!',fecha:'2026-07-04',enviados:7283,open_rate:39.13,click_rate:0.15,ordenes:6,revenue:371.65,estado:'complete',nota:'Newsletter solidaria'},
+    {id:'salario_minimo_2026',nombre:'Salario minimo Australia 2026',asunto:'Asi queda el salario 2026 en Australia (+ Ciudades donde aprovecharlo)',fecha:'2026-07-07',enviados:7218,open_rate:43.42,click_rate:0.07,ordenes:13,revenue:875.35,estado:'complete',nota:'El mejor open rate del periodo (43.42%)'},
+    {id:'flash_sale_julio_2',nombre:'News Flash Sale Julio 2',asunto:'Australia secreta: 5 Zonas WOW que no conoces todavia',fecha:'2026-07-10',enviados:7124,open_rate:29.95,click_rate:0.04,ordenes:4,revenue:240.84,estado:'complete',nota:''},
+    {id:'promo_chilly2_1',nombre:'Promo CHILLY2 1',asunto:'Que hacer en invierno version low-cost!',fecha:'2026-07-13',enviados:7042,open_rate:30.80,click_rate:0.08,ordenes:2,revenue:154.27,estado:'complete',nota:''},
+    {id:'comprar_carro_base',nombre:'Comprar carro en Australia (base grande)',asunto:'3 Pasos para comprar carro en Australia!',fecha:'2026-07-15',enviados:6960,open_rate:41.68,click_rate:0.53,ordenes:5,revenue:447.66,estado:'complete',nota:'El click rate mas alto de todo el periodo (0.53%)'},
     {id:'comprar_carro_mafe',nombre:'Comprar carro en Australia (base Mafe)',asunto:'3 Pasos para comprar carro en Australia!',fecha:'2026-07-15',enviados:45,open_rate:10.20,click_rate:0.00,ordenes:0,revenue:0,estado:'complete',nota:'Base especifica de Mafe'},
-    {id:'flash_sale_julio_3',nombre:'News Flash Sale Julio 3',asunto:'(asunto por confirmar)',fecha:'2026-07-17',enviados:6849,open_rate:30.19,click_rate:0.10,ordenes:3,revenue:470.69,estado:'complete',nota:''},
-    {id:'promo_chilly2_2',nombre:'Promo CHILLY2 2',asunto:'(asunto por confirmar)',fecha:'2026-07-20',enviados:6735,open_rate:39.70,click_rate:0.14,ordenes:15,revenue:1130.00,estado:'complete',nota:'La campana con mas ordenes de julio (15) -- revenue $1.13k del redondeo FunnelKit'},
-    {id:'webinar_julio_1',nombre:'Webinar invitacion julio 1',asunto:'NEW WEBINAR! Tu visa sobrevive el nuevo ano fiscal?',fecha:'2026-07-18',enviados:6778,open_rate:28.73,click_rate:0.14,ordenes:1,revenue:98.97,estado:'complete',nota:''},
-    {id:'animales_raros',nombre:'Los animales mas raros de Australia',asunto:'Los animales mas raros de Australia (y alguno que ya conoces de TikTok)',fecha:'2026-07-23',enviados:6710,open_rate:36.67,click_rate:0.04,ordenes:4,revenue:233.79,estado:'complete',nota:'De 1 a 4 ordenes en una semana'},
-    {id:'flash_sale_julio_4',nombre:'News Flash Sale Julio 4',asunto:'Mitos sobre vivir en Australia que sigues creyendo',fecha:'2026-07-24',enviados:6659,open_rate:29.01,click_rate:0.06,ordenes:1,revenue:129.78,estado:'complete',nota:''},
-    {id:'promo_chilly2_3',nombre:'Promo CHILLY2 3',asunto:'(asunto por confirmar)',fecha:'2026-07-28',enviados:6605,open_rate:23.79,click_rate:0.06,ordenes:1,revenue:129.78,estado:'complete',nota:'Enviada el 28 jul -- metricas en consolidacion'}
+    {id:'flash_sale_julio_3',nombre:'News Flash Sale Julio 3',asunto:'(asunto por confirmar)',fecha:'2026-07-17',enviados:6849,open_rate:30.29,click_rate:0.10,ordenes:3,revenue:470.69,estado:'complete',nota:''},
+    {id:'promo_chilly2_2',nombre:'Promo CHILLY2 2',asunto:'(asunto por confirmar)',fecha:'2026-07-20',enviados:6735,open_rate:39.80,click_rate:0.14,ordenes:16,revenue:1180.00,estado:'complete',nota:'La campana con mas ordenes de julio (16) -- revenue $1.18k del redondeo FunnelKit'},
+    {id:'webinar_julio_1',nombre:'Webinar invitacion julio 1',asunto:'NEW WEBINAR! Tu visa sobrevive el nuevo ano fiscal?',fecha:'2026-07-18',enviados:6778,open_rate:28.88,click_rate:0.14,ordenes:1,revenue:98.97,estado:'complete',nota:''},
+    {id:'animales_raros',nombre:'Los animales mas raros de Australia',asunto:'Los animales mas raros de Australia (y alguno que ya conoces de TikTok)',fecha:'2026-07-23',enviados:6710,open_rate:36.91,click_rate:0.04,ordenes:4,revenue:233.79,estado:'complete',nota:''},
+    {id:'flash_sale_julio_4',nombre:'News Flash Sale Julio 4',asunto:'Mitos sobre vivir en Australia que sigues creyendo',fecha:'2026-07-24',enviados:6659,open_rate:29.34,click_rate:0.06,ordenes:1,revenue:129.78,estado:'complete',nota:''},
+    {id:'promo_chilly2_3',nombre:'Promo CHILLY2 3',asunto:'(asunto por confirmar)',fecha:'2026-07-28',enviados:6605,open_rate:26.42,click_rate:0.09,ordenes:4,revenue:353.82,estado:'complete',nota:'De 1 a 4 ordenes en 2 dias'}
   ]
 };
 
