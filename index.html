@@ -144,25 +144,25 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
   <button class="chip" onclick="switchMonth('junio')" id="chip-junio">Junio 2026</button>
   <button class="chip" onclick="switchMonth('julio')" id="chip-julio">Julio 2026</button>
   <button class="chip" onclick="switchMonth('agosto')" id="chip-agosto">Agosto 2026</button>
-  <button class="chip" onclick="switchMonth('todo')" id="chip-todo">Todo el periodo</button>
+  <button class="chip" onclick="switchMonth('todo')" id="chip-todo">Todo el período</button>
 </div>
 
 <!-- DATOS -->
 <div class="page active" id="page-datos">
   <div class="info-banner" id="infoBanner" style="display:none"></div>
-  <div class="section-label">Resumen del periodo</div>
+  <div class="section-label">Resumen del período</div>
   <div class="kpi-grid" id="kpiGrid"></div>
   <div class="section-label">Revenue total real -- correos + cupones</div>
   <div class="resumen-total-grid" id="resumenTotal"></div>
-  <div class="section-label">Revenue y ordenes por campana</div>
+  <div class="section-label">Revenue y ordenes por campaña</div>
   <div class="ccard">
-    <div class="ctitle">Revenue generado por campana -- monto y ordenes sobre cada barra</div>
+    <div class="ctitle">Revenue generado por campaña -- monto y ordenes sobre cada barra</div>
     <div class="cwrap" style="height:280px"><canvas id="cRevenue"></canvas></div>
   </div>
-  <div class="section-label">Open rate por campana</div>
+  <div class="section-label">Open rate por campaña</div>
   <div class="charts-row">
     <div class="ccard">
-      <div class="ctitle">Open rate por campana</div>
+      <div class="ctitle">Open rate por campaña</div>
       <div class="cwrap" style="height:240px"><canvas id="cOpenRate"></canvas></div>
     </div>
     <div class="ccard">
@@ -170,15 +170,15 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
       <div class="cwrap" style="height:240px"><canvas id="cTrend"></canvas></div>
     </div>
   </div>
-  <div class="section-label">Comparativa de campanas</div>
+  <div class="section-label">Comparativa de campañas</div>
   <div class="comparison-grid">
     <div class="comp-card"><div class="comp-title">Open rate -- ranking</div><div id="barOpenRate"></div></div>
     <div class="comp-card"><div class="comp-title">CTOR -- efectividad del contenido</div><div id="barCTOR"></div></div>
   </div>
-  <div class="section-label">Detalle por campana</div>
+  <div class="section-label">Detalle por campaña</div>
   <div class="table-card">
     <table>
-      <thead><tr><th>Campana</th><th>Asunto</th><th>Enviados</th><th>Open Rate</th><th>Click Rate</th><th>CTOR</th><th>Ordenes</th><th>Revenue</th><th>Rev/1K enviados</th></tr></thead>
+      <thead><tr><th>Campaña</th><th>Asunto</th><th>Enviados</th><th>Open Rate</th><th>Click Rate</th><th>CTOR</th><th>Ordenes</th><th>Revenue</th><th>Rev/1K enviados</th></tr></thead>
       <tbody id="campaignBody"></tbody>
     </table>
   </div>
@@ -200,7 +200,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
         <div class="cupon-stat"><div class="cupon-stat-val">11</div><div class="cupon-stat-lbl">Ordenes</div></div>
         <div class="cupon-stat"><div class="cupon-stat-val" style="color:#0a6b3e">$2.573</div><div class="cupon-stat-lbl">AUD netos</div></div>
       </div>
-      <div style="background:#fdf2f8;border-radius:6px;padding:10px;font-size:12px;color:#555;line-height:1.6">El cupon de mayor conversion del periodo. Promedio de <strong>$233.90 AUD por orden</strong>.</div>
+      <div style="background:#fdf2f8;border-radius:6px;padding:10px;font-size:12px;color:#555;line-height:1.6">El cupon de mayor conversion del período. Promedio de <strong>$233.90 AUD por orden</strong>.</div>
     </div>
     <div class="cupon-card" style="border-top:3px solid #f97316">
       <div class="cupon-name">FLASHSALE</div>
@@ -209,7 +209,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
         <div class="cupon-stat"><div class="cupon-stat-val">1</div><div class="cupon-stat-lbl">Ordenes</div></div>
         <div class="cupon-stat"><div class="cupon-stat-val" style="color:#0a6b3e">$139.56</div><div class="cupon-stat-lbl">AUD netos</div></div>
       </div>
-      <div style="background:#fff8f3;border-radius:6px;padding:10px;font-size:12px;color:#555;line-height:1.6">Asociado a la campana Flash Sale de mayo.</div>
+      <div style="background:#fff8f3;border-radius:6px;padding:10px;font-size:12px;color:#555;line-height:1.6">Asociado a la campaña Flash Sale de mayo.</div>
     </div>
   </div>
 
@@ -301,17 +301,17 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
   <div class="section-label">Resumen comparativo de cupones</div>
   <div class="table-card">
     <table>
-      <thead><tr><th>Cupon</th><th>Mes</th><th>Usos</th><th>Ventas netas (AUD)</th><th>Promedio por uso</th><th>Tipo de campana</th></tr></thead>
+      <thead><tr><th>Cupon</th><th>Mes</th><th>Usos</th><th>Ventas netas (AUD)</th><th>Promedio por uso</th><th>Tipo de campaña</th></tr></thead>
       <tbody>
         <tr class="best-row"><td>MAMA26</td><td style="text-align:right">Mayo</td><td style="text-align:right">11</td><td class="revenue-cell">$2.573.00</td><td class="revenue-cell">$233.90</td><td style="text-align:right">Dia de la Madre -- emocional</td></tr>
         <tr><td>FLASHSALE</td><td style="text-align:right">Mayo</td><td style="text-align:right">1</td><td class="revenue-cell">$139.56</td><td class="revenue-cell">$139.56</td><td style="text-align:right">Flash Sale -- descuento directo</td></tr>
         <tr><td>WORK26</td><td style="text-align:right">Junio</td><td style="text-align:right">2</td><td class="revenue-cell">$56.68</td><td class="revenue-cell">$28.34</td><td style="text-align:right">Work &amp; Holiday -- orientado a proceso</td></tr>
         <tr><td>FLASHSALE</td><td style="text-align:right">Junio</td><td style="text-align:right">1</td><td class="revenue-cell">$26.99</td><td class="revenue-cell">$26.99</td><td style="text-align:right">Flash Sale -- descuento directo</td></tr>
         <tr><td>50NEWS</td><td style="text-align:right">Junio</td><td style="text-align:right">1</td><td class="revenue-cell">$20.00</td><td class="revenue-cell">$20.00</td><td style="text-align:right">2x1 Licencias -- descuento directo</td></tr>
-        <tr><td>CHILLY2 <span class="badge-parcial">Jul en curso</span></td><td style="text-align:right">Julio</td><td style="text-align:right">7</td><td class="revenue-cell">$932.96</td><td class="revenue-cell">$133.28</td><td style="text-align:right">Promo porcentaje -- julio</td></tr>
-        <tr><td>FLASHSALE <span class="badge-parcial">Jul en curso</span></td><td style="text-align:right">Julio</td><td style="text-align:right">1</td><td class="revenue-cell">$20.69</td><td class="revenue-cell">$20.69</td><td style="text-align:right">Flash Sale -- descuento directo</td></tr>
-        <tr><td>MAGPIE2 <span class="badge-parcial">Ago en curso</span></td><td style="text-align:right">Agosto</td><td style="text-align:right">4</td><td class="revenue-cell">$260.88</td><td class="revenue-cell">$65.22</td><td style="text-align:right">Promo porcentaje -- agosto</td></tr>
-        <tr><td>FLASHSALE <span class="badge-parcial">Ago en curso</span></td><td style="text-align:right">Agosto</td><td style="text-align:right">2</td><td class="revenue-cell">$53.98</td><td class="revenue-cell">$26.99</td><td style="text-align:right">Flash Sale -- descuento directo</td></tr>
+        <tr><td>CHILLY2 </td><td style="text-align:right">Julio</td><td style="text-align:right">7</td><td class="revenue-cell">$932.96</td><td class="revenue-cell">$133.28</td><td style="text-align:right">Promo porcentaje -- julio</td></tr>
+        <tr><td>FLASHSALE </td><td style="text-align:right">Julio</td><td style="text-align:right">1</td><td class="revenue-cell">$20.69</td><td class="revenue-cell">$20.69</td><td style="text-align:right">Flash Sale -- descuento directo</td></tr>
+        <tr><td>MAGPIE2 <span class="badge-parcial">Agosto</span></td><td style="text-align:right">Agosto</td><td style="text-align:right">4</td><td class="revenue-cell">$260.88</td><td class="revenue-cell">$65.22</td><td style="text-align:right">Promo porcentaje -- agosto</td></tr>
+        <tr><td>FLASHSALE <span class="badge-parcial">Agosto</span></td><td style="text-align:right">Agosto</td><td style="text-align:right">2</td><td class="revenue-cell">$53.98</td><td class="revenue-cell">$26.99</td><td style="text-align:right">Flash Sale -- descuento directo</td></tr>
       </tbody>
     </table>
   </div>
@@ -356,14 +356,14 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
 
   <div class="mes-separador" style="margin-top:28px">
     <div class="mes-separador-line"></div>
-    <div class="mes-separador-label">Agosto 2026 <span class="badge-parcial">En curso</span></div>
+    <div class="mes-separador-label">Agosto 2026</div>
     <div class="mes-separador-line"></div>
   </div>
 
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px">
     <div class="kcard" style="border-top-color:#3a7bd5"><div class="klabel">WP -- EUR</div><div class="kval" style="color:#3a7bd5">&euro;74.41</div><div style="font-size:11px;color:#9090aa;margin-top:4px">1 pedido</div></div>
-    <div class="kcard" style="border-top-color:#16a34a"><div class="klabel">WP -- AUD</div><div class="kval" style="color:#16a34a">$1.608.00</div><div style="font-size:11px;color:#9090aa;margin-top:4px">16 pedidos</div></div>
-    <div class="kcard" style="border-top-color:#f97316"><div class="klabel">WIX -- AUD</div><div class="kval" style="color:#f97316">$1.472.00</div><div style="font-size:11px;color:#9090aa;margin-top:4px">15 pedidos</div></div>
+    <div class="kcard" style="border-top-color:#16a34a"><div class="klabel">WP -- AUD</div><div class="kval" style="color:#16a34a">$1.781.81</div><div style="font-size:11px;color:#9090aa;margin-top:4px">19 pedidos</div></div>
+    <div class="kcard" style="border-top-color:#f97316"><div class="klabel">WIX -- AUD</div><div class="kval" style="color:#f97316">$1.537.99</div><div style="font-size:11px;color:#9090aa;margin-top:4px">16 pedidos</div></div>
     <div class="kcard" style="border-top-color:#7c3aed"><div class="klabel">Total agosto (est.)</div><div class="kval" style="color:#7c3aed">&asymp;$2.561.05</div><div style="font-size:11px;color:#9090aa;margin-top:4px">23 pedidos</div></div>
   </div>
 
@@ -390,7 +390,10 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
         <tr><td>ALEXANDRA Gutierrez Cisneros</td><td>25 ago</td><td style="text-align:left">Traducciones - MULTIPACK CERTIFICADA</td><td>--</td><td class="revenue-cell">$131.60</td><td class="revenue-cell">$131.60</td></tr>
         <tr><td>Alexandre Corbera</td><td>25-26 ago</td><td style="text-align:left">Traducciones - CERTIFICADA - REGULAR</td><td>--</td><td class="revenue-cell">$29.18</td><td class="revenue-cell">$29.18</td></tr>
         <tr><td>Carlos Nino</td><td>26 ago</td><td style="text-align:left">Traducciones - NAATI ESTANDAR - REGULAR</td><td>--</td><td class="revenue-cell">$103.38</td><td class="revenue-cell">$103.38</td></tr>
-        <tr style="background:#f0faf7"><td style="font-weight:700;color:#12304a">Total agosto WP</td><td>--</td><td style="text-align:left">18 pedidos (2 EUR + 16 AUD)</td><td class="revenue-cell" style="color:#1e40af">&euro;112.47</td><td class="revenue-cell">$1.608.00</td><td class="revenue-cell">&asymp;$1.793.32</td></tr>
+        <tr><td>Laura Marcela Ramirez</td><td>29 ago</td><td style="text-align:left">Traducciones - NAATI OTROS - REGULAR</td><td>--</td><td class="revenue-cell">$49.54</td><td class="revenue-cell">$49.54</td></tr>
+        <tr><td>Viviana Becerra</td><td>31 ago</td><td style="text-align:left">Traducciones - CERTIFICADA - EXPRESS</td><td>--</td><td class="revenue-cell">$65.98</td><td class="revenue-cell">$65.98</td></tr>
+        <tr><td>Karla Karime Puentes Barcenas</td><td>31 ago</td><td style="text-align:left">Traducciones - NAATI OTROS - REGULAR</td><td>--</td><td class="revenue-cell">$58.29</td><td class="revenue-cell">$58.29</td></tr>
+        <tr style="background:#f0faf7"><td style="font-weight:700;color:#12304a">Total agosto WP</td><td>--</td><td style="text-align:left">21 pedidos (2 EUR + 19 AUD)</td><td class="revenue-cell" style="color:#1e40af">&euro;112.47</td><td class="revenue-cell">$1.781.81</td><td class="revenue-cell">&asymp;$1.967.13</td></tr>
       </tbody>
     </table>
   </div>
@@ -415,27 +418,30 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
         <tr><td>Maria Rojas</td><td>20 ago</td><td class="revenue-cell">$59.39</td></tr>
         <tr><td>Erika Vanessa Burbano Delgado</td><td>23 ago</td><td class="revenue-cell">$51.69</td></tr>
         <tr><td>Lautaro Ferrario</td><td>25 ago</td><td class="revenue-cell">$43.99</td></tr>
-        <tr style="background:#f0faf7"><td style="font-weight:800;color:#12304a">Total WIX agosto</td><td>15 pedidos</td><td class="revenue-cell" style="font-size:14px;font-weight:800">$1.472.00</td></tr>
+        <tr><td>Maximiliano Filizzola Moyano</td><td>28 ago</td><td class="revenue-cell">$65.99</td></tr>
+        <tr style="background:#f0faf7"><td style="font-weight:800;color:#12304a">Total WIX agosto</td><td>16 pedidos</td><td class="revenue-cell" style="font-size:14px;font-weight:800">$1.537.99</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="insight-card contexto" style="margin-bottom:20px">
-    <span class="insight-tag tag-contexto">Metodologia</span>
+    <span class="insight-tag tag-contexto">Metodología</span>
     <div class="insight-title">Como se consolida el total cuando hay dos monedas</div>
     <div class="insight-body">Los montos oficiales de julio en WordPress son <strong>&euro;693.75 en euros, $531.11 en d&oacute;lares australianos y $119.96 en d&oacute;lares americanos (USD)</strong>. Para consolidar en AUD se usan tasas de referencia: <strong>1 EUR = 1.6477 AUD</strong> y <strong>1 USD = 1.55 AUD</strong> (julio 2026). El total WP de <strong>&asymp;$1.795.24 AUD es un estimado</strong>. Los carritos WIX ($1.618.55, 16 pedidos hasta el 28 jul) est&aacute;n confirmados en AUD.</div>
   </div>
 
-  <div class="section-label">Comparativa mayo vs junio</div>
+  <div class="section-label">Comparativa mensual abril-agosto</div>
   <div class="table-card" style="margin-bottom:20px">
     <table>
-      <thead><tr><th style="text-align:left">Metrica</th><th>Mayo 2026</th><th>Junio 2026</th><th>Variacion</th></tr></thead>
+      <thead><tr><th style="text-align:left">Métrica</th><th>Abril</th><th>Mayo</th><th>Junio</th><th>Julio</th><th>Agosto</th></tr></thead>
       <tbody>
-        <tr><td>Correos de recuperacion enviados</td><td>257</td><td>138</td><td class="open-low">-119</td></tr>
-        <tr style="background:#fafafa"><td>Pedidos recuperados</td><td>9</td><td class="open-good">31</td><td class="open-good">+22</td></tr>
-        <tr><td>Revenue recuperado</td><td class="revenue-cell">$1.274</td><td class="revenue-cell">$4.930</td><td class="open-good">+$3.656</td></tr>
-        <tr style="background:#fafafa"><td>Tasa de recuperacion</td><td class="open-mid">3.5%</td><td class="open-good">22.46%</td><td class="open-good">+18.96pp</td></tr>
-        <tr><td>Ticket promedio</td><td class="revenue-cell">$141.55</td><td class="revenue-cell">$158.88</td><td class="open-good">+$17.33</td></tr>
+        <tr><td>Total correos de recuperación enviados (mes)</td><td>208</td><td>254</td><td>346</td><td>295</td><td>291</td></tr>
+        <tr style="background:#fafafa"><td>Total pedidos recuperados (mes)</td><td>11</td><td>9</td><td class="open-good">29</td><td>9</td><td class="open-good">21</td></tr>
+        <tr><td>Revenue total recuperado ($)</td><td class="revenue-cell">$1.820,00</td><td class="revenue-cell">$1.274,00</td><td class="revenue-cell">$4.930,00</td><td class="revenue-cell">$1.904,07</td><td class="revenue-cell">&asymp;$1.967,13</td></tr>
+        <tr style="background:#fafafa"><td>Tasa de recuperación % (pedidos recup. / correos enviados)</td><td>5,29%</td><td>3,54%</td><td class="open-good">8,38%</td><td>3,05%</td><td class="open-good">7,22%</td></tr>
+        <tr><td>Ticket promedio pedido recuperado ($)</td><td class="revenue-cell">$165,45</td><td class="revenue-cell">$141,56</td><td class="revenue-cell">$170,00</td><td class="revenue-cell">$211,56</td><td class="revenue-cell">$93,67</td></tr>
+        <tr style="background:#fafafa"><td>Revenue recuperado vs. mes anterior ($ diferencia)</td><td style="color:#9090aa">Mes base</td><td class="open-low">-$546,00</td><td class="open-good">+$3.656,00</td><td class="open-low">-$3.025,93</td><td class="open-good">+$63,06</td></tr>
+        <tr><td>Revenue recuperado vs. mes anterior (% cambio)</td><td style="color:#9090aa">--</td><td class="open-low">-30,00%</td><td class="open-good">+286,97%</td><td class="open-low">-61,38%</td><td class="open-good">+3,31%</td></tr>
       </tbody>
     </table>
   </div>
@@ -444,58 +450,85 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
 
 <!-- ANALISIS -->
 <div class="page" id="page-analisis">
-  <div class="section-label">Panorama general -- mayo, junio y julio cerrados, agosto en curso</div>
+  <div class="section-label">Panorama general -- cierre de mayo, junio, julio y agosto</div>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;">
-    <div class="highlight-box"><div class="highlight-number">34.7%</div><div class="highlight-label"><strong>Open rate promedio del periodo cerrado</strong> -- mayo, junio y julio combinados, muy por encima del promedio de la industria (21-25%)</div></div>
-    <div class="highlight-box"><div class="highlight-number">$12.657</div><div class="highlight-label"><strong>Revenue en correos (mayo + junio + julio)</strong> -- $16.427 sumando cupones. Agosto ya suma $4.943 adicionales</div></div>
-    <div class="highlight-box"><div class="highlight-number">32</div><div class="highlight-label"><strong>Campanas cerradas</strong> -- 7 mayo, 11 junio, 14 julio. Agosto lleva 9 campanas en curso. 171 ordenes totales en el periodo</div></div>
+    <div class="highlight-box"><div class="highlight-number">32.7%</div><div class="highlight-label"><strong>Open rate promedio del período completo</strong> -- los 4 meses combinados, muy por encima del promedio de la industria (21-25%)</div></div>
+    <div class="highlight-box"><div class="highlight-number">$20.929</div><div class="highlight-label"><strong>Revenue total en correos</strong> -- $25.331 sumando cupones. Agosto cierra como el mejor mes del período</div></div>
+    <div class="highlight-box"><div class="highlight-number">47</div><div class="highlight-label"><strong>Campañas enviadas en el período</strong> -- 7 mayo, 11 junio, 14 julio, 15 agosto. 197 órdenes totales</div></div>
   </div>
 
   <div class="section-label">Interpretaciones</div>
   <div class="insight-grid">
     <div class="insight-card positivo">
       <span class="insight-tag tag-positivo">Hallazgo</span>
-      <div class="insight-title">El "Efecto Halo" de tus campanas</div>
-      <div class="insight-body">La campana <strong>Invitacion webinar septiembre</strong> genero ventas de traducciones a pesar de no ser una campana comercial -- su objetivo era inscribir gente al webinar, no vender. Esto es una excelente noticia para el negocio. Significa que tus correos de invitacion a webinars no solo sirven para el webinar: <strong>activan el recuerdo de marca</strong>. El cliente ve tu correo, se acuerda de que tenia unos documentos pendientes por traducir, y entra a tu web a realizar el proceso. El mismo patron ya se habia visto con la newsletter solidaria de Venezuela en julio: contenido sin intencion comercial directa que igual convierte, porque mantiene a Entrelingo presente en la mente de la audiencia en el momento en que necesitan el servicio.</div>
+      <div class="insight-title">MAGPIE2 2 es la campaña más rentable de todo el período</div>
+      <div class="insight-body">MAGPIE2 2 cerró con <strong>21 órdenes y $3.09k</strong> desde su envío del 10 de agosto, superando a cualquier otra campaña individual del período, incluida News Flash Sale Julio 1 ($1.78k). Sumando toda la serie MAGPIE2 (1, 2 y 3), el total supera los <strong>$3.5k y 29 órdenes</strong> solo en agosto. Esto confirma el patrón ya visto con CHILLY2 en julio: <strong>las series segmentadas con el mismo gancho generan ventas que se siguen acumulando semanas después del envío original</strong>, no solo en las primeras 48 horas. Vale la pena mantener esta serie activa y replicar su formato en septiembre.</div>
     </div>
     <div class="insight-card positivo">
       <span class="insight-tag tag-positivo">Hallazgo</span>
-      <div class="insight-title">MAGPIE2 se consolida como la serie mas rentable del periodo</div>
-      <div class="insight-body">La campana <strong>MAGPIE2 2</strong> paso de 6 a 12 ordenes y de $589.78 a <strong>$1.640</strong>, casi triplicando su revenue en pocos dias. Sumando MAGPIE2 1, 2 y 3, la serie acumula mas de 20 ordenes solo en agosto. Esto confirma un patron que ya se vio con CHILLY2 en julio: las series de campanas con el mismo gancho (segmentadas por estado o tema recurrente) generan ventas que siguen acumulandose muchos dias despues del envio original, no solo en las primeras 48 horas.</div>
+      <div class="insight-title">El Efecto Halo se confirma en tres frentes distintos</div>
+      <div class="insight-body">Tres campañas sin intención comercial directa generaron ventas de traducciones este período: la newsletter solidaria de Venezuela (julio), la invitación al webinar de septiembre ($1.02k) y la encuesta de <strong>AustraliaPRO</strong> -- otra línea de negocio del grupo, no de Entrelingo -- que igual convirtió $50.58. Esto confirma que el Efecto Halo no depende del tipo de contenido ni de la marca específica: <strong>cualquier correo que mantenga a Entrelingo Group presente</strong> en la bandeja de entrada puede activar una compra, porque el cliente recuerda que tiene documentos pendientes. Vale la pena explorar más cruces entre AustraliaPRO, SkillsPRO y Entrelingo en las campañas de septiembre.</div>
     </div>
     <div class="insight-card contexto">
       <span class="insight-tag tag-contexto">Contexto</span>
-      <div class="insight-title">El open rate baja en agosto, pero el revenue no</div>
-      <div class="insight-body">El open rate promedio de agosto (29.98%) es el mas bajo del periodo, por debajo de julio (33.33%) y mayo (38.96%). Sin embargo el revenue de agosto ya casi iguala al de junio completo en menos de 3 semanas. Esto sugiere que la caida de apertura no viene de contenido menos atractivo, sino de la ampliacion de la base de contactos (por ejemplo, la campana de webinar se envio a 8.632 contactos, muy por encima del promedio de ~6.700 de otras campanas) que naturalmente diluye el porcentaje aunque el volumen absoluto de aperturas y ventas siga subiendo.</div>
-    </div>
-    <div class="insight-card sugerencia">
-      <span class="insight-tag tag-sugerencia">Sugerencia</span>
-      <div class="insight-title">Replicar el formato MAGPIE2 fuera de la segmentacion por estado</div>
-      <div class="insight-body">MAGPIE2 nacio como una campana segmentada por estado australiano, pero su exito (mas de $2.500 acumulados en 3 envios) sugiere que el gancho del contenido -- no solo la segmentacion -- es lo que esta funcionando. Vale la pena probar el mismo tono y estructura en un envio a la base completa, sin segmentar, para separar cuanto del resultado viene del contenido y cuanto de la segmentacion geografica.</div>
+      <div class="insight-title">El open rate baja a 25.9% en agosto, pero el volumen y el revenue no</div>
+      <div class="insight-body">El open rate promedio de agosto (25.93%) es el más bajo del período, por debajo incluso de junio (32.37%). La causa más probable es la ampliación sostenida de la base de contactos: varias campañas de agosto (Webinar, Cosas que hizo Australia, Visas, Inglés, Aliens, Magpies) se enviaron a bases de <strong>8.500-8.600 contactos</strong>, muy por encima del promedio histórico de ~6.700. <br><br>Un ejemplo concreto: mayo generó <strong>$50.9 por cada 1.000 correos enviados</strong> ($2.422 / 47.577 envíos), con un open rate alto de 38.96%. Agosto, con un open rate más bajo (25.93%), generó <strong>$83.1 por cada 1.000 correos enviados</strong> ($8.272 / 99.545 envíos). El open rate por sí solo no captura esto: aunque un porcentaje menor de la base abrió el correo, la base total fue tan grande que el volumen de compradores y el ingreso por cada mil destinatarios terminó siendo mayor. Por eso el revenue por 1K enviados es un indicador más confiable que el open rate cuando la base crece de un mes a otro.</div>
     </div>
     <div class="insight-card positivo">
       <span class="insight-tag tag-positivo">Hallazgo</span>
-      <div class="insight-title">El Efecto Halo cruza entre marcas del grupo</div>
-      <div class="insight-body">La campana <strong>AustraliaPRO agosto encuesta</strong> pertenece a otra linea de negocio dentro de Entrelingo Group (migracion, no traducciones), enviada a una base mas chica de 1.044 contactos. Aun asi genero una venta de traducciones ($50.58). Esto confirma que el Efecto Halo no se limita a las campanas de Entrelingo: <strong>cualquier correo que mantenga la marca Entrelingo Group presente</strong> -- sea de traducciones, migracion, o webinars -- puede activar una compra, porque el cliente recuerda que tiene documentos pendientes al ver cualquier comunicacion del grupo. Vale la pena explorar mas cruces entre AustraliaPRO, SkillsPRO y Entrelingo en las campanas de septiembre.</div>
+      <div class="insight-title">Visas Oportunidad confirma otra vez la ventana de conversión larga</div>
+      <div class="insight-body">La campaña <strong>Visas Australia Oportunidad</strong>, enviada el 25 de agosto, <strong>no registró ventas en sus primeros días pero generó su primera orden de $399.90 pasada casi una semana del envío.</strong> Es el mismo patrón documentado desde junio con El Mundial y tu visa, y reforzado en julio con Quedarse en Australia: las campañas de contenido informativo o de política migratoria tienden a convertir más tarde que las promocionales, probablemente porque el lector necesita tiempo para procesar la información antes de decidir comprar la traducción.</div>
     </div>
+    <div class="insight-card positivo">
+      <span class="insight-tag tag-positivo">Hallazgo</span>
+      <div class="insight-title">Magpies agosto tuvo el click rate más alto del período, y está dentro del rango recomendado</div>
+      <div class="insight-body">La campaña <strong>Magpies agosto</strong> ("Cuidado!! Septiembre es el mes más fuerte de la Swooping Season!"), en envío parcial, registró un <strong>click rate de 0.92%</strong> -- el más alto de todo el período, y ya <strong>dentro del rango recomendado por la industria (0.5-1.5%)</strong>, no solo cerca de él. Es la única campaña del período que logra esto de forma individual: el promedio general de agosto sigue por debajo del benchmark (0.13%), así que Magpies es una excepción puntual, no una señal de que todo el mes esté alineado con el estándar de la industria. Vale la pena revisar sus resultados finales cuando termine el envío completo y considerar replicar el tono de urgencia estacional ("cuidado", temporada específica) en futuras campañas.</div>
+    </div>
+    <div class="insight-card sugerencia">
+      <span class="insight-tag tag-sugerencia">Sugerencia</span>
+      <div class="insight-title">El contenido de curiosidad sostiene volumen aunque el open baje</div>
+      <div class="insight-body">Campañas de tono ligero o curioso como <strong>Aliens agosto</strong> (15.69% open, $47.99) e <strong>Inglés agosto</strong> (14.32% open, $289.74) tienen aperturas más bajas que el promedio histórico, pero igual generan ventas constantes. Esto sugiere que <strong>el contenido de entretenimiento cumple una función distinta a las campañas de urgencia o promoción: mantiene el hábito de apertura de la lista y deja la puerta abierta a conversiones tardías, aunque su métrica de apertura inmediata sea más discreta.</strong> No descartar este tipo de contenido por su open rate más bajo -- evaluarlo por revenue acumulado a 7-14 días, como el resto de las campañas.</div>
+    </div>
+  </div>
+
+  <div class="section-label">Propuestas para mejorar asuntos</div>
+  <div class="insight-card sugerencia" style="margin-bottom:20px">
+    <span class="insight-tag tag-sugerencia">Patrón observado</span>
+    <div class="insight-title">Qué diferencia a los asuntos con mejor apertura de los más discretos</div>
+    <div class="insight-body">Comparando los asuntos con mejor desempeño del período (Salario mínimo 43%+, "Migrante en Australia: TIENES que leer esto!" 40%+, "3 Pasos para comprar carro en Australia!" 41% con el mejor click del período) contra los más discretos (Aliens 15.69%, Inglés 14.32%, Visas 17.34% inicial), el patrón que se repite en los de mejor desempeño es: <strong>impacto personal directo</strong> (dinero, multas, documentos), <strong>urgencia o mandato</strong> ("TIENES que", "Cuidado!!"), y <strong>formato de lista o pasos numerados</strong> ("3 Pasos", "5 Cosas", "6 Datos"). Los asuntos más discretos suelen plantear la curiosidad de forma abierta, sin ese gancho de consecuencia personal inmediata.</div>
+  </div>
+  <div class="insight-card contexto" style="margin-bottom:20px">
+    <span class="insight-tag tag-contexto">Ejemplos de enunciados</span>
+    <div class="insight-title">Ideas de asuntos aplicando el patrón de impacto personal y urgencia</div>
+    <div class="insight-body">Aplicando el mismo gancho que ya funcionó en campañas como Flash Sale Mayo (47% de apertura) o CHILLY2 2 (40%+), algunas ideas de enunciados para asuntos futuros de contenido curioso o informativo:
+      <ul>
+        <li>"No te vas a creer lo que encontraron en Australia"</li>
+        <li>"Si tu visa está en este grupo, esto te interesa!!"</li>
+        <li>"Te están robando, te diste cuenta?"</li>
+        <li>"El error que casi todos cometen con el inglés en Australia"</li>
+      </ul>
+      La idea es mantener el valor educativo o curioso del contenido, pero sumar en el asunto la sensación de que aplica directamente al lector, no solo información general.</div>
   </div>
 
   <div class="section-label">Benchmark de referencia</div>
   <div class="ccard">
     <div class="ctitle">Entrelingo vs promedio de la industria</div>
     <table style="margin-top:8px">
-      <thead><tr><th>Metrica</th><th>Promedio industria</th><th>Mayo</th><th>Junio</th><th>Julio (cerrado)</th><th>Agosto (en curso)</th><th>Evaluacion</th></tr></thead>
+      <thead><tr><th>Métrica</th><th>Promedio industria</th><th>Mayo</th><th>Junio</th><th>Julio</th><th>Agosto</th><th>Evaluación</th></tr></thead>
       <tbody>
-        <tr><td>Open Rate</td><td>21-25%</td><td class="open-good">38.96%</td><td class="open-good">32.37%</td><td class="open-good">33.33%</td><td class="open-mid">29.98%</td><td>Sobre benchmark en los 4 meses</td></tr>
-        <tr><td>Click Rate</td><td>0.5-1.5%</td><td class="open-low">0.15%</td><td class="open-low">0.11%</td><td class="open-low">0.12%</td><td class="open-low">0.12%</td><td>Por debajo -- trabajar CTAs</td></tr>
-        <tr><td>Ordenes</td><td>--</td><td>27</td><td class="open-good">36</td><td class="open-good">74</td><td class="open-good">34</td><td>Julio duplico a junio; agosto va fuerte en 3 semanas</td></tr>
-        <tr><td>Revenue (correos)</td><td>--</td><td class="revenue-cell">$2.422</td><td class="revenue-cell">$2.981</td><td class="revenue-cell">$7.254</td><td class="revenue-cell">$4.943</td><td>Julio fue el mejor mes cerrado del periodo</td></tr>
-        <tr><td>Revenue + cupones</td><td>--</td><td class="revenue-cell">$5.134</td><td class="revenue-cell">$3.085</td><td class="revenue-cell">$8.208</td><td class="revenue-cell">$5.204</td><td>--</td></tr>
-        <tr><td>Campanas/mes</td><td>4-8 recomendado</td><td class="open-good">7</td><td class="open-mid">11</td><td class="open-mid">14</td><td class="open-good">9 (en curso)</td><td>Julio por encima del rango recomendado</td></tr>
+        <tr><td>Open Rate</td><td>21-25%</td><td class="open-good">38.96%</td><td class="open-good">32.37%</td><td class="open-good">33.36%</td><td class="open-mid">25.93%</td><td>Agosto roza el piso del benchmark por bases mas grandes</td></tr>
+        <tr><td>Click Rate</td><td>0.5-1.5%</td><td class="open-low">0.15%</td><td class="open-low">0.11%</td><td class="open-low">0.12%</td><td class="open-low">0.13%</td><td>Por debajo en promedio -- Magpies fue la excepcion dentro de rango</td></tr>
+        <tr><td>Órdenes</td><td>--</td><td>27</td><td class="open-good">36</td><td class="open-good">74</td><td class="open-good">60</td><td>Agosto cierra como el segundo mejor mes en ordenes</td></tr>
+        <tr><td>Revenue (correos)</td><td>--</td><td class="revenue-cell">$2.422</td><td class="revenue-cell">$2.981</td><td class="revenue-cell">$7.254</td><td class="revenue-cell">$8.272</td><td>Agosto cierra como el mejor mes del periodo</td></tr>
+        <tr><td>Revenue + cupones</td><td>--</td><td class="revenue-cell">$5.134</td><td class="revenue-cell">$3.084</td><td class="revenue-cell">$8.208</td><td class="revenue-cell">$8.587</td><td>--</td></tr>
+        <tr><td>Campañas/mes</td><td>4-8 recomendado</td><td class="open-good">7</td><td class="open-mid">11</td><td class="open-mid">14</td><td class="open-mid">15</td><td>Julio y agosto por encima del rango recomendado</td></tr>
       </tbody>
     </table>
+    <div style="padding:12px 16px;font-size:11px;color:#78350f;background:#fffbeb;border-top:1px solid #f0f0f8;margin-top:8px;border-radius:0 0 8px 8px">
+      Los datos propios de Entrelingo se extraen de FunnelKit Automations (WordPress). Los promedios de industria son referencias externas de benchmarks publicos del sector de email marketing, usadas solo para comparacion -- no reflejan una herramienta que use Entrelingo.
+    </div>
   </div>
-  <p class="footer-note">Analisis generado con datos de FunnelKit - Entrelingo Group - Benchmarks: Mailchimp 2024, Campaign Monitor 2024</p>
+  <p class="footer-note">Analisis generado con datos de FunnelKit (WordPress) - Entrelingo Group</p>
 </div>
 
 <!-- SUSCRIPTORES -->
@@ -504,8 +537,8 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
 
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px">
     <div class="kcard" style="border-top-color:#7c3aed"><div class="klabel">Pico m&aacute;ximo</div><div class="kval" style="color:#7c3aed">4.198</div><div style="font-size:11px;color:#9090aa;margin-top:4px">Abril 2026</div></div>
-    <div class="kcard" style="border-top-color:#dc2626"><div class="klabel">Ca&iacute;da acumulada</div><div class="kval" style="color:#dc2626">-97.8%</div><div style="font-size:11px;color:#9090aa;margin-top:4px">De 4.198 (abr) a 99 (jul)</div></div>
-    <div class="kcard" style="border-top-color:#f97316"><div class="klabel">Julio (hasta 27)</div><div class="kval" style="color:#f97316">94</div><div style="font-size:11px;color:#9090aa;margin-top:4px">Mes en curso</div></div>
+    <div class="kcard" style="border-top-color:#dc2626"><div class="klabel">Ca&iacute;da acumulada</div><div class="kval" style="color:#dc2626">-98.1%</div><div style="font-size:11px;color:#9090aa;margin-top:4px">De 4.198 (abr) a 79 (ago)</div></div>
+    <div class="kcard" style="border-top-color:#f97316"><div class="klabel">Agosto 2026</div><div class="kval" style="color:#f97316">79</div><div style="font-size:11px;color:#9090aa;margin-top:4px">Nuevos suscriptores del mes</div></div>
   </div>
 
   <div class="ccard" style="margin-bottom:20px">
@@ -524,7 +557,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
         <tr><td>Mayo 2026</td><td class="open-mid">1.964</td><td class="open-low">-53.2%</td></tr>
         <tr><td>Junio 2026</td><td class="open-low">192</td><td class="open-low">-90.2%</td></tr>
         <tr><td>Julio 2026</td><td class="open-low">99</td><td class="open-low">-48.4%</td></tr>
-        <tr><td>Agosto 2026 (en curso)</td><td class="open-low">0</td><td>--</td></tr>
+        <tr><td>Agosto 2026</td><td class="open-low">79</td><td class="open-low">-20.2%</td></tr>
       </tbody>
     </table>
   </div>
@@ -564,7 +597,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
 
 <script>
 const CUPON_NOMBRES={flashsale:'FLASHSALE',mama26:'MAMA26',work26:'WORK26',cincuentanews:'50NEWS',chilly2:'CHILLY2',magpie2:'MAGPIE2'};
-const CARRITOS={mayo:{revenue:1274,ordenes:9,enviados:257,tasa:3.5,ticket:141.55},junio:{revenue:4930,ordenes:31,enviados:138,tasa:22.46,ticket:158.88},julio:{revenue:1904.07,ordenes:11,estimado:true,eur:693.75,aud:575.04,usd:119.96,wix:1721.53,total_con_wix:3625.60},agosto:{revenue:1793.32,ordenes:18,estimado:true,eur:112.47,aud:1608.00,wix:1472.00,total_con_wix:3265.32}};
+const CARRITOS={mayo:{revenue:1274,ordenes:9,enviados:257,tasa:3.5,ticket:141.55},junio:{revenue:4930,ordenes:31,enviados:138,tasa:22.46,ticket:158.88},julio:{revenue:1904.07,ordenes:11,estimado:true,eur:693.75,aud:575.04,usd:119.96,wix:1721.53,total_con_wix:3625.60},agosto:{revenue:1967.13,ordenes:21,estimado:true,eur:112.47,aud:1781.81,wix:1537.99,total_con_wix:3505.12}};
 const CUPONES={mayo:{flashsale:139.56,mama26:2573.00,total:2712.56},junio:{flashsale:26.99,work26:56.68,cincuentanews:20.00,total:103.67},julio:{flashsale:20.69,chilly2:932.96,total:953.65},agosto:{magpie2:260.88,flashsale:53.98,total:314.86}};
 
 const DATA={
@@ -580,45 +613,48 @@ const DATA={
   junio:[
     {id:'cosas_buenas',nombre:'Cosas buenas en Australia',asunto:'Cosas buenas que estan pasando en Australia y no te enteraste',fecha:'2026-06-02',enviados:7538,open_rate:38.19,click_rate:0.15,ordenes:9,revenue:801.42,estado:'complete',nota:''},
     {id:'flash_mundial',nombre:'Flash Sale Mundial',asunto:'Ya tienes todo listo para ver el mundial desde Australia?',fecha:'2026-06-05',enviados:7505,open_rate:34.43,click_rate:0.13,ordenes:3,revenue:262.92,estado:'complete',nota:''},
-    {id:'mundial_visa',nombre:'El Mundial y tu visa',asunto:'El Mundial empieza. Tu aventura tambien. Usa WORK26 y ahorra 10%',fecha:'2026-06-09',enviados:7467,open_rate:32.61,click_rate:0.10,ordenes:2,revenue:41.38,estado:'complete',nota:'Segunda venta registrada el 23 jun -- 14 dias despues del envio'},
-    {id:'quedarse_legal_1',nombre:'Quedarse legal v1',asunto:'Asi puedes quedarte legal en Australia',fecha:'2026-06-12',enviados:7438,open_rate:32.06,click_rate:0.18,ordenes:4,revenue:227.65,estado:'complete',nota:''},
+    {id:'mundial_visa',nombre:'El Mundial y tu visa',asunto:'El Mundial empieza. Tu aventura tambien. Usa WORK26 y ahorra 10%',fecha:'2026-06-09',enviados:7467,open_rate:32.61,click_rate:0.10,ordenes:2,revenue:41.38,estado:'complete',nota:'Segunda venta registrada el 23 jun -- 14 días despues del envio'},
+    {id:'quedarse_legal_1',nombre:'Quedarse legal v1',asunto:'Así puedes quedarte legal en Australia',fecha:'2026-06-12',enviados:7438,open_rate:32.06,click_rate:0.18,ordenes:4,revenue:227.65,estado:'complete',nota:''},
     {id:'pride_junio',nombre:'Eventos PRIDE junio',asunto:'Eventos PRIDE de junio en Australia que NO te puedes perder!',fecha:'2026-06-16',enviados:7400,open_rate:31.77,click_rate:0.07,ordenes:2,revenue:151.77,estado:'complete',nota:''},
-    {id:'quedarse_legal_2',nombre:'Quedarse en Australia no es solo un sueno',asunto:'Quedarse en Australia no es solo un sueno. Es una decision que se construye con cada paso que das.',fecha:'2026-06-19',enviados:7367,open_rate:27.61,click_rate:0.12,ordenes:2,revenue:220.82,estado:'complete',nota:''},
+    {id:'quedarse_legal_2',nombre:'Quedarse en Australia no es solo un sueno',asunto:'Quedarse en Australia no es solo un sueno. Es una decisión que se construye con cada paso que das.',fecha:'2026-06-19',enviados:7367,open_rate:27.61,click_rate:0.12,ordenes:2,revenue:220.82,estado:'complete',nota:''},
     {id:'dia_padre',nombre:'Dia del Padre',asunto:'Y tu? Ya celebras el Dia del Padre 2 veces?',fecha:'2026-06-21',enviados:6706,open_rate:28.30,click_rate:0.06,ordenes:1,revenue:89.97,estado:'complete',nota:''},
     {id:'incremento_precios',nombre:'Incremento de precios v1',asunto:'Estas solo(a) en Australia? Esto te puede salvar',fecha:'2026-06-23',enviados:6373,open_rate:27.88,click_rate:0.05,ordenes:3,revenue:301.32,estado:'complete',nota:''},
-    {id:'incremento_precios_2',nombre:'Incremento de precios v2',asunto:'5 Razones por las que venir a Australia fue la MEJOR opcion!',fecha:'2026-06-25',enviados:6161,open_rate:28.75,click_rate:0.11,ordenes:5,revenue:461.19,estado:'complete',nota:''},
+    {id:'incremento_precios_2',nombre:'Incremento de precios v2',asunto:'5 Razones por las que venir a Australia fue la MEJOR opción!',fecha:'2026-06-25',enviados:6161,open_rate:28.75,click_rate:0.11,ordenes:5,revenue:461.19,estado:'complete',nota:''},
     {id:'2x1_licencias',nombre:'2x1 Licencias de Conducir',asunto:'Hoy es 2x1 en licencias de conducir!',fecha:'2026-06-26',enviados:4223,open_rate:40.78,click_rate:0.12,ordenes:4,revenue:346.44,estado:'complete',nota:''},
     {id:'incremento_precios_3',nombre:'Incremento de precios v3',asunto:'10 reglas de Australia que no debes romper',fecha:'2026-06-23',enviados:6147,open_rate:33.64,click_rate:0.08,ordenes:1,revenue:75.87,estado:'complete',nota:''}
   ],
   julio:[
     {id:'news_flash_julio_1',nombre:'News Flash Sale Julio 1',asunto:'5 Cosas que si o si te van a pedir en Australia',fecha:'2026-07-03',enviados:7410,open_rate:40.32,click_rate:0.13,ordenes:9,revenue:1780.00,estado:'complete',nota:'Revenue tomado del redondeo de FunnelKit ($1.78k)'},
     {id:'news_venezuela_julio',nombre:'News Venezuela Julio',asunto:'Latinos en Australia Venezuela nos necesita!',fecha:'2026-07-04',enviados:7283,open_rate:39.13,click_rate:0.15,ordenes:6,revenue:371.65,estado:'complete',nota:'Newsletter solidaria'},
-    {id:'salario_minimo_2026',nombre:'Salario minimo Australia 2026',asunto:'Asi queda el salario 2026 en Australia (+ Ciudades donde aprovecharlo)',fecha:'2026-07-07',enviados:7218,open_rate:43.42,click_rate:0.07,ordenes:13,revenue:875.35,estado:'complete',nota:'El mejor open rate del periodo (43.42%)'},
+    {id:'salario_minimo_2026',nombre:'Salario mínimo Australia 2026',asunto:'Así queda el salario 2026 en Australia (+ Ciudades donde aprovecharlo)',fecha:'2026-07-07',enviados:7218,open_rate:43.42,click_rate:0.07,ordenes:13,revenue:875.35,estado:'complete',nota:'El mejor open rate del período (43.42%)'},
     {id:'flash_sale_julio_2',nombre:'News Flash Sale Julio 2',asunto:'Australia secreta: 5 Zonas WOW que no conoces todavia',fecha:'2026-07-10',enviados:7124,open_rate:29.95,click_rate:0.04,ordenes:4,revenue:240.84,estado:'complete',nota:''},
-    {id:'promo_chilly2_1',nombre:'Promo CHILLY2 1',asunto:'Que hacer en invierno version low-cost!',fecha:'2026-07-13',enviados:7042,open_rate:30.80,click_rate:0.08,ordenes:2,revenue:154.27,estado:'complete',nota:''},
-    {id:'comprar_carro_base',nombre:'Comprar carro en Australia (base grande)',asunto:'3 Pasos para comprar carro en Australia!',fecha:'2026-07-15',enviados:6960,open_rate:41.68,click_rate:0.53,ordenes:5,revenue:447.66,estado:'complete',nota:'El click rate mas alto de todo el periodo (0.53%)'},
+    {id:'promo_chilly2_1',nombre:'Promo CHILLY2 1',asunto:'Que hacer en invierno versión low-cost!',fecha:'2026-07-13',enviados:7042,open_rate:30.80,click_rate:0.08,ordenes:2,revenue:154.27,estado:'complete',nota:''},
+    {id:'comprar_carro_base',nombre:'Comprar carro en Australia (base grande)',asunto:'3 Pasos para comprar carro en Australia!',fecha:'2026-07-15',enviados:6960,open_rate:41.68,click_rate:0.53,ordenes:5,revenue:447.66,estado:'complete',nota:'El click rate mas alto de todo el período (0.53%)'},
     {id:'comprar_carro_mafe',nombre:'Comprar carro en Australia (base Mafe)',asunto:'3 Pasos para comprar carro en Australia!',fecha:'2026-07-15',enviados:45,open_rate:10.20,click_rate:0.00,ordenes:0,revenue:0,estado:'complete',nota:'Base especifica de Mafe'},
     {id:'flash_sale_julio_3',nombre:'News Flash Sale Julio 3',asunto:'Lo que aprendimos a las malas',fecha:'2026-07-17',enviados:6849,open_rate:30.29,click_rate:0.10,ordenes:3,revenue:470.69,estado:'complete',nota:''},
-    {id:'promo_chilly2_2',nombre:'Promo CHILLY2 2',asunto:'Migrante en Australia: TIENES que leer esto!',fecha:'2026-07-20',enviados:6735,open_rate:40.14,click_rate:0.14,ordenes:18,revenue:1420.00,estado:'complete',nota:'La campana con mas ordenes de julio (18) -- revenue $1.42k. Sigue generando en agosto'},
+    {id:'promo_chilly2_2',nombre:'Promo CHILLY2 2',asunto:'Migrante en Australia: TIENES que leer esto!',fecha:'2026-07-20',enviados:6735,open_rate:40.14,click_rate:0.14,ordenes:18,revenue:1420.00,estado:'complete',nota:'La campaña con mas ordenes de julio (18) -- revenue $1.42k. Sigue generando en agosto'},
     {id:'webinar_julio_1',nombre:'Webinar invitacion julio 1',asunto:'NEW WEBINAR! Tu visa sobrevive el nuevo ano fiscal?',fecha:'2026-07-18',enviados:6778,open_rate:28.88,click_rate:0.14,ordenes:1,revenue:98.97,estado:'complete',nota:''},
     {id:'animales_raros',nombre:'Los animales mas raros de Australia',asunto:'Los animales mas raros de Australia (y alguno que ya conoces de TikTok)',fecha:'2026-07-23',enviados:6710,open_rate:37.05,click_rate:0.06,ordenes:5,revenue:292.08,estado:'complete',nota:''},
     {id:'flash_sale_julio_4',nombre:'News Flash Sale Julio 4',asunto:'Mitos sobre vivir en Australia que sigues creyendo',fecha:'2026-07-24',enviados:6659,open_rate:29.54,click_rate:0.06,ordenes:2,revenue:327.71,estado:'complete',nota:'+1 venta nueva'},
     {id:'promo_chilly2_3',nombre:'Promo CHILLY2 3',asunto:'Me multaron! Ahora que hago?',fecha:'2026-07-28',enviados:6605,open_rate:29.06,click_rate:0.10,ordenes:5,revenue:483.60,estado:'complete',nota:'Sigue generando en agosto'},
-    {id:'flash_sale_julio_5',nombre:'News Flash Sale Julio 5',asunto:'Por esto es que no le entiendes casi nada a los Australianos',fecha:'2026-07-31',enviados:6611,open_rate:36.21,click_rate:0.09,ordenes:1,revenue:291.45,estado:'complete',nota:'Genero su primera venta en agosto'}
+    {id:'flash_sale_julio_5',nombre:'News Flash Sale Julio 5',asunto:'Por esto es que no le entiendes casi nada a los Australianos',fecha:'2026-07-31',enviados:6611,open_rate:36.54,click_rate:0.09,ordenes:1,revenue:291.45,estado:'complete',nota:'Genero su primera venta en agosto'}
   ],
   agosto:[
-    {id:'flash_sale_julio_5_ago',nombre:'News Flash Sale Julio 5 (agosto)',asunto:'Por esto es que no le entiendes casi nada a los Australianos',fecha:'2026-07-31',enviados:6611,open_rate:36.21,click_rate:0.09,ordenes:1,revenue:291.45,estado:'complete',nota:'Enviada el 31 jul -- primera venta en agosto'},
-    {id:'magpie2_1',nombre:'MAGPIE2 1 agosto',asunto:'Sabes que pasa en tu estado (AU) en agosto?',fecha:'2026-08-03',enviados:6661,open_rate:38.54,click_rate:0.10,ordenes:4,revenue:315.64,estado:'complete',nota:''},
-    {id:'chilly2_2_cola',nombre:'Promo CHILLY2 2 (cola de julio)',asunto:'Migrante en Australia: TIENES que leer esto!',fecha:'2026-07-20',enviados:6735,open_rate:40.14,click_rate:0.14,ordenes:1,revenue:110.00,estado:'complete',nota:'Venta generada en agosto por correo de julio. Total acumulado de la campana: 18 ord / $1.42k'},
-    {id:'chilly2_3_cola',nombre:'Promo CHILLY2 3 (cola de julio)',asunto:'Me multaron! Ahora que hago?',fecha:'2026-07-28',enviados:6605,open_rate:29.06,click_rate:0.10,ordenes:1,revenue:129.78,estado:'complete',nota:'Venta generada en agosto por correo de julio. Total acumulado de la campana: 5 ord / $483.60'},
-    {id:'censo_agosto',nombre:'Censo Australia agosto',asunto:'Censo en Australia! Lo que debes saber antes de llenar!',fecha:'2026-08-06',enviados:6524,open_rate:29.30,click_rate:0.06,ordenes:5,revenue:705.85,estado:'complete',nota:''},
-    {id:'flash_sale_agosto_1',nombre:'News Flash Sale agosto 1',asunto:'6 Datos sobre Australia que te dejaran sin palabras!',fecha:'2026-08-07',enviados:6585,open_rate:35.68,click_rate:0.06,ordenes:9,revenue:960.71,estado:'complete',nota:''},
-    {id:'magpie2_2',nombre:'MAGPIE2 2 agosto',asunto:'De donde viene realmente Australia?',fecha:'2026-08-10',enviados:5727,open_rate:37.36,click_rate:0.25,ordenes:21,revenue:3090.00,estado:'complete',nota:'De 16 a 21 ordenes -- revenue $3.09k del redondeo FunnelKit -- lejos la campana mas rentable del periodo'},
-    {id:'magpie2_3',nombre:'MAGPIE2 3 agosto',asunto:'Incluso cuando la tierra tiembla fuerte... El tricolor resiste!',fecha:'2026-08-13',enviados:6420,open_rate:11.43,click_rate:0.12,ordenes:4,revenue:155.76,estado:'complete',nota:'Asunto: Incluso cuando la tierra tiembla fuerte, el tricolor resiste'},
-    {id:'webinar_septiembre',nombre:'Invitacion webinar septiembre',asunto:'Ingeniero en Australia y buscando validar? Esto es para ti',fecha:'2026-08-18',enviados:8632,open_rate:17.22,click_rate:0.21,ordenes:4,revenue:1020.00,estado:'complete',nota:'Base ampliada a 8.630 contactos'},
-    {id:'que_hizo_australia',nombre:'Que hizo Australia antes que todos',asunto:'Que hizo Australia antes que todos?',fecha:'2026-08-21',enviados:8586,open_rate:14.57,click_rate:0.07,ordenes:5,revenue:704.98,estado:'complete',nota:'Envio completo -- open mas bajo del periodo por tema mas informativo'},
-    {id:'australiapro_encuesta',nombre:'AustraliaPRO agosto encuesta',asunto:'(asunto por confirmar)',fecha:'2026-08-10',enviados:1044,open_rate:23.69,click_rate:0.28,ordenes:1,revenue:50.58,estado:'complete',nota:'Campana de AustraliaPRO (otra linea de negocio) que genero venta de traducciones -- Efecto Halo cross-brand'},
-    {id:'visas_oportunidad',nombre:'Visas Australia Oportunidad agosto',asunto:'VISAS: lo que cambio, lo que mejoro y lo que no te estan diciendo',fecha:'2026-08-25',enviados:8489,open_rate:13.25,click_rate:0.09,ordenes:0,revenue:0,estado:'complete',nota:'Sin ventas registradas aun -- metricas en consolidacion'}
+    {id:'flash_sale_julio_5_ago',nombre:'News Flash Sale Julio 5 (agosto)',asunto:'Por esto es que no le entiendes casi nada a los Australianos',fecha:'2026-07-31',enviados:6611,open_rate:36.54,click_rate:0.09,ordenes:1,revenue:291.45,estado:'complete',nota:'Enviada el 31 jul -- primera venta en agosto'},
+    {id:'magpie2_1',nombre:'MAGPIE2 1 agosto',asunto:'Sabes que pasa en tu estado (AU) en agosto?',fecha:'2026-08-03',enviados:6661,open_rate:38.64,click_rate:0.10,ordenes:4,revenue:315.64,estado:'complete',nota:''},
+    {id:'chilly2_2_cola',nombre:'Promo CHILLY2 2 (cola de julio)',asunto:'Migrante en Australia: TIENES que leer esto!',fecha:'2026-07-20',enviados:6735,open_rate:40.14,click_rate:0.14,ordenes:1,revenue:110.00,estado:'complete',nota:'Venta generada en agosto por correo de julio. Total acumulado de la campaña: 18 ord / $1.42k'},
+    {id:'chilly2_3_cola',nombre:'Promo CHILLY2 3 (cola de julio)',asunto:'Me multaron! Ahora que hago?',fecha:'2026-07-28',enviados:6605,open_rate:29.06,click_rate:0.10,ordenes:1,revenue:129.78,estado:'complete',nota:'Venta generada en agosto por correo de julio. Total acumulado de la campaña: 5 ord / $483.60'},
+    {id:'censo_agosto',nombre:'Censo Australia agosto',asunto:'Censo en Australia! Lo que debes saber antes de llenar!',fecha:'2026-08-06',enviados:6524,open_rate:29.60,click_rate:0.06,ordenes:5,revenue:705.85,estado:'complete',nota:''},
+    {id:'flash_sale_agosto_1',nombre:'News Flash Sale agosto 1',asunto:'6 Datos sobre Australia que te dejaran sin palabras!',fecha:'2026-08-07',enviados:6585,open_rate:35.91,click_rate:0.06,ordenes:9,revenue:960.71,estado:'complete',nota:''},
+    {id:'magpie2_2',nombre:'MAGPIE2 2 agosto',asunto:'De donde viene realmente Australia?',fecha:'2026-08-10',enviados:5727,open_rate:37.57,click_rate:0.27,ordenes:21,revenue:3090.00,estado:'complete',nota:'De 16 a 21 ordenes -- revenue $3.09k del redondeo FunnelKit -- lejos la campaña mas rentable del período'},
+    {id:'magpie2_3',nombre:'MAGPIE2 3 agosto',asunto:'Incluso cuando la tierra tiembla fuerte... El tricolor resiste!',fecha:'2026-08-13',enviados:6420,open_rate:11.53,click_rate:0.12,ordenes:4,revenue:155.76,estado:'complete',nota:'Asunto: Incluso cuando la tierra tiembla fuerte, el tricolor resiste'},
+    {id:'webinar_septiembre',nombre:'Invitacion webinar septiembre',asunto:'Ingeniero en Australia y buscando validar? Esto es para ti',fecha:'2026-08-18',enviados:8632,open_rate:17.60,click_rate:0.22,ordenes:4,revenue:1020.00,estado:'complete',nota:'Base ampliada a 8.630 contactos'},
+    {id:'que_hizo_australia',nombre:'Que hizo Australia antes que todos',asunto:'Que hizo Australia antes que todos?',fecha:'2026-08-21',enviados:8586,open_rate:15.26,click_rate:0.07,ordenes:5,revenue:704.98,estado:'complete',nota:'Envio completo -- open mas bajo del período por tema mas informativo'},
+    {id:'australiapro_encuesta',nombre:'AustraliaPRO agosto encuesta',asunto:'Como funciona la cosa del trabajo en Australia?',fecha:'2026-08-10',enviados:1044,open_rate:23.88,click_rate:0.28,ordenes:1,revenue:50.58,estado:'complete',nota:'Campaña de AustraliaPRO (otra linea de negocio) que genero venta de traducciones -- Efecto Halo cross-brand'},
+    {id:'visas_oportunidad',nombre:'Visas Australia Oportunidad agosto',asunto:'VISAS: lo que cambio, lo que mejoro y lo que no te estan diciendo',fecha:'2026-08-25',enviados:8489,open_rate:17.34,click_rate:0.10,ordenes:1,revenue:399.90,estado:'complete',nota:'Primera venta registrada'},
+    {id:'aliens_agosto',nombre:'Aliens agosto',asunto:'En Australia hay aliens?',fecha:'2026-08-28',enviados:8609,open_rate:15.69,click_rate:0.15,ordenes:1,revenue:47.99,estado:'complete',nota:''},
+    {id:'ingles_agosto',nombre:'Inglés agosto',asunto:'Esto es lo que te impide subir tu nivel de inglés',fecha:'2026-08-28',enviados:8600,open_rate:14.32,click_rate:0.09,ordenes:2,revenue:289.74,estado:'complete',nota:''},
+    {id:'magpies_agosto',nombre:'Magpies agosto',asunto:'Cuidado!! Septiembre es el mes mas fuerte de la Swooping Season!',fecha:'2026-08-28',enviados:3717,open_rate:8.95,click_rate:0.92,ordenes:0,revenue:0,estado:'live',nota:'En curso -- envio parcial (3.717 de 8.588), click rate muy alto (0.92%)'}
   ]
 };
 
@@ -648,8 +684,8 @@ function renderResumenTotal(month){
   if(month==='mayo'){el.innerHTML=buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo',CARRITOS.mayo);el.style.gridTemplateColumns='1fr';}
   else if(month==='junio'){el.innerHTML=buildCard('Junio 2026',DATA.junio,CUPONES.junio,'junio',CARRITOS.junio);el.style.gridTemplateColumns='1fr';}
   else if(month==='julio'){el.innerHTML=buildCard('Julio 2026',DATA.julio,CUPONES.julio,'julio',CARRITOS.julio);el.style.gridTemplateColumns='1fr';}
-  else if(month==='agosto'){el.innerHTML=buildCard('Agosto 2026 (en curso)',DATA.agosto,CUPONES.agosto,'julio',CARRITOS.agosto);el.style.gridTemplateColumns='1fr';}
-  else{el.innerHTML=buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo',CARRITOS.mayo)+buildCard('Junio 2026',DATA.junio,CUPONES.junio,'junio',CARRITOS.junio)+buildCard('Julio 2026 (en curso)',DATA.julio,CUPONES.julio,'julio',CARRITOS.julio);el.style.gridTemplateColumns='1fr 1fr 1fr';}
+  else if(month==='agosto'){el.innerHTML=buildCard('Agosto 2026',DATA.agosto,CUPONES.agosto,'julio',CARRITOS.agosto);el.style.gridTemplateColumns='1fr';}
+  else{el.innerHTML=buildCard('Mayo 2026',DATA.mayo,CUPONES.mayo,'mayo',CARRITOS.mayo)+buildCard('Junio 2026',DATA.junio,CUPONES.junio,'junio',CARRITOS.junio)+buildCard('Julio 2026',DATA.julio,CUPONES.julio,'julio',CARRITOS.julio);el.style.gridTemplateColumns='1fr 1fr 1fr';}
 }
 
 function renderKPIs(data){
@@ -708,9 +744,9 @@ function switchMonth(m){
   ['mayo','junio','julio','agosto','todo'].forEach(x=>document.getElementById('chip-'+x).classList.toggle('active',x===m));
   const data=getDataForMonth(m);
   const banner=document.getElementById('infoBanner');
-  if(m==='mayo'){banner.textContent='Mayo 2026 -- Primer mes de envios. Las campanas se enviaron segmentadas en varias tandas para evitar bloqueos por volumen.';banner.style.display='block';}
-  else if(m==='julio'){banner.textContent='Julio 2026 -- Mes en curso, datos al 20 de julio. 10 campanas enviadas, 47 ordenes, $4.887 en correos. Carritos WP: 9 pedidos (\u20AC654.36 EUR + $857.81 AUD). Carritos WIX: $1.324.52 hasta el 21 jul. Revenue de Flash Sale Julio 1 proviene del redondeo de FunnelKit ($1.78k).';banner.style.display='block';}
-  else if(m==='agosto'){banner.textContent='Agosto 2026 -- Mes en curso. 2 campanas nuevas + 2 colas de julio que generaron en agosto. Sin datos de carritos WIX completos todavia.';banner.style.display='block';}
+  if(m==='mayo'){banner.textContent='Mayo 2026 -- Primer mes de envios. Las campañas se enviaron segmentadas en varias tandas para evitar bloqueos por volumen.';banner.style.display='block';}
+  else if(m==='julio'){banner.style.display='none';}
+  else if(m==='agosto'){banner.style.display='none';}
   else{banner.style.display='none';}
   renderKPIs(data);renderResumenTotal(m);renderCharts(data);renderBars(data);renderTable(data);
 }
@@ -728,7 +764,7 @@ function switchTab(tab){
 function renderSuscriptores(){
   if(charts['cSuscriptores'])charts['cSuscriptores'].destroy();
   var labels=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago'];
-  var data=[845,3688,2684,4198,1964,192,99,0];
+  var data=[845,3688,2684,4198,1964,192,99,79];
   var colors=data.map(function(v){if(v>=2000)return'#34c493';if(v>=500)return'#3a7bd5';return'#f97316';});
   charts['cSuscriptores']=new Chart(document.getElementById('cSuscriptores'),{type:'bar',data:{labels:labels,datasets:[{label:'Nuevos suscriptores',data:data,backgroundColor:colors,borderRadius:5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:{anchor:'end',align:'end',color:'#12304a',font:{size:12,weight:'bold'},formatter:function(v){return v.toLocaleString('es');}}},scales:{x:{grid:{display:false}},y:{ticks:{callback:function(v){return v.toLocaleString('es');}},grid:{color:'#f0f0f8'}}}}});
 }
