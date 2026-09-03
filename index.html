@@ -670,6 +670,20 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);max-width
     <div class="insight-body">Estas son hip&oacute;tesis basadas en el patr&oacute;n de los datos. Para confirmar la causa real, lo m&aacute;s directo es revisar: (1) si hubo campa&ntilde;as de ads activas entre enero y abril dirigidas a la suscripci&oacute;n, y cu&aacute;ndo se pausaron; (2) si alg&uacute;n popup, formulario o lead magnet fue modificado o desactivado entre abril y mayo; (3) si hubo alg&uacute;n cambio t&eacute;cnico en la web o la integraci&oacute;n del formulario en ese per&iacute;odo. La respuesta a cualquiera de las tres confirma la hip&oacute;tesis y adem&aacute;s indica la soluci&oacute;n.</div>
   </div>
 
+  <div class="section-label">Recomendaciones</div>
+  <div class="insight-grid">
+    <div class="insight-card sugerencia">
+      <span class="insight-tag tag-sugerencia">Recomendaci&oacute;n</span>
+      <div class="insight-title">Ruta de suscripci&oacute;n a la newsletter</div>
+      <div class="insight-body">Se recomienda hacer seguimiento con Sergio sobre por d&oacute;nde est&aacute;n entrando las personas que se suscriben, e implementar las mejoras ya sugeridas al pop up y a los formularios de Wix, para que sean m&aacute;s atractivos e inciten el clic a la suscripci&oacute;n.</div>
+    </div>
+    <div class="insight-card sugerencia">
+      <span class="insight-tag tag-sugerencia">Recomendaci&oacute;n</span>
+      <div class="insight-title">Checkbox de suscripci&oacute;n premarcado en recursos gratuitos</div>
+      <div class="insight-body">En los formularios que se completan antes de descargar un recurso de esta marca, dejar la opci&oacute;n de suscripci&oacute;n a la newsletter premarcada por defecto, para que quien no la desmarque quede suscrito autom&aacute;ticamente. Esto puede aumentar la cantidad de suscriptores y, con eso, los agendamientos.</div>
+    </div>
+  </div>
+
   <p class="footer-note">Datos de suscriptores extra&iacute;dos de la p&aacute;gina web de Entrelingo - Julio cerrado. Agosto en curso</p>
 </div>
 
@@ -856,7 +870,7 @@ function renderSuscriptores(){
 function init(){
   const now=new Date();
   const months=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
-  document.getElementById('updatedTs').textContent=`${now.getDate()} ${months[now.getMonth()]} ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
+  document.getElementById('updatedTs').textContent=`${now.getDate()} ${months[now.getMonth()]}`;
   switchMonth('mayo');
 }
 
